@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/App.css";
-import Social from "./social/Social";
+import Social from "./Social/Social";
 
 const App: React.FC = () => {
   return (
