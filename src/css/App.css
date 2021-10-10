@@ -1,1 +1,20 @@
-/* No CSS *//*# sourceMappingURL=App.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  cursor: default;
+}
+
+button * {
+  cursor: pointer;
+}
+
+body {
+  color: #d5d5d5;
+  background: linear-gradient(213deg, #693c6e, #25055c 72%);
+  min-height: 100vh;
+  min-width: 100vw;
+  max-width: 1500px;
+  font-family: "Roboto", monospace;
+}
+/*# sourceMappingURL=App.css.map */
