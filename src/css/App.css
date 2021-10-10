@@ -5,8 +5,15 @@
   cursor: default;
 }
 
-button * {
+button *,
+button,
+a * {
   cursor: pointer;
+}
+
+input,
+input * {
+  cursor: text;
 }
 
 body {
