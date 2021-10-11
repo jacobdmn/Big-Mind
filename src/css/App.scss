@@ -1,3 +1,15 @@
+//// Box Shadow
+$box-shadow: 2px 0 2px 3px rgb(242, 243, 244) !important;
+//// Border Raduis
+$border-radius: 4px;
+//// COLORS
+$blue-focus: rgb(28, 58, 95); /// for names
+$blue-bright: rgb(30, 118, 232); /// for active links
+$blue-light: rgb(76, 96, 123); //// for links and semi titles
+$gray-light: rgb(244, 246, 250); //// for input search
+$white-slighter: rgb(253, 253, 253); //
+$shadow-light: rgb(242, 243, 244); /// header shadow
+
 * {
   margin: 0;
   padding: 0;
@@ -14,9 +26,17 @@ input * {
   cursor: text;
 }
 body {
-  color: #d5d5d5;
+  color: #444;
+  background: rgb(250, 252, 254); // for background
   min-height: 100vh;
   min-width: 100vw;
   max-width: 1500px;
-  font-family: "Roboto", monospace;
+  font-family: "Montserrat", monospace;
+}
+
+.box-shadow-with-radius {
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  background: white;
+  color: rgb(28, 58, 95);
 }

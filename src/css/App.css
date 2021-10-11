@@ -17,10 +17,19 @@ input * {
 }
 
 body {
-  color: #d5d5d5;
+  color: #444;
+  background: #fafcfe;
   min-height: 100vh;
   min-width: 100vw;
   max-width: 1500px;
-  font-family: "Roboto", monospace;
+  font-family: "Montserrat", monospace;
+}
+
+.box-shadow-with-radius {
+  -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
+          box-shadow: 2px 0 2px 3px #f2f3f4 !important;
+  border-radius: 4px;
+  background: white;
+  color: #1c3a5f;
 }
 /*# sourceMappingURL=App.css.map */

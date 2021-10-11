@@ -1,0 +1,22 @@
+@import "./../../../css/App";
+
+//// Header Design customisation
+.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+  background-color: rgb(253, 253, 253) !important;
+  color: rgb(28, 58, 95) !important;
+  box-shadow: $box-shadow;
+  padding-block: 1em !important;
+}
+
+.css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
+  background-color: rgb(244, 246, 250) !important;
+  box-shadow: 0 0 4px -3px black !important;
+  border-radius: 8px !important;
+  color: rgb(76, 96, 123) !important;
+  padding: 0.8em !important;
+  padding-left: 3em !important;
+  width: 30ch !important;
+}
+.css-1iz4iln {
+  z-index: 1 !important;
+}
