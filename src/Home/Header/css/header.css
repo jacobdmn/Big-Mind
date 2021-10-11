@@ -25,14 +25,6 @@ body {
   font-family: "Montserrat", monospace;
 }
 
-.box-shadow-with-radius {
-  -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
-          box-shadow: 2px 0 2px 3px #f2f3f4 !important;
-  border-radius: 4px;
-  background: white;
-  color: #1c3a5f;
-}
-
 .css-hip9hq-MuiPaper-root-MuiAppBar-root {
   background-color: #fdfdfd !important;
   color: #1c3a5f !important;

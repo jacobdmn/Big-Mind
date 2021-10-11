@@ -1,11 +1,15 @@
 @import "../../css/App";
 
 @mixin componentBasics {
-  box-shadow: $box-shadow;
+  box-shadow: $box-shadow-componentBasics;
   border-radius: $border-radius;
   background: white;
   color: rgb(28, 58, 95);
   padding: 0.5em;
+}
+
+header {
+  position: sticky;
 }
 
 .body {
@@ -13,14 +17,58 @@
   padding: 2em;
   gap: 3em;
 
-  div > * {
-    @include componentBasics;
-  }
-}
-header {
-  position: sticky;
-}
+  .NavBar {
+    flex: 0 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 
-.NavBar {
-  flex: 0 300px;
+    .ProfileAvatar,
+    .Menu {
+      @include componentBasics;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      padding: 1em;
+      line-height: 1.5;
+    }
+
+    .ProfileAvatar {
+      h4 {
+        font-weight: bold;
+      }
+      .Name {
+        flex-grow: 1;
+      }
+      .Setting {
+        @include gridCenterItems;
+      }
+    }
+
+    .Menu {
+      ul {
+        width: 100%;
+
+        li {
+          padding-block: 1.2em;
+
+          .css-tzssek-MuiSvgIcon-root {
+            color: $blue-focus;
+          }
+          p {
+            margin-left: 1em;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+  .Screams {
+    @include componentBasics;
+    flex-grow: 1;
+    & > * {
+      min-height: 500px;
+    }
+  }
 }
