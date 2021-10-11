@@ -1,0 +1,10 @@
+@import "../../../css/App";
+@import "../../css/Home";
+
+.Screams {
+  @include componentBasics;
+  flex-grow: 1;
+  & > * {
+    min-height: 500px;
+  }
+}

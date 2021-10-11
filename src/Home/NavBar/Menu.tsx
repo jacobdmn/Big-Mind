@@ -4,15 +4,13 @@ import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Typography from "@mui/material/Typography";
-import DraftsIcon from "@mui/icons-material/Drafts";
-import SendIcon from "@mui/icons-material/Send";
-import PriorityHighIcon from "@mui/icons-material/PriorityHigh";
-import HomeIcon from "@mui/icons-material/Home";
-import ForumIcon from "@mui/icons-material/Forum";
-import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
-import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import ForumOutlinedIcon from "@mui/icons-material/ForumOutlined";
+import GroupAddOutlinedIcon from "@mui/icons-material/GroupAddOutlined";
+import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined";
+import LiveTvOutlinedIcon from "@mui/icons-material/LiveTv";
+import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
+import Badge from "@mui/material/Badge";
 
 export default function TypographyMenu() {
   return (
@@ -20,37 +18,47 @@ export default function TypographyMenu() {
       <MenuList>
         <MenuItem>
           <ListItemIcon>
-            <HomeIcon fontSize='large' />
+            <HomeOutlinedIcon fontSize='large' />
           </ListItemIcon>
           <Typography variant='inherit'>Home</Typography>
         </MenuItem>
-        <MenuItem>
+        <MenuItem className='activeLink'>
           <ListItemIcon>
-            <ForumIcon fontSize='large' />
+            <Badge badgeContent={4} color='primary'>
+              <ForumOutlinedIcon fontSize='large' />
+            </Badge>
           </ListItemIcon>
           <Typography variant='inherit'>Messenger</Typography>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <GroupAddIcon fontSize='large' />
+            <Badge color='primary'>
+              <GroupAddOutlinedIcon fontSize='large' />
+            </Badge>
           </ListItemIcon>
           <Typography variant='inherit'>Find People</Typography>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <SportsEsportsIcon fontSize='large' />
+            <Badge badgeContent={10} color='success'>
+              <SportsEsportsOutlinedIcon fontSize='large' />
+            </Badge>
           </ListItemIcon>
           <Typography variant='inherit'>Games</Typography>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <LiveTvIcon fontSize='large' />
+            <Badge badgeContent={8} color='success'>
+              <LiveTvOutlinedIcon fontSize='large' />
+            </Badge>
           </ListItemIcon>
-          <Typography variant='inherit'>TV Show</Typography>
+          <Typography variant='inherit'>Movies</Typography>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <LocalGroceryStoreIcon fontSize='large' />
+            <Badge badgeContent={130} color='success'>
+              <LocalGroceryStoreOutlinedIcon fontSize='large' />
+            </Badge>
           </ListItemIcon>
           <Typography variant='inherit'>Marketplace</Typography>
         </MenuItem>

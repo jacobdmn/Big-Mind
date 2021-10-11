@@ -1,0 +1,66 @@
+@import "../../../css/App";
+@import "../../css/Home";
+
+.NavBar {
+  flex: 0 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  .ProfileAvatar,
+  .Menu {
+    @include componentBasics;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    line-height: 1.5;
+  }
+
+  .ProfileAvatar {
+    padding: 1em;
+    h4 {
+      font-weight: bold;
+    }
+    .Name {
+      flex-grow: 1;
+    }
+    .Setting {
+      @include gridCenterItems;
+    }
+  }
+
+  .Menu {
+    padding: 0;
+    ul {
+      width: 100%;
+      padding: 0;
+      border-radius: 15px;
+      overflow: hidden;
+
+      li {
+        padding-block: 1.2em;
+        padding-left: 2em;
+        .css-tzssek-MuiSvgIcon-root {
+          color: $blue-light-for-icons;
+        }
+
+        &.activeLink {
+          background: $gray-light;
+          border-left: 0.15em solid $blue-bright;
+          svg,
+          p {
+            color: $blue-bright;
+          }
+        }
+        & > * {
+          cursor: pointer;
+        }
+
+        p {
+          margin-left: 1em;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

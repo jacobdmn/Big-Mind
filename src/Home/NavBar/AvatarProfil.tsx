@@ -1,13 +1,18 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
+import SettingsIcon from "@mui/icons-material/Settings";
 
-export default function ImageAvatars() {
+export default function AvatarProfil() {
   return (
-    <Stack direction='row' spacing={2}>
-      <Avatar alt='Remy Sharp' src='/static/images/avatar/1.jpg' />
-      <Avatar alt='Travis Howard' src='/static/images/avatar/2.jpg' />
-      <Avatar alt='Cindy Baker' src='/static/images/avatar/3.jpg' />
-    </Stack>
+    <>
+      <Avatar alt='Remy Sharp' src='./imgs/ME_LINKEDIN.jpeg' />
+      <div className='Name'>
+        <h4>Jacob Dmn</h4>
+        <h5>@jacob.dmn</h5>
+      </div>
+      <div>
+        <SettingsIcon className='Setting' />
+      </div>
+    </>
   );
 }

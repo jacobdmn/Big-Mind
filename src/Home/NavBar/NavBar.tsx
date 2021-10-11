@@ -1,20 +1,13 @@
 import React from "react";
-import Avatar from "@mui/material/Avatar";
-import SettingsIcon from "@mui/icons-material/Settings";
+import AvatarProfil from "./AvatarProfil";
 import Menu from "./Menu";
+import "./css/NavBar.css";
 
 const NavBar: React.FC = () => {
   return (
     <div className='NavBar'>
       <div className='ProfileAvatar'>
-        <Avatar alt='Remy Sharp' src='./imgs/ME_LINKEDIN.jpeg' />
-        <div className='Name'>
-          <h4>Jacob Dmn</h4>
-          <h5>@jacob.dmn</h5>
-        </div>
-        <div>
-          <SettingsIcon className='Setting' />
-        </div>
+        <AvatarProfil />
       </div>
       <div>
         <Menu />

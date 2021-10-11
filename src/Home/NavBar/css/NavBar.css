@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  cursor: default;
+}
+
+button *,
+button,
+svg,
+path,
+a * {
+  cursor: pointer;
+}
+
+input,
+input * {
+  cursor: text;
+}
+
+body {
+  color: #444;
+  background: #fafcfe;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-width: 1500px;
+  font-family: "Montserrat", monospace !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  cursor: default;
+}
+
+button *,
+button,
+svg,
+path,
+a * {
+  cursor: pointer;
+}
+
+input,
+input * {
+  cursor: text;
+}
+
+body {
+  color: #444;
+  background: #fafcfe;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-width: 1500px;
+  font-family: "Montserrat", monospace !important;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em;
+  gap: 3em;
+}
+
+.body .Screams {
+  -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+          box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+  border-radius: 15px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.body .Screams > * {
+  min-height: 500px;
+}
+
+.NavBar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 270px;
+          flex: 0 270px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+}
+
+.NavBar .ProfileAvatar,
+.NavBar .Menu {
+  -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+          box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+  border-radius: 15px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+  line-height: 1.5;
+}
+
+.NavBar .ProfileAvatar {
+  padding: 1em;
+}
+
+.NavBar .ProfileAvatar h4 {
+  font-weight: bold;
+}
+
+.NavBar .ProfileAvatar .Name {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.NavBar .ProfileAvatar .Setting {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.NavBar .Menu {
+  padding: 0;
+}
+
+.NavBar .Menu ul {
+  width: 100%;
+  padding: 0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.NavBar .Menu ul li {
+  padding-block: 1.2em;
+  padding-left: 2em;
+}
+
+.NavBar .Menu ul li .css-tzssek-MuiSvgIcon-root {
+  color: rgba(76, 96, 123, 0.7);
+}
+
+.NavBar .Menu ul li.activeLink {
+  background: #f4f6fa;
+  border-left: 0.15em solid #1e76e8;
+}
+
+.NavBar .Menu ul li.activeLink svg,
+.NavBar .Menu ul li.activeLink p {
+  color: #1e76e8;
+}
+
+.NavBar .Menu ul li > * {
+  cursor: pointer;
+}
+
+.NavBar .Menu ul li p {
+  margin-left: 1em;
+  font-weight: 400;
+}
+/*# sourceMappingURL=NavBar.css.map */
