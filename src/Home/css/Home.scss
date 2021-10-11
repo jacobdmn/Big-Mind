@@ -1,0 +1,26 @@
+@import "../../css/App";
+
+@mixin componentBasics {
+  box-shadow: $box-shadow;
+  border-radius: $border-radius;
+  background: white;
+  color: rgb(28, 58, 95);
+  padding: 0.5em;
+}
+
+.body {
+  display: flex;
+  padding: 2em;
+  gap: 3em;
+
+  div > * {
+    @include componentBasics;
+  }
+}
+header {
+  position: sticky;
+}
+
+.NavBar {
+  flex: 0 300px;
+}

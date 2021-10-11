@@ -33,10 +33,3 @@ body {
   max-width: 1500px;
   font-family: "Montserrat", monospace;
 }
-
-.box-shadow-with-radius {
-  box-shadow: $box-shadow;
-  border-radius: $border-radius;
-  background: white;
-  color: rgb(28, 58, 95);
-}

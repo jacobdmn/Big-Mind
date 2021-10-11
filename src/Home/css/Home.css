@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  cursor: default;
+}
+
+button *,
+button,
+a * {
+  cursor: pointer;
+}
+
+input,
+input * {
+  cursor: text;
+}
+
+body {
+  color: #444;
+  background: #fafcfe;
+  min-height: 100vh;
+  min-width: 100vw;
+  max-width: 1500px;
+  font-family: "Montserrat", monospace;
+}
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em;
+  gap: 3em;
+}
+
+.body div > * {
+  -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
+          box-shadow: 2px 0 2px 3px #f2f3f4 !important;
+  border-radius: 4px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.NavBar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 300px;
+          flex: 0 300px;
+}
+/*# sourceMappingURL=Home.css.map */

@@ -149,58 +149,60 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static'>
-        <Toolbar>
-          <img src='./imgs/favicon.png' alt='' width='50' />
-          <Typography
-            variant='h6'
-            noWrap
-            component='div'
-            sx={{ display: { xs: "none", sm: "block" } }}>
-            Big Mind
-          </Typography>
-          <Box sx={{ flexGrow: 1 }} />
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder='Search…'
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size='large'
-              aria-label='show new invitations'
-              color='inherit'>
-              <Badge badgeContent={5} color='error'>
-                <PersonAddIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size='large'
-              aria-label='show 4 new mails'
-              color='inherit'>
-              <Badge badgeContent={4} color='error'>
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size='large'
-              aria-label='show 17 new notifications'
-              color='inherit'>
-              <Badge badgeContent={17} color='error'>
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <Logout />
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+    <header>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position='static'>
+          <Toolbar>
+            <img src='./imgs/favicon.png' alt='' width='50' />
+            <Typography
+              variant='h6'
+              noWrap
+              component='div'
+              sx={{ display: { xs: "none", sm: "block" } }}>
+              Big Mind
+            </Typography>
+            <Box sx={{ flexGrow: 1 }} />
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder='Search…'
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <IconButton
+                size='large'
+                aria-label='show new invitations'
+                color='inherit'>
+                <Badge badgeContent={5} color='error'>
+                  <PersonAddIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size='large'
+                aria-label='show 4 new mails'
+                color='inherit'>
+                <Badge badgeContent={4} color='error'>
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size='large'
+                aria-label='show 17 new notifications'
+                color='inherit'>
+                <Badge badgeContent={17} color='error'>
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <Logout />
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+    </header>
   );
 }

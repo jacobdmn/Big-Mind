@@ -5,7 +5,6 @@ import "./css/login.css";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import Footer from "./Footer";
 
 // import "./form-login";
 const Login = () => {
@@ -112,7 +111,9 @@ const Login = () => {
             <div
               className='login100-more'
               style={{ backgroundImage: `url('./imgs/bg-login.jpg')` }}>
-              <Footer />
+              <footer>
+                <h5>Powered By Jacob</h5>
+              </footer>
             </div>
           </div>
         </div>
