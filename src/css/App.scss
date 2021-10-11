@@ -9,29 +9,14 @@ button,
 a * {
   cursor: pointer;
 }
-
 input,
 input * {
   cursor: text;
 }
 body {
   color: #d5d5d5;
-  background: linear-gradient(213deg, #693c6e, #25055c 72%);
   min-height: 100vh;
   min-width: 100vw;
   max-width: 1500px;
   font-family: "Roboto", monospace;
 }
-
-// #video-bg {
-//   position: fixed;
-//   z-index: -1;
-//   top: 0;
-//   left: 0;
-//   object-fit: cover;
-//   filter: blur(6px) brightness(0.1);
-// }
-
-// .App {
-//   //   height: 100vh;
-// }
