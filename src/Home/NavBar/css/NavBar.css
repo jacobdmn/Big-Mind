@@ -165,4 +165,10 @@ body {
             justify-content: center;
   }
 }
+
+@media (max-width: 500px) {
+  .NavBar {
+    display: none !important;
+  }
+}
 /*# sourceMappingURL=NavBar.css.map */

@@ -3,11 +3,7 @@
   display: flex;
   gap: 1em;
   overflow-x: auto;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    width: 0; /* Remove scrollbar space */
-    background: transparent; /* Optional: just make scrollbar invisible */
-  }
+  @include scrollBarNone;
   &::before {
     content: "";
     position: absolute;

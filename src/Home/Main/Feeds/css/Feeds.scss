@@ -1,17 +1,18 @@
 @import "./../../css/Main";
 
 .NewScream,
-.Screams,
-.Invits,
+.InvitationDiv,
 .Contacts {
   @include componentBasics;
   flex-grow: 1;
 }
 
 main {
-  flex: 1 1 80%;
-  overflow: hidden;
-  position: relative;
+  flex: 1 1 70%;
+
+  & > div {
+    margin-bottom: 1em;
+  }
 }
 
 /// Avatar size

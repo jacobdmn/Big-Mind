@@ -1,0 +1,36 @@
+@import "./../../css/Feeds";
+
+.Invits {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1em;
+
+  .InvitationDiv {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .InvitationInfo {
+    display: flex;
+    gap: 0.5em;
+
+    .fullName {
+      font-family: unset;
+      font-weight: bold;
+    }
+  }
+  .InvitationOptions {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  /// Accept Button
+  .css-sghohy-MuiButtonBase-root-MuiButton-root {
+    width: 55%;
+  }
+}

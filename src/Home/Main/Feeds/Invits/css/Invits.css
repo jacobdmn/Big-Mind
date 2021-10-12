@@ -97,7 +97,7 @@ main > div {
   height: 50px !important;
 }
 
-main .Screams {
+.Invits {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,39 +106,46 @@ main .Screams {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1em;
-  background: none;
+  margin-top: 1em;
 }
 
-main .Screams .css-o69gx8-MuiCardMedia-root {
-  height: clamp(300px, calc(100px + 40vw), 450px);
+.Invits .InvitationDiv {
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-main .Screams .css-et1ao3-MuiTypography-root {
+.Invits .InvitationInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+}
+
+.Invits .InvitationInfo .fullName {
   font-family: unset;
   font-weight: bold;
-  font-size: 1em;
-  line-height: 1.5;
-  letter-spacing: 0.01071em;
-  color: rgba(0, 0, 0, 0.7);
 }
 
-main .Screams .css-r40f8v-MuiTypography-root {
-  margin-bottom: 1em;
-  font-family: unset;
-  font-weight: 500;
-  font-size: 1em;
-  line-height: 1.5;
-  letter-spacing: 0.01071em;
-  color: rgba(0, 0, 0, 0.7);
+.Invits .InvitationOptions {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-main .Screams .css-1emx3r-MuiTypography-root {
-  margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  letter-spacing: 0.01071em;
-  color: #1c3a5f;
-  font-weight: 500;
+.Invits .css-sghohy-MuiButtonBase-root-MuiButton-root {
+  width: 55%;
 }
-/*# sourceMappingURL=Screams.css.map */
+/*# sourceMappingURL=Invits.css.map */

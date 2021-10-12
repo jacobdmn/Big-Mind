@@ -9,9 +9,11 @@
 
 main,
 aside {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
+  display: block;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+  position: relative;
+  @include scrollBarNone;
 }
 
 aside {

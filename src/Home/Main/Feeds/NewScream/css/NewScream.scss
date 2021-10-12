@@ -6,7 +6,6 @@
     align-items: center;
     grid-template-columns: auto 1fr auto;
     padding-inline: 1em;
-    height: 0;
   }
 
   /// input container
@@ -24,5 +23,8 @@
     opacity: 0.7;
     letter-spacing: 1px;
     font-family: unset;
+  }
+  .css-sghohy-MuiButtonBase-root-MuiButton-root {
+    height: 3.2em;
   }
 }
