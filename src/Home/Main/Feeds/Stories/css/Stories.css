@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  cursor: default;
+}
+
+button *,
+button,
+svg,
+path,
+a * {
+  cursor: pointer;
+}
+
+input,
+input * {
+  cursor: text;
+}
+
+body {
+  color: #444;
+  background: #fafcfe !important;
+  height: 100vh;
+  overflow: hidden;
+  min-width: 100vw;
+  max-width: 1500px;
+  margin-inline: auto;
+  font-family: "Montserrat", monospace !important;
+}
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em;
+  gap: 4vw;
+  margin-top: 80px;
+}
+
+main,
+aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1em;
+}
+
+.NewScream,
+.Screams,
+.Invits,
+.Contacts {
+  -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+          box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+  border-radius: 15px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 80%;
+          flex: 1 1 80%;
+  overflow: hidden;
+}
+
+main .NewScream .css-1wlk0hk-MuiAvatar-root {
+  width: 50px;
+  height: 50px;
+}
+
+main .NewScream .css-13r4j3i {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+  padding-inline: 1em;
+}
+
+main .NewScream .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border: none;
+  outline: none;
+}
+
+main .NewScream .css-13r4j3i .MuiTextField-root {
+  width: auto;
+}
+
+main .NewScream .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  opacity: 0.7;
+  letter-spacing: 1px;
+  font-family: unset;
+}
+
+aside {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 28%;
+          flex: 1 28%;
+  min-width: 300px;
+}
+
+.Screams {
+  min-height: 500px;
+}
+
+@media (max-width: 1200px) {
+  aside {
+    display: none;
+  }
+}
+
+.Stories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.Stories::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+.Stories .Story {
+  -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+          box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+  border-radius: 15px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+  overflow: hidden;
+  min-width: 120px;
+  width: calc(60px + 4vw);
+  height: calc(90px + 8vw);
+  background-position: center center;
+  background-size: cover;
+  color: white;
+  position: relative;
+}
+
+.Stories .Story::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 26, 0.5);
+}
+
+.Stories .Story .add,
+.Stories .Story .Avatar-Story {
+  height: 30px;
+  width: 30px;
+  background: white;
+  border-radius: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+.Stories .Story .add::before,
+.Stories .Story .Avatar-Story::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  border-radius: 7px;
+}
+
+.Stories .Story .add {
+  position: absolute;
+  bottom: 3em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.Stories .Story .add * {
+  color: #1c3a5f;
+}
+
+.Stories .Story .Avatar-Story {
+  margin: 1em auto auto 1em;
+  background-size: cover;
+  background-position: center;
+}
+
+.Stories .Story .Story-title {
+  font-weight: 500;
+  text-shadow: 0px 2px 1px black;
+  position: absolute;
+  z-index: 2;
+  bottom: 1em;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  white-space: nowrap;
+}
+/*# sourceMappingURL=Stories.css.map */

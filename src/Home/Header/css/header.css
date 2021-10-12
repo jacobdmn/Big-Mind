@@ -20,11 +20,20 @@ input * {
 
 body {
   color: #444;
-  background: #fafcfe;
-  min-height: 100vh;
+  background: #fafcfe !important;
+  height: 100vh;
+  overflow: hidden;
   min-width: 100vw;
   max-width: 1500px;
+  margin-inline: auto;
   font-family: "Montserrat", monospace !important;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .css-hip9hq-MuiPaper-root-MuiAppBar-root,
@@ -33,7 +42,7 @@ body {
   color: #1c3a5f !important;
   -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
           box-shadow: 2px 0 2px 3px #f2f3f4 !important;
-  padding-block: 1em !important;
+  padding-block: 0.7em !important;
 }
 
 .css-1kcggdq-MuiInputBase-root

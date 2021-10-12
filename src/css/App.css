@@ -20,10 +20,12 @@ input * {
 
 body {
   color: #444;
-  background: #fafcfe;
-  min-height: 100vh;
+  background: #fafcfe !important;
+  height: 100vh;
+  overflow: hidden;
   min-width: 100vw;
   max-width: 1500px;
+  margin-inline: auto;
   font-family: "Montserrat", monospace !important;
 }
 /*# sourceMappingURL=App.css.map */

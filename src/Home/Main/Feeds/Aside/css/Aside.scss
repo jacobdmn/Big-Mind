@@ -1,0 +1,11 @@
+@import "./../../css/Feeds";
+aside {
+  flex: 1 28%;
+  min-width: 300px;
+}
+
+@media (max-width: $tablet2) {
+  aside {
+    display: none;
+  }
+}

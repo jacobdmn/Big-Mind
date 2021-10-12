@@ -49,4 +49,39 @@ aside {
           flex-direction: column;
   gap: 1em;
 }
-/*# sourceMappingURL=Main.css.map */
+
+aside {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 28%;
+          flex: 1 28%;
+  min-width: 300px;
+}
+
+@media (max-width: 1200px) {
+  aside {
+    display: none;
+  }
+}
+
+.NewScream,
+.Screams,
+.Invits,
+.Contacts {
+  -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+          box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+  border-radius: 15px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 80%;
+          flex: 1 1 80%;
+  overflow: hidden;
+}
+/*# sourceMappingURL=Feeds.css.map */

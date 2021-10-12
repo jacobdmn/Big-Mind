@@ -11,6 +11,7 @@ import SportsEsportsOutlinedIcon from "@mui/icons-material/SportsEsportsOutlined
 import LiveTvOutlinedIcon from "@mui/icons-material/LiveTv";
 import LocalGroceryStoreOutlinedIcon from "@mui/icons-material/LocalGroceryStoreOutlined";
 import Badge from "@mui/material/Badge";
+import Divider from "@mui/material/Divider";
 
 export default function TypographyMenu() {
   return (
@@ -22,6 +23,7 @@ export default function TypographyMenu() {
           </ListItemIcon>
           <Typography variant='inherit'>Home</Typography>
         </MenuItem>
+        <Divider />
         <MenuItem className='activeLink'>
           <ListItemIcon>
             <Badge badgeContent={4} color='primary'>
@@ -30,6 +32,7 @@ export default function TypographyMenu() {
           </ListItemIcon>
           <Typography variant='inherit'>Messenger</Typography>
         </MenuItem>
+        <Divider />
         <MenuItem>
           <ListItemIcon>
             <Badge color='primary'>
@@ -38,6 +41,7 @@ export default function TypographyMenu() {
           </ListItemIcon>
           <Typography variant='inherit'>Find People</Typography>
         </MenuItem>
+        <Divider />
         <MenuItem>
           <ListItemIcon>
             <Badge badgeContent={10} color='success'>
@@ -46,6 +50,7 @@ export default function TypographyMenu() {
           </ListItemIcon>
           <Typography variant='inherit'>Games</Typography>
         </MenuItem>
+        <Divider />
         <MenuItem>
           <ListItemIcon>
             <Badge badgeContent={8} color='success'>
@@ -54,6 +59,7 @@ export default function TypographyMenu() {
           </ListItemIcon>
           <Typography variant='inherit'>Movies</Typography>
         </MenuItem>
+        <Divider />
         <MenuItem>
           <ListItemIcon>
             <Badge badgeContent={130} color='success'>

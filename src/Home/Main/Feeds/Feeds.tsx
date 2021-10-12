@@ -1,9 +1,9 @@
 import React from "react";
-import Stories from "./Stories";
-import NewScream from "./NewScream";
+import Stories from "./Stories/Stories";
+import NewScream from "./NewScream/NewScream";
 import Screams from "./Screams";
-import Invits from "./Invits";
-import Contacts from "./Contacts";
+import Aside from "./Aside/Aside";
+import "./css/Feeds.css";
 
 const Feeds = () => {
   return (
@@ -13,17 +13,7 @@ const Feeds = () => {
         <NewScream />
         <Screams />
       </main>
-      <aside>
-        <div className='Invits-Container'>
-          <h3>REQUESTS</h3>
-          <Invits />
-        </div>
-
-        <div className='Contacts-Container'>
-          <h3>CONTACTS</h3>
-          <Contacts />
-        </div>
-      </aside>
+      <Aside />
     </>
   );
 };

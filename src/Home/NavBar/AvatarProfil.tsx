@@ -3,12 +3,17 @@ import Avatar from "@mui/material/Avatar";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 export default function AvatarProfil() {
+  const data = {
+    fullName: "Jacob Dmn",
+    username: "jacob.dmn",
+    userAvatar: "./imgs/ME_LINKEDIN.jpeg",
+  };
   return (
     <>
-      <Avatar alt='Remy Sharp' src='./imgs/ME_LINKEDIN.jpeg' />
+      <Avatar alt='' src={data.userAvatar} />
       <div className='Name'>
-        <h4>Jacob Dmn</h4>
-        <h5>@jacob.dmn</h5>
+        <h4 style={{ cursor: "pointer" }}>{data.fullName}</h4>
+        <h5 style={{ cursor: "pointer" }}>@{data.username}</h5>
       </div>
       <div>
         <SettingsIcon className='Setting' />

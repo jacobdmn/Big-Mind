@@ -1,12 +1,19 @@
 @import "./../../../css/App";
 
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
 //// Header Design customisation
 .css-hip9hq-MuiPaper-root-MuiAppBar-root,
 .css-1x7skt0 {
   background-color: rgb(253, 253, 253) !important;
   color: rgb(28, 58, 95) !important;
   box-shadow: $box-shadow;
-  padding-block: 1em !important;
+  padding-block: 0.7em !important;
 }
 .css-1kcggdq-MuiInputBase-root
   .MuiInputBase-input.css-yz9k0d-MuiInputBase-input,

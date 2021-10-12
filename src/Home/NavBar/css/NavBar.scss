@@ -2,8 +2,9 @@
 @import "../../css/Home";
 
 .NavBar {
-  min-width: 270px;
+  min-width: 230px;
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   gap: 2em;
 
@@ -36,12 +37,24 @@
       padding: 0;
       border-radius: 15px;
       overflow: hidden;
-
       li {
-        padding-block: 1.2em;
+        padding-block: 1em;
         padding-left: 2em;
+
+        &:first-child {
+          padding-top: 1.5em;
+        }
+        &:first-child {
+          padding-bottom: 1.5em;
+        }
+
         .css-tzssek-MuiSvgIcon-root {
           color: $blue-light-for-icons;
+        }
+
+        .css-pwyk3z-MuiBadge-badge,
+        .css-106c1u2-MuiBadge-badge {
+          opacity: 0.9;
         }
 
         &.activeLink {
@@ -61,12 +74,21 @@
           font-weight: 400;
         }
       }
+      .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root {
+        width: 80%;
+        margin: 0;
+        margin-inline: auto;
+        opacity: 0.5;
+      }
     }
   }
 
   @media (max-width: $tablet) {
     & {
       min-width: fit-content;
+    }
+    .ProfileAvatar {
+      flex-direction: column;
     }
     h4,
     h5,

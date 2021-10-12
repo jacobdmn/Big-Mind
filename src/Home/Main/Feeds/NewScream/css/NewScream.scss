@@ -1,0 +1,30 @@
+@import "./../../css/Feeds";
+.NewScream {
+  .css-1wlk0hk-MuiAvatar-root {
+    width: 50px;
+    height: 50px;
+  }
+  /// post form
+  .css-13r4j3i {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    padding-inline: 1em;
+  }
+  /// input container
+  .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border: none;
+    outline: none;
+  }
+  /// input
+  .css-13r4j3i .MuiTextField-root {
+    width: auto;
+  }
+
+  /// Post input Placeholder
+  .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+    opacity: 0.7;
+    letter-spacing: 1px;
+    font-family: unset;
+  }
+}

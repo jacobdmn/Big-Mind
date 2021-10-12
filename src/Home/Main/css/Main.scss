@@ -1,32 +1,15 @@
-@import "../../../css/App";
 @import "../../css/Home";
 
-main {
-  flex: 1 60%;
+.body {
+  display: flex;
+  padding: 2em;
+  gap: 4vw;
+  margin-top: 80px;
 }
-aside {
-  flex: 1 25%;
-}
+
 main,
 aside {
   display: flex;
   flex-direction: column;
-  gap: 2em;
-}
-.NewScream,
-.Screams,
-.Invits,
-.Contacts {
-  @include componentBasics;
-  flex-grow: 1;
-}
-
-.Screams {
-  min-height: 500px;
-}
-
-@media (max-width: $tablet2) {
-  aside {
-    display: none;
-  }
+  gap: 1em;
 }

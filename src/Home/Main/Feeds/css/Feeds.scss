@@ -1,0 +1,14 @@
+@import "./../../css/Main";
+
+.NewScream,
+.Screams,
+.Invits,
+.Contacts {
+  @include componentBasics;
+  flex-grow: 1;
+}
+
+main {
+  flex: 1 1 80%;
+  overflow: hidden;
+}

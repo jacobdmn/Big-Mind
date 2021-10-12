@@ -20,10 +20,12 @@ input * {
 
 body {
   color: #444;
-  background: #fafcfe;
-  min-height: 100vh;
+  background: #fafcfe !important;
+  height: 100vh;
+  overflow: hidden;
   min-width: 100vw;
   max-width: 1500px;
+  margin-inline: auto;
   font-family: "Montserrat", monospace !important;
 }
 
@@ -49,32 +51,23 @@ input * {
 
 body {
   color: #444;
-  background: #fafcfe;
-  min-height: 100vh;
+  background: #fafcfe !important;
+  height: 100vh;
+  overflow: hidden;
   min-width: 100vw;
   max-width: 1500px;
+  margin-inline: auto;
   font-family: "Montserrat", monospace !important;
 }
 
-header {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 100;
-}
-
-.body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 2em;
-  gap: 3em;
-}
-
 .NavBar {
-  min-width: 270px;
+  min-width: 230px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -132,12 +125,25 @@ header {
 }
 
 .NavBar .Menu ul li {
-  padding-block: 1.2em;
+  padding-block: 1em;
   padding-left: 2em;
 }
 
+.NavBar .Menu ul li:first-child {
+  padding-top: 1.5em;
+}
+
+.NavBar .Menu ul li:first-child {
+  padding-bottom: 1.5em;
+}
+
 .NavBar .Menu ul li .css-tzssek-MuiSvgIcon-root {
-  color: rgba(76, 96, 123, 0.7);
+  color: rgba(76, 96, 123, 0.5);
+}
+
+.NavBar .Menu ul li .css-pwyk3z-MuiBadge-badge,
+.NavBar .Menu ul li .css-106c1u2-MuiBadge-badge {
+  opacity: 0.9;
 }
 
 .NavBar .Menu ul li.activeLink {
@@ -159,11 +165,24 @@ header {
   font-weight: 400;
 }
 
+.NavBar .Menu ul .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root {
+  width: 80%;
+  margin: 0;
+  margin-inline: auto;
+  opacity: 0.5;
+}
+
 @media (max-width: 1024px) {
   .NavBar {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
+  }
+  .NavBar .ProfileAvatar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .NavBar h4,
   .NavBar h5,
