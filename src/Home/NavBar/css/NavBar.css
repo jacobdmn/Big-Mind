@@ -31,9 +31,9 @@ body {
 
 .NavBar {
   min-width: 230px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -41,7 +41,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
 }
 
 .NavBar .ProfileAvatar,

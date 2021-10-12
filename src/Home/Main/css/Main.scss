@@ -4,11 +4,12 @@
   display: flex;
   padding: 2em;
   gap: 4vw;
-  margin-top: 80px;
+  margin: 0;
 }
 
 main,
-aside {
+aside,
+.NavBar {
   display: block;
   height: calc(100vh - 100px);
   overflow-y: auto;

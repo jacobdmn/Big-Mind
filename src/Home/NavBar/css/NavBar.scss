@@ -2,10 +2,10 @@
 
 .NavBar {
   min-width: 230px;
-  display: flex;
+  display: flex !important;
   flex-grow: 1;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
 
   .ProfileAvatar,
   .Menu {

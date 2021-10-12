@@ -29,15 +29,8 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-.css-hip9hq-MuiPaper-root-MuiAppBar-root,
-.css-1x7skt0 {
+header .css-hip9hq-MuiPaper-root-MuiAppBar-root,
+header .css-1x7skt0 {
   background-color: #fdfdfd !important;
   color: #1c3a5f !important;
   -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
@@ -45,9 +38,9 @@ header {
   padding-block: 0.7em !important;
 }
 
-.css-1kcggdq-MuiInputBase-root
+header .css-1kcggdq-MuiInputBase-root
 .MuiInputBase-input.css-yz9k0d-MuiInputBase-input,
-.css-8iv0is .MuiInputBase-input {
+header .css-8iv0is .MuiInputBase-input {
   background-color: #f4f6fa !important;
   -webkit-box-shadow: 0 0 4px -3px black !important;
           box-shadow: 0 0 4px -3px black !important;
@@ -58,7 +51,7 @@ header {
   width: 35vw !important;
 }
 
-.css-1iz4iln {
+header .css-1iz4iln {
   z-index: 1 !important;
 }
 /*# sourceMappingURL=header.css.map */
