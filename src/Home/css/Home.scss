@@ -10,10 +10,11 @@
 
 header {
   position: sticky;
+  z-index: 100;
 }
 
 .body {
   display: flex;
   padding: 2em;
-  gap: 3em;
+  gap: 4vw;
 }

@@ -2,7 +2,7 @@
 @import "../../css/Home";
 
 .NavBar {
-  flex: 0 270px;
+  min-width: 270px;
   display: flex;
   flex-direction: column;
   gap: 2em;
@@ -57,10 +57,26 @@
         }
 
         p {
-          margin-left: 1em;
+          margin-left: 1.5em;
           font-weight: 400;
         }
       }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    & {
+      min-width: fit-content;
+    }
+    h4,
+    h5,
+    p {
+      display: none !important;
+    }
+    li {
+      padding-inline: 0 !important;
+      display: flex;
+      justify-content: center;
     }
   }
 }

@@ -17,6 +17,12 @@ $shadow-light: rgb(242, 243, 244); /// header shadow
   display: grid;
   place-items: center;
 }
+
+/// SCREENS
+$tablet: 1024px;
+$tablet2: 768px;
+$phone: 375px;
+
 * {
   margin: 0;
   padding: 0;

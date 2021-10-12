@@ -30,6 +30,7 @@ body {
 header {
   position: -webkit-sticky;
   position: sticky;
+  z-index: 100;
 }
 
 .body {
@@ -37,6 +38,6 @@ header {
   display: -ms-flexbox;
   display: flex;
   padding: 2em;
-  gap: 3em;
+  gap: 4vw;
 }
 /*# sourceMappingURL=Home.css.map */

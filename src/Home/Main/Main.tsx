@@ -1,11 +1,10 @@
-import React from "react";
-import Screams from "./Screams/Screams";
+import Feeds from "./Feeds/Feeds";
 import "./css/Main.css";
 
 const Main = () => {
   return (
     <>
-      <Screams />
+      <Feeds />
     </>
   );
 };

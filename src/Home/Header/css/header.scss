@@ -8,8 +8,9 @@
   box-shadow: $box-shadow;
   padding-block: 1em !important;
 }
-
-.css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
+.css-1kcggdq-MuiInputBase-root
+  .MuiInputBase-input.css-yz9k0d-MuiInputBase-input,
+.css-8iv0is .MuiInputBase-input {
   background-color: rgb(244, 246, 250) !important;
   box-shadow: 0 0 4px -3px black !important;
   border-radius: 8px !important;

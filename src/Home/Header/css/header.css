@@ -36,7 +36,9 @@ body {
   padding-block: 1em !important;
 }
 
-.css-1kcggdq-MuiInputBase-root .MuiInputBase-input {
+.css-1kcggdq-MuiInputBase-root
+.MuiInputBase-input.css-yz9k0d-MuiInputBase-input,
+.css-8iv0is .MuiInputBase-input {
   background-color: #f4f6fa !important;
   -webkit-box-shadow: 0 0 4px -3px black !important;
           box-shadow: 0 0 4px -3px black !important;
