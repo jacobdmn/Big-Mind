@@ -27,7 +27,8 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-.css-hip9hq-MuiPaper-root-MuiAppBar-root {
+.css-hip9hq-MuiPaper-root-MuiAppBar-root,
+.css-1x7skt0 {
   background-color: #fdfdfd !important;
   color: #1c3a5f !important;
   -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
