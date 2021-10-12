@@ -29,39 +29,6 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-.css-hip9hq-MuiPaper-root-MuiAppBar-root,
-.css-1x7skt0 {
-  background-color: #fdfdfd !important;
-  color: #1c3a5f !important;
-  -webkit-box-shadow: 2px 0 2px 3px #f2f3f4 !important;
-          box-shadow: 2px 0 2px 3px #f2f3f4 !important;
-  padding-block: 0.7em !important;
-}
-
-.css-1kcggdq-MuiInputBase-root
-.MuiInputBase-input.css-yz9k0d-MuiInputBase-input,
-.css-8iv0is .MuiInputBase-input {
-  background-color: #f4f6fa !important;
-  -webkit-box-shadow: 0 0 4px -3px black !important;
-          box-shadow: 0 0 4px -3px black !important;
-  border-radius: 8px !important;
-  color: #4c607b !important;
-  padding: 0.8em !important;
-  padding-left: 3em !important;
-  width: 30ch !important;
-}
-
-.css-1iz4iln {
-  z-index: 1 !important;
-}
-
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,6 +50,19 @@ aside {
   gap: 1em;
 }
 
+aside {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 28%;
+          flex: 1 28%;
+  min-width: 300px;
+}
+
+@media (max-width: 1200px) {
+  aside {
+    display: none;
+  }
+}
+
 .Stories {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -97,6 +77,18 @@ aside {
   /* Remove scrollbar space */
   background: transparent;
   /* Optional: just make scrollbar invisible */
+}
+
+.Stories::before {
+  content: "";
+  position: absolute;
+  height: calc(106px + 8vw);
+  width: 100px;
+  top: 0;
+  right: 0;
+  background: -webkit-gradient(linear, right top, left top, from(black), to(transparent));
+  background: linear-gradient(-90deg, black, transparent);
+  z-index: 3;
 }
 
 .Stories .Story {

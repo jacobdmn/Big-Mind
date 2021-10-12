@@ -8,6 +8,17 @@
     width: 0; /* Remove scrollbar space */
     background: transparent; /* Optional: just make scrollbar invisible */
   }
+  &::before {
+    content: "";
+    position: absolute;
+    height: calc(106px + 8vw);
+    width: 100px;
+    top: 0;
+    right: 0;
+    background: linear-gradient(-90deg, black, transparent);
+    z-index: 3;
+  }
+
   .Story {
     @include componentBasics;
     overflow: hidden;
