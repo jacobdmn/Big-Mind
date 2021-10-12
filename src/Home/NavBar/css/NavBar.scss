@@ -1,5 +1,4 @@
-@import "../../../css/App";
-@import "../../css/Home";
+@import "./../../css/Home";
 
 .NavBar {
   min-width: 230px;
@@ -18,7 +17,6 @@
   }
 
   .ProfileAvatar {
-    padding: 1em;
     h4 {
       font-weight: bold;
     }
@@ -60,6 +58,7 @@
         &.activeLink {
           background: $gray-light;
           border-left: 0.15em solid $blue-bright;
+          cursor: default;
           svg,
           p {
             color: $blue-bright;

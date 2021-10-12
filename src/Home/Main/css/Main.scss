@@ -1,4 +1,4 @@
-@import "../../css/Home";
+@import "./../../../Home/css/Home";
 
 .body {
   display: flex;
@@ -12,4 +12,15 @@ aside {
   display: flex;
   flex-direction: column;
   gap: 1em;
+}
+
+aside {
+  flex: 1 28%;
+  min-width: 300px;
+}
+
+@media (max-width: $tablet2) {
+  aside {
+    display: none;
+  }
 }

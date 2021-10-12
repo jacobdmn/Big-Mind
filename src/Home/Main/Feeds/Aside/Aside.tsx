@@ -1,6 +1,6 @@
 import React from "react";
-import Invits from "../Invits";
-import Contacts from "../Contacts";
+import Invits from "../Invits/Invits";
+import Contacts from "../Contacts/Contacts";
 import "./css/Aside.css";
 
 const Aside = () => {

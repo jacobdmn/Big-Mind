@@ -1,16 +1,14 @@
 @import "./../../css/Feeds";
 .NewScream {
-  .css-1wlk0hk-MuiAvatar-root {
-    width: 50px;
-    height: 50px;
-  }
   /// post form
   .css-13r4j3i {
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr auto;
     padding-inline: 1em;
+    height: 0;
   }
+
   /// input container
   .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
     border: none;

@@ -29,37 +29,6 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  font-weight: 100;
-  cursor: default;
-}
-
-button *,
-button,
-svg,
-path,
-a * {
-  cursor: pointer;
-}
-
-input,
-input * {
-  cursor: text;
-}
-
-body {
-  color: #444;
-  background: #fafcfe !important;
-  height: 100vh;
-  overflow: hidden;
-  min-width: 100vw;
-  max-width: 1500px;
-  margin-inline: auto;
-  font-family: "Montserrat", monospace !important;
-}
-
 .NavBar {
   min-width: 230px;
   display: -webkit-box;
@@ -91,10 +60,6 @@ body {
           align-items: center;
   gap: 1em;
   line-height: 1.5;
-}
-
-.NavBar .ProfileAvatar {
-  padding: 1em;
 }
 
 .NavBar .ProfileAvatar h4 {
@@ -149,6 +114,7 @@ body {
 .NavBar .Menu ul li.activeLink {
   background: #f4f6fa;
   border-left: 0.15em solid #1e76e8;
+  cursor: default;
 }
 
 .NavBar .Menu ul li.activeLink svg,

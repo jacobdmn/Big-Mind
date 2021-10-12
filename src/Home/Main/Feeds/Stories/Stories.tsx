@@ -1,6 +1,6 @@
 import React from "react";
 import AddIcon from "@mui/icons-material/Add";
-import Story from "../Story";
+import Story from "./Story";
 import "./css/Stories.css";
 const Stories = () => {
   const data = [

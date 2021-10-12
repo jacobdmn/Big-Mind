@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
+import "./css/NewScream.css";
 
 const NewScream = () => {
   const data = { fullName: "Jacob Dmn", userAvatar: "./imgs/ME_LINKEDIN.jpeg" };

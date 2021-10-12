@@ -90,30 +90,38 @@ main {
   height: 50px !important;
 }
 
-.NewScream .css-13r4j3i {
-  display: -ms-grid;
-  display: grid;
+main .Screams {
+  padding: 2em;
+}
+
+main .Screams .Scream {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-columns: auto 1fr auto;
-      grid-template-columns: auto 1fr auto;
-  padding-inline: 1em;
-  height: 0;
 }
 
-.NewScream .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
-  border: none;
-  outline: none;
+main .Screams .Scream .Scream-title {
+  line-height: 1.5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.NewScream .css-13r4j3i .MuiTextField-root {
-  width: auto;
+main .Screams .Scream .Scream-title h4 {
+  font-weight: bold;
 }
 
-.NewScream .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+main .Screams .Scream .Scream-title h5 {
   opacity: 0.7;
-  letter-spacing: 1px;
-  font-family: unset;
 }
-/*# sourceMappingURL=NewScream.css.map */
+/*# sourceMappingURL=Screams.css.map */

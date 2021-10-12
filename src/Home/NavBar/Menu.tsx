@@ -17,14 +17,14 @@ export default function TypographyMenu() {
   return (
     <Paper className='Menu'>
       <MenuList>
-        <MenuItem>
+        <MenuItem className='activeLink'>
           <ListItemIcon>
             <HomeOutlinedIcon fontSize='large' />
           </ListItemIcon>
           <Typography variant='inherit'>Home</Typography>
         </MenuItem>
         <Divider />
-        <MenuItem className='activeLink'>
+        <MenuItem>
           <ListItemIcon>
             <Badge badgeContent={4} color='primary'>
               <ForumOutlinedIcon fontSize='large' />
