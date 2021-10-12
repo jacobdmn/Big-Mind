@@ -3,7 +3,6 @@ import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
@@ -14,10 +13,19 @@ export default function MediaControlCard() {
   const theme = useTheme();
 
   return (
-    <Card sx={{ display: "flex" }}>
+    <Card
+      className='MusicBox'
+      sx={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        textAlign: "center",
+        background: "unset",
+        boxShadow: "none",
+      }}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography component='div' variant='h5'>
+        <CardContent sx={{ flex: "1 0 auto", padding: 0 }}>
+          <Typography component='div' variant='h6'>
             Live From Space
           </Typography>
           <Typography
@@ -47,12 +55,6 @@ export default function MediaControlCard() {
           </IconButton>
         </Box>
       </Box>
-      <CardMedia
-        component='img'
-        sx={{ width: 151 }}
-        image='/static/images/cards/live-from-space.jpg'
-        alt='Live from space album cover'
-      />
     </Card>
   );
 }

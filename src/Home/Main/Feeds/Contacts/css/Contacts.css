@@ -96,4 +96,22 @@ main > div {
   width: 50px !important;
   height: 50px !important;
 }
+
+.Contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-gap: 1em;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.Contacts .ContactItem .active p {
+  color: #17640e;
+  font-weight: bold;
+}
 /*# sourceMappingURL=Contacts.css.map */

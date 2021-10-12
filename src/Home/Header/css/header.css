@@ -51,11 +51,11 @@ header {
   background-color: #f4f6fa !important;
   -webkit-box-shadow: 0 0 4px -3px black !important;
           box-shadow: 0 0 4px -3px black !important;
-  border-radius: 8px !important;
-  color: #4c607b !important;
+  border-radius: 30px !important;
+  color: black !important;
   padding: 0.8em !important;
   padding-left: 3em !important;
-  width: 30ch !important;
+  width: 35vw !important;
 }
 
 .css-1iz4iln {

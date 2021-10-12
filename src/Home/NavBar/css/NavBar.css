@@ -138,6 +138,20 @@ body {
   opacity: 0.5;
 }
 
+.NavBar .MusicBox {
+  -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+          box-shadow: 2px 0 10px -1px #f2f3f4 !important;
+  border-radius: 15px;
+  background: white;
+  color: #1c3a5f;
+  padding: 0.5em;
+  padding-inline: 0;
+}
+
+.NavBar .MusicBox .css-1ndgitk {
+  padding: 0;
+}
+
 @media (max-width: 1024px) {
   .NavBar {
     min-width: -webkit-fit-content;
@@ -167,7 +181,8 @@ body {
 }
 
 @media (max-width: 500px) {
-  .NavBar {
+  .NavBar,
+  .NavBar .MusicBox {
     display: none !important;
   }
 }

@@ -1,1 +1,17 @@
 @import "./../../css/Feeds";
+
+.Contacts {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1em;
+  gap: 1em;
+  margin-top: 1em;
+  .ContactItem {
+    .active {
+      p {
+        color: rgb(23, 100, 14);
+        font-weight: bold;
+      }
+    }
+  }
+}

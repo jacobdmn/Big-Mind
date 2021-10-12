@@ -82,6 +82,15 @@
     }
   }
 
+  .MusicBox {
+    @include componentBasics;
+    padding-inline: 0;
+
+    .css-1ndgitk {
+      padding: 0;
+    }
+  }
+
   @media (max-width: $tablet) {
     & {
       min-width: fit-content;
@@ -101,7 +110,8 @@
     }
   }
   @media (max-width: 500px) {
-    & {
+    &,
+    .MusicBox {
       display: none !important;
     }
   }

@@ -2,7 +2,7 @@ import React from "react";
 import AvatarProfil from "./AvatarProfil";
 import Menu from "./Menu";
 import "./css/NavBar.css";
-
+import Music from "./Music";
 const NavBar: React.FC = () => {
   return (
     <div className='NavBar'>
@@ -11,6 +11,9 @@ const NavBar: React.FC = () => {
       </div>
       <div>
         <Menu />
+      </div>
+      <div>
+        <Music />
       </div>
     </div>
   );
