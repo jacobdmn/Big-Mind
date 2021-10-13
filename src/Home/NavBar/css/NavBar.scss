@@ -107,7 +107,8 @@
     }
     h4,
     h5,
-    p {
+    p,
+    .Music {
       display: none !important;
     }
     li {
@@ -117,8 +118,7 @@
     }
   }
   @media (max-width: 500px) {
-    &,
-    .MusicBox {
+    & {
       display: none !important;
     }
   }

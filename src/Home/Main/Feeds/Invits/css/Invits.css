@@ -23,7 +23,6 @@ body {
   background: #fafcfe !important;
   height: 100vh;
   overflow: hidden;
-  min-width: 100vw;
   max-width: 1500px;
   margin-inline: auto;
   font-family: "Montserrat", monospace !important;
@@ -39,31 +38,32 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 2em;
+  padding-inline: 2em;
   gap: 4vw;
   margin: 0;
 }
 
-main,
-aside,
-.NavBar {
+.body main,
+.body aside,
+.body .NavBar {
   display: block;
   height: calc(100vh - 100px);
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
+  padding-top: 2em;
 }
 
-main::-webkit-scrollbar,
-aside::-webkit-scrollbar,
-.NavBar::-webkit-scrollbar {
+.body main::-webkit-scrollbar,
+.body aside::-webkit-scrollbar,
+.body .NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
   /* Optional: just make scrollbar invisible */
 }
 
-aside {
+.body aside {
   -webkit-box-flex: 1;
       -ms-flex: 1 28%;
           flex: 1 28%;
@@ -71,7 +71,7 @@ aside {
 }
 
 @media (max-width: 1200px) {
-  aside {
+  .body aside {
     display: none;
   }
 }

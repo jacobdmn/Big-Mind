@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
       <div>
         <Menu />
       </div>
-      <div>
+      <div className='Music'>
         <Music />
       </div>
     </div>

@@ -1,6 +1,8 @@
 @import "./../../css/Home";
 
 header {
+  position: relative;
+  z-index: 999;
   //// Header Design customisation
   .css-hip9hq-MuiPaper-root-MuiAppBar-root,
   .css-1x7skt0 {
@@ -8,6 +10,11 @@ header {
     color: rgb(28, 58, 95) !important;
     box-shadow: $box-shadow;
     padding-block: 0.7em !important;
+  }
+
+  //// search input container
+  .css-96uuyl {
+    width: auto !important;
   }
   //// search input
   .css-1kcggdq-MuiInputBase-root
@@ -19,7 +26,7 @@ header {
     color: black !important;
     padding: 0.8em !important;
     padding-left: 3em !important;
-    width: 35vw !important;
+    width: clamp(200px, 35vw, 600px) !important;
   }
   .css-1iz4iln {
     z-index: 1 !important;

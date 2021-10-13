@@ -23,39 +23,47 @@ body {
   background: #fafcfe !important;
   height: 100vh;
   overflow: hidden;
-  min-width: 100vw;
   max-width: 1500px;
   margin-inline: auto;
   font-family: "Montserrat", monospace !important;
+}
+
+.css-1wlk0hk-MuiAvatar-root,
+.css-3i9vrz {
+  width: 50px !important;
+  height: 50px !important;
 }
 
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 2em;
-  gap: 4vw;
-  margin-top: 80px;
+  padding-inline: calc(min(4vw, 2em));
+  gap: calc(min(4vw, 2em));
+  margin: 0;
 }
 
-main,
-aside {
+.body main,
+.body aside,
+.body .NavBar {
   display: block;
   height: calc(100vh - 100px);
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
+  padding-top: calc(min(4vw, 2em));
 }
 
-main::-webkit-scrollbar,
-aside::-webkit-scrollbar {
+.body main::-webkit-scrollbar,
+.body aside::-webkit-scrollbar,
+.body .NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
   /* Optional: just make scrollbar invisible */
 }
 
-aside {
+.body aside {
   -webkit-box-flex: 1;
       -ms-flex: 1 28%;
           flex: 1 28%;
@@ -63,7 +71,7 @@ aside {
 }
 
 @media (max-width: 1200px) {
-  aside {
+  .body aside {
     display: none;
   }
 }
@@ -87,12 +95,11 @@ aside {
 .Stories::before {
   content: "";
   position: absolute;
-  height: calc(106px + 8vw);
+  height: calc(110px + 8vw);
   width: 100px;
-  top: 0;
   right: 0;
-  background: -webkit-gradient(linear, right top, left top, from(black), to(transparent));
-  background: linear-gradient(-90deg, black, transparent);
+  background: -webkit-gradient(linear, right top, left top, from(#fafcfe), to(transparent));
+  background: linear-gradient(-90deg, #fafcfe, transparent);
   z-index: 3;
 }
 
@@ -106,7 +113,7 @@ aside {
   overflow: hidden;
   min-width: 120px;
   width: calc(60px + 4vw);
-  height: calc(90px + 8vw);
+  height: clamp(100px, calc(90px + 8vw), 200px);
   background-position: center center;
   background-size: cover;
   color: white;

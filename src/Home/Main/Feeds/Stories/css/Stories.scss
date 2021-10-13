@@ -7,11 +7,10 @@
   &::before {
     content: "";
     position: absolute;
-    height: calc(106px + 8vw);
+    height: calc(110px + 8vw);
     width: 100px;
-    top: 0;
     right: 0;
-    background: linear-gradient(-90deg, black, transparent);
+    background: linear-gradient(-90deg, #fafcfe, transparent);
     z-index: 3;
   }
 
@@ -20,7 +19,7 @@
     overflow: hidden;
     min-width: 120px;
     width: calc(60px + 4vw);
-    height: calc(90px + 8vw);
+    height: clamp(100px, calc(90px + 8vw), 200px);
     background-position: center center;
     background-size: cover;
     color: white;

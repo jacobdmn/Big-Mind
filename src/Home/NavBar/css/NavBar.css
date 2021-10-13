@@ -23,7 +23,6 @@ body {
   background: #fafcfe !important;
   height: 100vh;
   overflow: hidden;
-  min-width: 100vw;
   max-width: 1500px;
   margin-inline: auto;
   font-family: "Montserrat", monospace !important;
@@ -176,7 +175,8 @@ body {
   }
   .NavBar h4,
   .NavBar h5,
-  .NavBar p {
+  .NavBar p,
+  .NavBar .Music {
     display: none !important;
   }
   .NavBar li {
@@ -191,8 +191,7 @@ body {
 }
 
 @media (max-width: 500px) {
-  .NavBar,
-  .NavBar .MusicBox {
+  .NavBar {
     display: none !important;
   }
 }

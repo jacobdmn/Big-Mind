@@ -3,14 +3,17 @@
 main .Screams {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: calc(min(4vw, 2em));
   background: none;
-  padding-bottom: 2em;
+  padding-bottom: calc(min(4vw, 2em));
 
+  .Scream > div {
+    box-shadow: 0px 0 20px 2px #f2f3f4 !important;
+  }
   //// scream image
   .css-o69gx8-MuiCardMedia-root,
   .css-rhsghg {
-    height: clamp(300px, calc(100px + 40vw), 450px);
+    height: clamp(250px, calc(100px + 40vw), 450px);
   }
 
   /// scream title

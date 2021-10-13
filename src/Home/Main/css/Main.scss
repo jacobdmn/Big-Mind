@@ -2,28 +2,28 @@
 
 .body {
   display: flex;
-  padding: 2em;
-  gap: 4vw;
+  padding-inline: calc(min(4vw, 2em));
+  gap: calc(min(4vw, 2em));
   margin: 0;
-}
+  main,
+  aside,
+  .NavBar {
+    display: block;
+    height: calc(100vh - 100px);
+    overflow-y: auto;
+    position: relative;
+    @include scrollBarNone;
+    padding-top: calc(min(4vw, 2em));
+  }
 
-main,
-aside,
-.NavBar {
-  display: block;
-  height: calc(100vh - 100px);
-  overflow-y: auto;
-  position: relative;
-  @include scrollBarNone;
-}
-
-aside {
-  flex: 1 28%;
-  min-width: 300px;
-}
-
-@media (max-width: $tablet2) {
   aside {
-    display: none;
+    flex: 1 28%;
+    min-width: 300px;
+  }
+
+  @media (max-width: $tablet2) {
+    aside {
+      display: none;
+    }
   }
 }

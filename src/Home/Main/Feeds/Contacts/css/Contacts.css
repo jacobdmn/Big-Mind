@@ -23,39 +23,47 @@ body {
   background: #fafcfe !important;
   height: 100vh;
   overflow: hidden;
-  min-width: 100vw;
   max-width: 1500px;
   margin-inline: auto;
   font-family: "Montserrat", monospace !important;
+}
+
+.css-1wlk0hk-MuiAvatar-root,
+.css-3i9vrz {
+  width: 50px !important;
+  height: 50px !important;
 }
 
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 2em;
+  padding-inline: 2em;
   gap: 4vw;
-  margin-top: 80px;
+  margin: 0;
 }
 
-main,
-aside {
+.body main,
+.body aside,
+.body .NavBar {
   display: block;
   height: calc(100vh - 100px);
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
+  padding-top: 2em;
 }
 
-main::-webkit-scrollbar,
-aside::-webkit-scrollbar {
+.body main::-webkit-scrollbar,
+.body aside::-webkit-scrollbar,
+.body .NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
   /* Optional: just make scrollbar invisible */
 }
 
-aside {
+.body aside {
   -webkit-box-flex: 1;
       -ms-flex: 1 28%;
           flex: 1 28%;
@@ -63,7 +71,7 @@ aside {
 }
 
 @media (max-width: 1200px) {
-  aside {
+  .body aside {
     display: none;
   }
 }
@@ -90,11 +98,6 @@ main {
 
 main > div {
   margin-bottom: 1em;
-}
-
-.css-1wlk0hk-MuiAvatar-root {
-  width: 50px !important;
-  height: 50px !important;
 }
 
 .Contacts {
