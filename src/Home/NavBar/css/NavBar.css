@@ -131,7 +131,8 @@ body {
   font-weight: 400;
 }
 
-.NavBar .Menu ul .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root {
+.NavBar .Menu ul .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root,
+.NavBar .Menu ul .css-1km1ehz + .MuiDivider-root {
   width: 80%;
   margin: 0;
   margin-inline: auto;

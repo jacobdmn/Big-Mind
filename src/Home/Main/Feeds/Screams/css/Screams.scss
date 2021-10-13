@@ -5,14 +5,17 @@ main .Screams {
   flex-direction: column;
   gap: 1em;
   background: none;
+  padding-bottom: 2em;
 
   //// scream image
-  .css-o69gx8-MuiCardMedia-root {
+  .css-o69gx8-MuiCardMedia-root,
+  .css-rhsghg {
     height: clamp(300px, calc(100px + 40vw), 450px);
   }
 
   /// scream title
-  .css-et1ao3-MuiTypography-root {
+  .css-et1ao3-MuiTypography-root,
+  .css-14tqbo1 {
     font-family: unset;
     font-weight: bold;
     font-size: 1em;
@@ -20,7 +23,10 @@ main .Screams {
     letter-spacing: 0.01071em;
     color: rgba(0, 0, 0, 0.7);
   }
-  .css-r40f8v-MuiTypography-root {
+
+  /// Scream body
+  .css-r40f8v-MuiTypography-root,
+  .css-u30lmt {
     margin-bottom: 1em;
     font-family: unset;
     font-weight: 500;
@@ -30,7 +36,9 @@ main .Screams {
     color: rgba(0, 0, 0, 0.7);
   }
 
-  .css-1emx3r-MuiTypography-root {
+  //// CreatedAt
+  .css-1emx3r-MuiTypography-root,
+  .css-1qajdfe {
     margin: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 0.875rem;

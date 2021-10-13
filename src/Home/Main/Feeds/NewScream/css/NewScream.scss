@@ -8,8 +8,9 @@
     padding-inline: 1em;
   }
 
-  /// input container
-  .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  /// fieldset hidden
+  .css-1d3z3hw-MuiOutlinedInput-notchedOutline,
+  .css-igs3ac {
     border: none;
     outline: none;
   }
@@ -18,13 +19,15 @@
     width: auto;
   }
 
-  /// Post input Placeholder
-  .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  /// Post input Placeholder [label]
+  .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+  .css-p0rm37 {
     opacity: 0.7;
     letter-spacing: 1px;
     font-family: unset;
   }
-  .css-sghohy-MuiButtonBase-root-MuiButton-root {
+  .css-sghohy-MuiButtonBase-root-MuiButton-root,
+  .css-1hw9j7s {
     height: 3.2em;
   }
 }

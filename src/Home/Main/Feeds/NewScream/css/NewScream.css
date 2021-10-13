@@ -35,11 +35,12 @@ body {
   display: flex;
   padding: 2em;
   gap: 4vw;
-  margin-top: 80px;
+  margin: 0;
 }
 
 main,
-aside {
+aside,
+.NavBar {
   display: block;
   height: calc(100vh - 100px);
   overflow-y: auto;
@@ -48,7 +49,8 @@ aside {
 }
 
 main::-webkit-scrollbar,
-aside::-webkit-scrollbar {
+aside::-webkit-scrollbar,
+.NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
@@ -108,7 +110,8 @@ main > div {
   padding-inline: 1em;
 }
 
-.NewScream .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+.NewScream .css-1d3z3hw-MuiOutlinedInput-notchedOutline,
+.NewScream .css-igs3ac {
   border: none;
   outline: none;
 }
@@ -117,13 +120,15 @@ main > div {
   width: auto;
 }
 
-.NewScream .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+.NewScream .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+.NewScream .css-p0rm37 {
   opacity: 0.7;
   letter-spacing: 1px;
   font-family: unset;
 }
 
-.NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root {
+.NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root,
+.NewScream .css-1hw9j7s {
   height: 3.2em;
 }
 /*# sourceMappingURL=NewScream.css.map */

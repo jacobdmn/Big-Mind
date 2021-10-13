@@ -73,7 +73,9 @@
           font-weight: 400;
         }
       }
-      .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root {
+      /// <Divider>
+      .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root,
+      .css-1km1ehz + .MuiDivider-root {
         width: 80%;
         margin: 0;
         margin-inline: auto;
