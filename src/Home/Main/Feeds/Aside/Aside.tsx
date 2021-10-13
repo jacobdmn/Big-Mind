@@ -14,8 +14,7 @@ const Aside = () => {
       <Divider
         style={{
           margin: "1em auto",
-          width: "90%",
-          borderTop: "1px solid rgba(0,0,0,0.2)",
+          width: "100%",
         }}
       />
       <div className='Contacts-Container'>

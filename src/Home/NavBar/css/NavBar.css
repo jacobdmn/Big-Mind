@@ -29,6 +29,12 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
+.css-1wlk0hk-MuiAvatar-root,
+.css-3i9vrz {
+  width: 50px !important;
+  height: 50px !important;
+}
+
 .NavBar {
   min-width: 230px;
   display: -webkit-box !important;
@@ -102,12 +108,15 @@ body {
   padding-bottom: 1.5em;
 }
 
-.NavBar .Menu ul li .css-tzssek-MuiSvgIcon-root {
+.NavBar .Menu ul li .css-tzssek-MuiSvgIcon-root,
+.NavBar .Menu ul li .css-6flbmm {
   color: rgba(76, 96, 123, 0.5);
 }
 
 .NavBar .Menu ul li .css-pwyk3z-MuiBadge-badge,
-.NavBar .Menu ul li .css-106c1u2-MuiBadge-badge {
+.NavBar .Menu ul li .css-106c1u2-MuiBadge-badge,
+.NavBar .Menu ul li .css-13xqbvb,
+.NavBar .Menu ul li .css-1p3d99h {
   opacity: 0.9;
 }
 

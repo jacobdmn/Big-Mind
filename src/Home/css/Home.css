@@ -28,4 +28,10 @@ body {
   margin-inline: auto;
   font-family: "Montserrat", monospace !important;
 }
+
+.css-1wlk0hk-MuiAvatar-root,
+.css-3i9vrz {
+  width: 50px !important;
+  height: 50px !important;
+}
 /*# sourceMappingURL=Home.css.map */

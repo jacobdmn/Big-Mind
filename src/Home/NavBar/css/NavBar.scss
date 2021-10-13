@@ -46,12 +46,17 @@
           padding-bottom: 1.5em;
         }
 
-        .css-tzssek-MuiSvgIcon-root {
+        /// li icon
+        .css-tzssek-MuiSvgIcon-root,
+        .css-6flbmm {
           color: $blue-light-for-icons;
         }
 
+        /// li notif icon
         .css-pwyk3z-MuiBadge-badge,
-        .css-106c1u2-MuiBadge-badge {
+        .css-106c1u2-MuiBadge-badge,
+        .css-13xqbvb,
+        .css-1p3d99h {
           opacity: 0.9;
         }
 

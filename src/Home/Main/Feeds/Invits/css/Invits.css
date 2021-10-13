@@ -29,17 +29,24 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
+.css-1wlk0hk-MuiAvatar-root,
+.css-3i9vrz {
+  width: 50px !important;
+  height: 50px !important;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 2em;
   gap: 4vw;
-  margin-top: 80px;
+  margin: 0;
 }
 
 main,
-aside {
+aside,
+.NavBar {
   display: block;
   height: calc(100vh - 100px);
   overflow-y: auto;
@@ -48,7 +55,8 @@ aside {
 }
 
 main::-webkit-scrollbar,
-aside::-webkit-scrollbar {
+aside::-webkit-scrollbar,
+.NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
@@ -90,11 +98,6 @@ main {
 
 main > div {
   margin-bottom: 1em;
-}
-
-.css-1wlk0hk-MuiAvatar-root {
-  width: 50px !important;
-  height: 50px !important;
 }
 
 .Invits {
@@ -148,7 +151,8 @@ main > div {
       justify-content: space-around;
 }
 
-.Invits .css-sghohy-MuiButtonBase-root-MuiButton-root {
+.Invits .css-sghohy-MuiButtonBase-root-MuiButton-root,
+.Invits .css-1hw9j7s {
   width: 55%;
 }
 /*# sourceMappingURL=Invits.css.map */
