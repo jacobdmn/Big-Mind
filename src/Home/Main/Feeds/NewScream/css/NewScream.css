@@ -34,6 +34,19 @@ body {
   height: 50px !important;
 }
 
+.css-sghohy-MuiButtonBase-root-MuiButton-root, .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
+.css-1hw9j7s,
+.css-1hw9j7s:hover {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
+  width: 1em !important;
+  height: 1em !important;
+  color: currentColor !important;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -130,6 +143,14 @@ main > div {
 
 .NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root,
 .NewScream .css-1hw9j7s {
-  height: 3.2em;
+  height: 2.95em;
+  width: 8em;
+}
+
+.NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root, .NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
+.NewScream .css-1hw9j7s,
+.NewScream .css-1hw9j7s:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=NewScream.css.map */

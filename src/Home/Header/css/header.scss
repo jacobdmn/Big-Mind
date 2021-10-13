@@ -26,7 +26,12 @@ header {
     color: black !important;
     padding: 0.8em !important;
     padding-left: 3em !important;
-    width: clamp(200px, 35vw, 600px) !important;
+    width: clamp(200px, 30vw, 600px) !important;
+
+    &:hover,
+    &:focus {
+      width: clamp(200px, 36vw, 600px) !important;
+    }
   }
   .css-1iz4iln {
     z-index: 1 !important;

@@ -34,6 +34,13 @@ body {
   height: 50px !important;
 }
 
+.css-sghohy-MuiButtonBase-root-MuiButton-root, .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
+.css-1hw9j7s,
+.css-1hw9j7s:hover {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
 header {
   position: relative;
   z-index: 999;
@@ -62,7 +69,15 @@ header .css-8iv0is .MuiInputBase-input {
   color: black !important;
   padding: 0.8em !important;
   padding-left: 3em !important;
-  width: clamp(200px, 35vw, 600px) !important;
+  width: clamp(200px, 30vw, 600px) !important;
+}
+
+header .css-1kcggdq-MuiInputBase-root
+.MuiInputBase-input.css-yz9k0d-MuiInputBase-input:hover, header .css-1kcggdq-MuiInputBase-root
+.MuiInputBase-input.css-yz9k0d-MuiInputBase-input:focus,
+header .css-8iv0is .MuiInputBase-input:hover,
+header .css-8iv0is .MuiInputBase-input:focus {
+  width: clamp(200px, 36vw, 600px) !important;
 }
 
 header .css-1iz4iln {

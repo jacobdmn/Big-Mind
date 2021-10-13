@@ -95,7 +95,8 @@ body {
 .Stories::before {
   content: "";
   position: absolute;
-  height: calc(110px + 8vw);
+  height: clamp(100px, calc(90px + 8vw), 200px);
+  padding: 1em;
   width: 100px;
   right: 0;
   background: -webkit-gradient(linear, right top, left top, from(#fafcfe), to(transparent));

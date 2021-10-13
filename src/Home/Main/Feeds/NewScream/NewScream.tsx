@@ -8,18 +8,28 @@ import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import "./css/NewScream.css";
 import { styled } from "@mui/material/styles";
-import LoadingButton from "@mui/lab/LoadingButton";
-
+import { handleLoadingAnimation } from "./../../../Home";
 const Input = styled("input")({
   display: "none",
 });
+
 const NewScream = () => {
   const data = { fullName: "Jacob Dmn", userAvatar: "./imgs/ME_LINKEDIN.jpeg" };
 
-  const [loading, setLoading] = React.useState(false);
-  function handleClick() {
-    setLoading(true);
+  const [loadingPost, setLoadingPost] = React.useState(false);
+  const [postButtonContent, setPostButtonContent] = React.useState({
+    label: "POST",
+    icon: <SendIcon />,
+  });
+
+  function handlePost() {
+    handleLoadingAnimation(
+      setLoadingPost,
+      postButtonContent,
+      setPostButtonContent
+    );
   }
+
   return (
     <div className='NewScream'>
       <Box
@@ -34,6 +44,7 @@ const NewScream = () => {
           id='outlined-search'
           label={`What's new ${data.fullName.split(" ")[0]}?`}
           type='search'
+          disabled={loadingPost}
         />
         <label htmlFor='icon-button-file'>
           <Input accept='image/*' id='icon-button-file' type='file' />
@@ -41,18 +52,17 @@ const NewScream = () => {
             color='primary'
             aria-label='upload picture'
             component='span'
-            style={{ marginInline: ".5em" }}>
+            style={{ marginInline: ".5em" }}
+            disabled={loadingPost}>
             <PhotoCamera />
           </IconButton>
         </label>
-        <Button variant='contained' endIcon={<SendIcon />}>
-          <LoadingButton
-            onClick={handleClick}
-            loading={loading}
-            variant='outlined'
-            disabled>
-            Post
-          </LoadingButton>
+        <Button
+          variant='contained'
+          onClick={handlePost}
+          endIcon={postButtonContent.icon}
+          disabled={loadingPost}>
+          {postButtonContent.label}
         </Button>
       </Box>
     </div>

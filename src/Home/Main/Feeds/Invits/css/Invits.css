@@ -34,12 +34,25 @@ body {
   height: 50px !important;
 }
 
+.css-sghohy-MuiButtonBase-root-MuiButton-root, .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
+.css-1hw9j7s,
+.css-1hw9j7s:hover {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
+  width: 1em !important;
+  height: 1em !important;
+  color: currentColor !important;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-inline: 2em;
-  gap: 4vw;
+  padding-inline: calc(min(4vw, 2em));
+  gap: calc(min(4vw, 2em));
   margin: 0;
 }
 
@@ -51,7 +64,7 @@ body {
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
-  padding-top: 2em;
+  padding-top: calc(min(4vw, 2em));
 }
 
 .body main::-webkit-scrollbar,
@@ -153,6 +166,11 @@ main > div {
 
 .Invits .css-sghohy-MuiButtonBase-root-MuiButton-root,
 .Invits .css-1hw9j7s {
-  width: 55%;
+  width: calc(min(55%, 10em));
+}
+
+.Invits .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+  width: calc(min(45%, 8em));
+  padding: 0.4em 2em !important;
 }
 /*# sourceMappingURL=Invits.css.map */

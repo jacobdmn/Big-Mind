@@ -33,6 +33,10 @@
   /// Accept Button
   .css-sghohy-MuiButtonBase-root-MuiButton-root,
   .css-1hw9j7s {
-    width: 55%;
+    width: calc(min(55%, 10em));
+  }
+  .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    width: calc(min(45%, 8em));
+    padding: 0.4em 2em !important;
   }
 }

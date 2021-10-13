@@ -28,6 +28,12 @@
   }
   .css-sghohy-MuiButtonBase-root-MuiButton-root,
   .css-1hw9j7s {
-    height: 3.2em;
+    height: 2.95em;
+    width: 8em;
+
+    &,
+    &:hover {
+      box-shadow: none;
+    }
   }
 }
