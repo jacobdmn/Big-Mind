@@ -3,7 +3,8 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import Avatar from "@mui/material/Avatar";
+import { StyledAvatar } from "./../../../Home";
+
 import "./css/Contacts.css";
 const Contact: React.FC<{
   fullName: string;
@@ -14,7 +15,7 @@ const Contact: React.FC<{
     <div className='ContactItem'>
       <ListItem>
         <ListItemAvatar>
-          <Avatar src={userAvatar} />
+          <StyledAvatar src={userAvatar} />
         </ListItemAvatar>
         <ListItemText
           primary={fullName}

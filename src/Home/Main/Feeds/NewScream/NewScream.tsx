@@ -1,14 +1,15 @@
 import React from "react";
-import Avatar from "@mui/material/Avatar";
+import { StyledAvatar } from "./../../../Home";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import "./css/NewScream.css";
 import { styled } from "@mui/material/styles";
 import { handleLoadingAnimation } from "./../../../Home";
+import { StyledButton } from "./../../../Home";
+
 const Input = styled("input")({
   display: "none",
 });
@@ -41,7 +42,7 @@ const NewScream = () => {
         }}
         noValidate
         autoComplete='off'>
-        <Avatar alt='' src={data.userAvatar} />
+        <StyledAvatar src={data.userAvatar} />
         <TextField
           id='outlined-search'
           label={`What's new ${data.fullName.split(" ")[0]}?`}
@@ -59,13 +60,13 @@ const NewScream = () => {
             <PhotoCamera />
           </IconButton>
         </label>
-        <Button
-          variant='contained'
+        <StyledButton
           onClick={handlePost}
           endIcon={postButtonContent.icon}
-          disabled={loadingPost}>
+          disabled={loadingPost}
+          sxPlus={{ width: "8em", paddingBlock: ".6em" }}>
           {postButtonContent.label}
-        </Button>
+        </StyledButton>
       </Box>
     </div>
   );

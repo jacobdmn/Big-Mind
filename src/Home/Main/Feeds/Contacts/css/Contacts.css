@@ -28,10 +28,10 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-.css-1wlk0hk-MuiAvatar-root,
-.css-3i9vrz {
-  width: 50px !important;
-  height: 50px !important;
+.css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
+  width: 1em !important;
+  height: 1em !important;
+  color: currentColor !important;
 }
 
 .body {
@@ -88,6 +88,11 @@ body {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+
+aside .Invits,
+aside .Contacts {
+  margin: 0;
 }
 
 main {

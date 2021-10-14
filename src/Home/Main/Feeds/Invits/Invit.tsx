@@ -1,6 +1,6 @@
 import React from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
+import { StyledButton } from "./../../../Home";
+import { StyledAvatar } from "./../../../Home";
 import { handleLoadingAnimation } from "./../../../Home";
 
 const Invit: React.FC<{
@@ -49,27 +49,34 @@ const Invit: React.FC<{
   return (
     <div className='InvitationDiv'>
       <div className='InvitationInfo'>
-        <Avatar src={userAvatar} />
+        <StyledAvatar src={userAvatar} />
         <div>
           <span className='fullName'>{fullName} </span>
           wants to add you to friends
         </div>
       </div>
       <div className='InvitationOptions'>
-        <Button
+        <StyledButton
           variant='contained'
           disabled={loadingRequest}
           endIcon={acceptButtonContent.icon}
-          onClick={handleAccept}>
+          onClick={handleAccept}
+          sxPlus={{
+            width: "calc(min(55%, 10em))",
+          }}>
           {acceptButtonContent.label}
-        </Button>
-        <Button
+        </StyledButton>
+        <StyledButton
           variant='outlined'
           disabled={loadingRequest}
           endIcon={declineButtonContent.icon}
-          onClick={handleDecline}>
+          onClick={handleDecline}
+          sxPlus={{
+            width: "calc(min(45%, 8em))",
+            padding: "0.4em 2em !important",
+          }}>
           {declineButtonContent.label}
-        </Button>
+        </StyledButton>
       </div>
     </div>
   );

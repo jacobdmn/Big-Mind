@@ -28,19 +28,6 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-.css-1wlk0hk-MuiAvatar-root,
-.css-3i9vrz {
-  width: 50px !important;
-  height: 50px !important;
-}
-
-.css-sghohy-MuiButtonBase-root-MuiButton-root, .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
-.css-1hw9j7s,
-.css-1hw9j7s:hover {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-}
-
 .css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
   width: 1em !important;
   height: 1em !important;
@@ -108,7 +95,7 @@ body {
 .Stories::before {
   content: "";
   position: absolute;
-  height: clamp(60px, calc(50px + 5vw), 200px);
+  height: clamp(80px, calc(60px + 8vw), 200px);
   padding: 1em;
   width: 30px;
   right: 0;
@@ -125,8 +112,8 @@ body {
   color: #1c3a5f;
   padding: 0.5em;
   overflow: hidden;
-  min-width: clamp(40px, calc(50px + 3vw), 150px);
-  height: clamp(60px, calc(50px + 5vw), 200px);
+  min-width: 17%;
+  height: clamp(80px, calc(60px + 8vw), 200px);
   background-position: center center;
   background-size: cover;
   color: white;

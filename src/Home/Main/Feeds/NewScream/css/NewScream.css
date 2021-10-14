@@ -28,19 +28,6 @@ body {
   font-family: "Montserrat", monospace !important;
 }
 
-.css-1wlk0hk-MuiAvatar-root,
-.css-3i9vrz {
-  width: 50px !important;
-  height: 50px !important;
-}
-
-.css-sghohy-MuiButtonBase-root-MuiButton-root, .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
-.css-1hw9j7s,
-.css-1hw9j7s:hover {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
-}
-
 .css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
   width: 1em !important;
   height: 1em !important;
@@ -103,6 +90,11 @@ body {
           flex-grow: 1;
 }
 
+aside .Invits,
+aside .Contacts {
+  margin: 0;
+}
+
 main {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 70%;
@@ -139,18 +131,5 @@ main > div {
   opacity: 0.7;
   letter-spacing: 1px;
   font-family: unset;
-}
-
-.NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root,
-.NewScream .css-1hw9j7s {
-  height: 2.95em;
-  width: 8em;
-}
-
-.NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root, .NewScream .css-sghohy-MuiButtonBase-root-MuiButton-root:hover,
-.NewScream .css-1hw9j7s,
-.NewScream .css-1hw9j7s:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 /*# sourceMappingURL=NewScream.css.map */

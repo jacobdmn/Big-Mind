@@ -1,5 +1,5 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
+import { StyledAvatar } from "./../Home";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 export default function AvatarProfil() {
@@ -10,7 +10,7 @@ export default function AvatarProfil() {
   };
   return (
     <>
-      <Avatar alt='' src={data.userAvatar} />
+      <StyledAvatar src={data.userAvatar} />
       <div className='Name'>
         <h4 style={{ cursor: "pointer" }}>{data.fullName}</h4>
         <h5 style={{ cursor: "pointer" }}>@{data.username}</h5>

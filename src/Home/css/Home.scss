@@ -8,20 +8,13 @@
   padding: 0.5em;
 }
 
-/// Avatar size
-.css-1wlk0hk-MuiAvatar-root,
-.css-3i9vrz {
-  width: 50px !important;
-  height: 50px !important;
-}
-
-.css-sghohy-MuiButtonBase-root-MuiButton-root,
-.css-1hw9j7s {
-  &,
-  &:hover {
-    box-shadow: none !important;
-  }
-}
+// .css-sghohy-MuiButtonBase-root-MuiButton-root,
+// .css-1hw9j7s {
+//   &,
+//   &:hover {
+//     box-shadow: none !important;
+//   }
+// }
 //// loading icon
 .css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
   width: 1em !important;

@@ -4,7 +4,7 @@ import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
+import { StyledAvatar } from "./../../../Home";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
@@ -26,15 +26,7 @@ const RecipeReviewCard: React.FC<{
     <div className='Scream'>
       <Card>
         <CardHeader
-          avatar={
-            userAvatar ? (
-              <Avatar alt='' src={userAvatar} />
-            ) : (
-              <Avatar sx={{ bgcolor: red[500] }} aria-label='recipe'>
-                {fullName.split("")[0].toUpperCase()}
-              </Avatar>
-            )
-          }
+          avatar={<StyledAvatar src={userAvatar} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
