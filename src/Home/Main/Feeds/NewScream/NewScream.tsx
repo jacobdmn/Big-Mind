@@ -23,11 +23,13 @@ const NewScream = () => {
   });
 
   function handlePost() {
-    handleLoadingAnimation(
+    const handlePostClass = new handleLoadingAnimation(
       setLoadingPost,
       postButtonContent,
       setPostButtonContent
     );
+    handlePostClass.setLoadingFunc();
+    setTimeout(() => handlePostClass.setDoneFunc(), 1000);
   }
 
   return (

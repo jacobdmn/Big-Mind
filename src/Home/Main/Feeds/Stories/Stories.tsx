@@ -51,7 +51,9 @@ const Stories = () => {
     <div className='Stories'>
       <div
         className='Story'
-        style={{ backgroundImage: `url('${data[1].story}')` }}>
+        style={{
+          backgroundImage: `url('${data[1].story}')`,
+        }}>
         <div className='add'>
           <AddIcon />
         </div>

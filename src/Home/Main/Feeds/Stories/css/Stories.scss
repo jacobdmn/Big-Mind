@@ -7,9 +7,9 @@
   &::before {
     content: "";
     position: absolute;
-    height: clamp(100px, calc(90px + 8vw), 200px);
+    height: clamp(60px, calc(50px + 5vw), 200px);
     padding: 1em;
-    width: 100px;
+    width: 30px;
     right: 0;
     background: linear-gradient(-90deg, #fafcfe, transparent);
     z-index: 3;
@@ -18,9 +18,8 @@
   .Story {
     @include componentBasics;
     overflow: hidden;
-    min-width: 120px;
-    width: calc(60px + 4vw);
-    height: clamp(100px, calc(90px + 8vw), 200px);
+    min-width: clamp(40px, calc(50px + 3vw), 150px);
+    height: clamp(60px, calc(50px + 5vw), 200px);
     background-position: center center;
     background-size: cover;
     color: white;

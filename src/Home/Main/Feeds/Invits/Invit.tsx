@@ -3,10 +3,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import { handleLoadingAnimation } from "./../../../Home";
 
-const Invit: React.FC<{ fullName: string; userAvatar: string }> = ({
-  fullName,
-  userAvatar,
-}) => {
+const Invit: React.FC<{
+  fullName: string;
+  userAvatar: string;
+  filterInvitations: (fullNameFilter: string) => void;
+}> = ({ fullName, userAvatar, filterInvitations }) => {
   const [loadingRequest, setLoadingRequest] = React.useState(false);
   const [acceptButtonContent, setAcceptButtonContent] = React.useState({
     label: "ACCEPT",
@@ -17,20 +18,34 @@ const Invit: React.FC<{ fullName: string; userAvatar: string }> = ({
     icon: <></>,
   });
 
+  /// Handle accpeting action
   function handleAccept() {
-    handleLoadingAnimation(
+    const handleAcceptFunc = new handleLoadingAnimation(
       setLoadingRequest,
       acceptButtonContent,
       setAcceptButtonContent
     );
+    handleAcceptFunc.setLoadingFunc();
+    setTimeout(() => {
+      handleAcceptFunc.setDoneFunc();
+      filterInvitations(fullName);
+    }, 1000);
   }
+
+  /// Handle declining action
   function handleDecline() {
-    handleLoadingAnimation(
+    const handleDeclineFunc = new handleLoadingAnimation(
       setLoadingRequest,
       declineButtonContent,
       setDeclineButtonContent
     );
+    handleDeclineFunc.setLoadingFunc();
+    setTimeout(() => {
+      handleDeclineFunc.setDoneFunc();
+      filterInvitations(fullName);
+    }, 1000);
   }
+
   return (
     <div className='InvitationDiv'>
       <div className='InvitationInfo'>

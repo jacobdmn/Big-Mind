@@ -6,41 +6,61 @@ import CircularProgress from "@mui/material/CircularProgress";
 import DoneIcon from "@mui/icons-material/Done";
 import "./css/Home.css";
 
-export const handleLoadingAnimation = (
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  contentDefault: { label: string; icon: JSX.Element },
+export class handleLoadingAnimation {
+  //// Typescripting all variables
+  // [setLoading, contentDefault, setContentDefault, loadingWord, doneWord]
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  contentDefault: { label: string; icon: JSX.Element };
   setContentDefault: React.Dispatch<
     React.SetStateAction<{
       label: string;
       icon: JSX.Element;
     }>
-  >,
-  finishThis = () => setTimeout(() => {}, 0)
-) => {
-  setLoading(true);
-  setContentDefault({
-    label: "LOADING",
-    icon: <CircularProgress />,
-  });
+  >;
+  loadingWord: string;
+  doneWord: string;
 
-  setTimeout(() => {
-    setContentDefault({
-      label: "DONE",
+  //// Initialization
+  constructor(
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    contentDefault: { label: string; icon: JSX.Element },
+    setContentDefault: React.Dispatch<
+      React.SetStateAction<{
+        label: string;
+        icon: JSX.Element;
+      }>
+    >,
+    loadingWord = "LOADING",
+    doneWord = "DONE"
+  ) {
+    this.setLoading = setLoading;
+    this.contentDefault = contentDefault;
+    this.setContentDefault = setContentDefault;
+    this.loadingWord = loadingWord;
+    this.doneWord = doneWord;
+  }
+
+  /// Set LOADING icon
+  setLoadingFunc = () => {
+    this.setLoading(true);
+    this.setContentDefault({
+      label: this.loadingWord,
+      icon: <CircularProgress />,
+    });
+  };
+
+  /// set DONE icon
+  setDoneFunc = () => {
+    this.setContentDefault({
+      label: this.doneWord,
       icon: <DoneIcon />,
     });
-  }, 800);
-
-  //// finish This [u guessed it]
-  const task = async () => finishThis();
-  task().then(() => {
     setTimeout(() => {
-      setContentDefault(contentDefault);
-      setLoading(false);
-    }, 1500);
-  });
-  //// return the default content
-};
-
+      this.setContentDefault(this.contentDefault);
+      this.setLoading(false);
+    }, 1000);
+  };
+}
 const Home = () => {
   return (
     <div className='Home'>

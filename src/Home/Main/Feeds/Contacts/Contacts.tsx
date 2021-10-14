@@ -76,13 +76,17 @@ const Contacts = () => {
     },
   ];
   return (
-    <div className='Contacts'>
-      <List sx={{ width: "100%" }}>
-        {data.map((user) => (
-          <Contact {...user} />
-        ))}
-      </List>
-    </div>
+    <>
+      <div className='Contacts-Container'>
+        <div className='Contacts'>
+          <List sx={{ width: "100%" }}>
+            {data.map((user) => (
+              <Contact {...user} />
+            ))}
+          </List>
+        </div>
+      </div>
+    </>
   );
 };
 
