@@ -1,12 +1,12 @@
 import * as React from "react";
-import { StyledAvatar } from "./../Home";
+import { StyledAvatar } from "./../style/styledComponents";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 export default function AvatarProfil() {
   const data = {
     fullName: "Jacob Dmn",
     username: "jacob.dmn",
-    userAvatar: "./imgs/ME_LINKEDIN.jpeg",
+    userAvatar: "./imgs/users/jacob_dmn/avatar/jacob_dmn.jpeg",
   };
   return (
     <>

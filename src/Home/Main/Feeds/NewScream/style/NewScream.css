@@ -51,7 +51,7 @@ body {
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
-  padding-top: calc(min(4vw, 2em));
+  padding-top: calc(min(2vw, 1em));
 }
 
 .body main::-webkit-scrollbar,
@@ -103,33 +103,5 @@ main {
 
 main > div {
   margin-bottom: 1em;
-}
-
-.NewScream .css-13r4j3i {
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-grid-columns: auto 1fr auto auto;
-      grid-template-columns: auto 1fr auto auto;
-  padding-inline: 1em;
-}
-
-.NewScream .css-1d3z3hw-MuiOutlinedInput-notchedOutline,
-.NewScream .css-igs3ac {
-  border: none;
-  outline: none;
-}
-
-.NewScream .css-13r4j3i .MuiTextField-root {
-  width: auto;
-}
-
-.NewScream .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
-.NewScream .css-p0rm37 {
-  opacity: 0.7;
-  letter-spacing: 1px;
-  font-family: unset;
 }
 /*# sourceMappingURL=NewScream.css.map */

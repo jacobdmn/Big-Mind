@@ -1,21 +1,27 @@
 import React from "react";
-import { StyledAvatar } from "./../../../Home";
-import Box from "@mui/material/Box";
+
+///// Import styled components
+import { StyledForm, StyledInput } from "./style/styles";
+import { StyledAvatar, StyledButton } from "./../../../style/styledComponents";
+//// import a text field
 import TextField from "@mui/material/TextField";
+
+///// Import icons
 import SendIcon from "@mui/icons-material/Send";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-import "./css/NewScream.css";
-import { styled } from "@mui/material/styles";
-import { handleLoadingAnimation } from "./../../../Home";
-import { StyledButton } from "./../../../Home";
 
-const Input = styled("input")({
-  display: "none",
-});
+//// css file if needed
+import "./style/NewScream.css";
+
+///// import functions
+import { handleLoadingAnimation } from "./../../../Home";
 
 const NewScream = () => {
-  const data = { fullName: "Jacob Dmn", userAvatar: "./imgs/ME_LINKEDIN.jpeg" };
+  const data = {
+    fullName: "Jacob Dmn",
+    userAvatar: "./imgs/users/jacob_dmn/avatar/jacob_dmn.jpeg",
+  };
 
   const [loadingPost, setLoadingPost] = React.useState(false);
   const [postButtonContent, setPostButtonContent] = React.useState({
@@ -35,13 +41,7 @@ const NewScream = () => {
 
   return (
     <div className='NewScream'>
-      <Box
-        component='form'
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete='off'>
+      <StyledForm noValidate autoComplete='off'>
         <StyledAvatar src={data.userAvatar} />
         <TextField
           id='outlined-search'
@@ -50,7 +50,7 @@ const NewScream = () => {
           disabled={loadingPost}
         />
         <label htmlFor='icon-button-file'>
-          <Input accept='image/*' id='icon-button-file' type='file' />
+          <StyledInput accept='image/*' id='icon-button-file' type='file' />
           <IconButton
             color='primary'
             aria-label='upload picture'
@@ -67,7 +67,7 @@ const NewScream = () => {
           sxPlus={{ width: "8em", paddingBlock: ".6em" }}>
           {postButtonContent.label}
         </StyledButton>
-      </Box>
+      </StyledForm>
     </div>
   );
 };

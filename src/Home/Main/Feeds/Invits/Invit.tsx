@@ -1,6 +1,5 @@
 import React from "react";
-import { StyledButton } from "./../../../Home";
-import { StyledAvatar } from "./../../../Home";
+import { StyledButton, StyledAvatar } from "./../../../style/styledComponents";
 import { handleLoadingAnimation } from "./../../../Home";
 
 const Invit: React.FC<{

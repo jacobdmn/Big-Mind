@@ -51,7 +51,7 @@ body {
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
-  padding-top: calc(min(4vw, 2em));
+  padding-top: calc(min(2vw, 1em));
 }
 
 .body main::-webkit-scrollbar,

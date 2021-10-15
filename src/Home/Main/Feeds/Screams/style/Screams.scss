@@ -1,0 +1,9 @@
+@import "./../../css/Feeds";
+
+main .Screams {
+  display: flex;
+  flex-direction: column;
+  gap: calc(min(4vw, 2em));
+  background: none;
+  padding-bottom: calc(min(4vw, 2em));
+}

@@ -51,7 +51,7 @@ body {
   overflow-y: auto;
   position: relative;
   scrollbar-width: none;
-  padding-top: calc(min(4vw, 2em));
+  padding-top: calc(min(2vw, 1em));
 }
 
 .body main::-webkit-scrollbar,
@@ -116,47 +116,5 @@ main .Screams {
   gap: calc(min(4vw, 2em));
   background: none;
   padding-bottom: calc(min(4vw, 2em));
-}
-
-main .Screams .Scream > div {
-  -webkit-box-shadow: 0px 0 20px 2px #f2f3f4 !important;
-          box-shadow: 0px 0 20px 2px #f2f3f4 !important;
-}
-
-main .Screams .css-o69gx8-MuiCardMedia-root,
-main .Screams .css-rhsghg {
-  height: clamp(250px, calc(100px + 40vw), 450px);
-}
-
-main .Screams .css-et1ao3-MuiTypography-root,
-main .Screams .css-14tqbo1 {
-  font-family: unset;
-  font-weight: bold;
-  font-size: 1em;
-  line-height: 1.5;
-  letter-spacing: 0.01071em;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-main .Screams .css-r40f8v-MuiTypography-root,
-main .Screams .css-u30lmt {
-  margin-bottom: 1em;
-  font-family: unset;
-  font-weight: 500;
-  font-size: 1em;
-  line-height: 1.5;
-  letter-spacing: 0.01071em;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-main .Screams .css-1emx3r-MuiTypography-root,
-main .Screams .css-1qajdfe {
-  margin: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.43;
-  letter-spacing: 0.01071em;
-  color: #1c3a5f;
-  font-weight: 500;
 }
 /*# sourceMappingURL=Screams.css.map */

@@ -3,7 +3,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { StyledAvatar } from "./../../../Home";
+import { StyledAvatar } from "./../../../style/styledComponents";
 
 import "./css/Contacts.css";
 const Contact: React.FC<{
