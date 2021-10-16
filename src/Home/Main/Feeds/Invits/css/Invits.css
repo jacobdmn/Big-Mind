@@ -3,6 +3,8 @@
   padding: 0;
   font-weight: 100;
   cursor: default;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
 }
 
 button *,
@@ -128,6 +130,8 @@ main > div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 1.5em;
+  position: relative;
 }
 
 .Invits .InvitationInfo {
@@ -154,5 +158,12 @@ main > div {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.Invits span.closeIcon {
+  position: absolute;
+  right: 0.4em;
+  top: 0.4em;
+  color: inherit;
 }
 /*# sourceMappingURL=Invits.css.map */

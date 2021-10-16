@@ -3,6 +3,8 @@
   padding: 0;
   font-weight: 100;
   cursor: default;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
 }
 
 button *,
@@ -103,7 +105,7 @@ body {
   padding-top: 1.5em;
 }
 
-.NavBar .Menu ul li:first-child {
+.NavBar .Menu ul li:last-child {
   padding-bottom: 1.5em;
 }
 
@@ -122,6 +124,10 @@ body {
 .NavBar .Menu ul li.activeLink {
   background: #f4f6fa;
   border-left: 0.15em solid #1e76e8;
+}
+
+.NavBar .Menu ul li.activeLink,
+.NavBar .Menu ul li.activeLink * {
   cursor: default;
 }
 

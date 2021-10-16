@@ -12,6 +12,8 @@
     flex-wrap: wrap;
     gap: 1em;
     align-items: center;
+    padding-top: 1.5em;
+    position: relative;
   }
 
   .InvitationInfo {
@@ -28,5 +30,12 @@
     flex-grow: 1;
     display: flex;
     justify-content: space-around;
+  }
+
+  span.closeIcon {
+    position: absolute;
+    right: 0.4em;
+    top: 0.4em;
+    color: inherit;
   }
 }

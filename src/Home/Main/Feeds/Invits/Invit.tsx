@@ -1,6 +1,7 @@
 import React from "react";
 import { StyledButton, StyledAvatar } from "./../../../style/styledComponents";
 import { handleLoadingAnimation } from "./../../../Home";
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
 const Invit: React.FC<{
   fullName: string;
@@ -77,6 +78,9 @@ const Invit: React.FC<{
           {declineButtonContent.label}
         </StyledButton>
       </div>
+      <span className='closeIcon'>
+        <HighlightOffIcon onClick={() => filterInvitations(fullName)} />
+      </span>
     </div>
   );
 };

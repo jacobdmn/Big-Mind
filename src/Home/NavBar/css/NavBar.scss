@@ -42,7 +42,7 @@
         &:first-child {
           padding-top: 1.5em;
         }
-        &:first-child {
+        &:last-child {
           padding-bottom: 1.5em;
         }
 
@@ -63,7 +63,12 @@
         &.activeLink {
           background: $gray-light;
           border-left: 0.15em solid $blue-bright;
-          cursor: default;
+
+          &,
+          * {
+            cursor: default;
+          }
+
           svg,
           p {
             color: $blue-bright;

@@ -2,6 +2,7 @@ import * as React from "react";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export default function SimpleBackdrop() {
   const [open, setOpen] = React.useState(false);
@@ -18,8 +19,8 @@ export default function SimpleBackdrop() {
         onClick={handleToggle}
         variant='outlined'
         color='error'
-        style={{ marginLeft: "3em" }}>
-        LOGOUT
+        style={{ marginLeft: "3em", minWidth: "fit-content" }}>
+        <LogoutIcon />
       </Button>
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

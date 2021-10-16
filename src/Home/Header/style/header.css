@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  cursor: default;
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+}
+
+button *,
+button,
+svg,
+path,
+a * {
+  cursor: pointer;
+}
+
+input,
+input * {
+  cursor: text;
+}
+
+body {
+  color: #444;
+  background: #fafcfe !important;
+  height: 100vh;
+  overflow: hidden;
+  max-width: 1500px;
+  margin-inline: auto;
+  font-family: "Montserrat", monospace !important;
+}
+
+.css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
+  width: 1em !important;
+  height: 1em !important;
+  color: currentColor !important;
+}
+
+header {
+  position: relative;
+  z-index: 999;
+}
+
+header .NewResults {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .NotificationDiv,
+header .NewResults,
+header .NewResult {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+header .NotificationDiv .resultContent,
+header .NotificationDiv .fullName,
+header .NotificationDiv .fullName *,
+header .NewResults .resultContent,
+header .NewResults .fullName,
+header .NewResults .fullName *,
+header .NewResult .resultContent,
+header .NewResult .fullName,
+header .NewResult .fullName * {
+  font-family: unset;
+  font-weight: bold;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+/*# sourceMappingURL=header.css.map */

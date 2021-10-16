@@ -1,0 +1,26 @@
+@import "./../../style/Home";
+
+header {
+  position: relative;
+  z-index: 999;
+
+  .NewResults {
+    flex-direction: column;
+  }
+  .NotificationDiv,
+  .NewResults,
+  .NewResult {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    width: 100%;
+
+    .resultContent,
+    .fullName,
+    .fullName * {
+      font-family: unset;
+      font-weight: bold;
+      flex: 1;
+    }
+  }
+}
