@@ -1,7 +1,5 @@
 # Big Mind
 
-## A Community for those who are questionning the universe
-
-### Those Who wanna Undertand their reality
-
-### In One Word, Big Mind.. is like Median, but worse !
+## A Scial Media App, that resembles the biggest 3 companies: Facebook, Amazon, and Netflix
+### and much more
+ 
