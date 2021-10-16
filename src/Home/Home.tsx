@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header/Header";
 import NavBar from "./NavBar/NavBar";
 import Main from "./Main/Main";
-import CircularProgress from "@mui/material/CircularProgress";
+import { CircleLoading } from "./style/styledComponents";
 import DoneIcon from "@mui/icons-material/Done";
 import "./style/Home.css";
 
@@ -45,7 +45,7 @@ export class handleLoadingAnimation {
     this.setLoading(true);
     this.setContentDefault({
       label: this.loadingWord,
-      icon: <CircularProgress />,
+      icon: <CircleLoading />,
     });
   };
 

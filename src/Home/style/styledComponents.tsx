@@ -1,5 +1,7 @@
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
+import CircularProgress from "@mui/material/CircularProgress";
+import { styled } from "@mui/material/styles";
 
 export const StyledAvatar: React.FC<{ src?: string; fullName?: string }> = ({
   src = "",
@@ -53,3 +55,9 @@ export const StyledButton: React.FC<{
     </Button>
   );
 };
+
+export const CircleLoading = styled(CircularProgress)({
+  width: "1em !important",
+  height: "1em !important",
+  color: "currentColor !important",
+});
