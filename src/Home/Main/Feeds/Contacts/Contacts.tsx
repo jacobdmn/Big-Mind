@@ -1,6 +1,7 @@
 import React from "react";
 import List from "@mui/material/List";
 import Contact from "./Contact";
+import ChatBox from "./ChatBox";
 
 const Contacts = () => {
   const data = [
@@ -85,6 +86,7 @@ const Contacts = () => {
             ))}
           </List>
         </div>
+        <ChatBox />
       </div>
     </>
   );

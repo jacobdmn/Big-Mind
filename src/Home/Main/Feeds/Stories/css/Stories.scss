@@ -24,6 +24,20 @@
     background-size: cover;
     color: white;
     position: relative;
+    transition: all 0.3s ease-in;
+
+    &,
+    * {
+      cursor: pointer;
+      z-index: 1;
+    }
+    input {
+      z-index: 2;
+    }
+
+    &:hover {
+      transform: scale(0.98);
+    }
 
     &::before {
       content: "";

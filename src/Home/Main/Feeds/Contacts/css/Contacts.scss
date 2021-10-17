@@ -14,4 +14,24 @@
       }
     }
   }
+
+  .ChatBox {
+    position: absolute; // relative to the .body
+    bottom: 0;
+    right: 28%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 30vh;
+
+    .title {
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+    }
+
+    .body {
+    }
+  }
 }

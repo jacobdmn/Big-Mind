@@ -30,7 +30,7 @@ const Messages = () => {
               <div className='fullName'>
                 <h3>{message.fullName}</h3>
               </div>
-              <div>
+              <div style={{ fontWeight: 300 }}>
                 {message.msg?.substring(0, 25)}
                 {message.msg.length > 25 && "..."}
               </div>

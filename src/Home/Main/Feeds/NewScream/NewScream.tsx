@@ -1,5 +1,5 @@
 import React from "react";
-
+import { styled } from "@mui/material/styles";
 ///// Import styled components
 import { StyledForm, StyledInput } from "./style/styles";
 import { StyledAvatar, StyledButton } from "./../../../style/styledComponents";
@@ -17,6 +17,11 @@ import "./style/NewScream.css";
 ///// import functions
 import { handleLoadingAnimation } from "./../../../Home";
 
+const TextFieldStyled = styled(TextField)({
+  "& *": {
+    boxSizing: "content-box !important",
+  },
+});
 const NewScream = () => {
   const data = {
     fullName: "Jacob Dmn",
@@ -43,7 +48,7 @@ const NewScream = () => {
     <div className='NewScream'>
       <StyledForm noValidate autoComplete='off'>
         <StyledAvatar src={data.userAvatar} />
-        <TextField
+        <TextFieldStyled
           id='outlined-search'
           label={`What's new ${data.fullName.split(" ")[0]}?`}
           type='search'

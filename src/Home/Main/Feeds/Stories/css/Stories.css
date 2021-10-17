@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +6,7 @@
   cursor: default;
   -webkit-box-sizing: border-box !important;
           box-sizing: border-box !important;
+  font-family: "Montserrat Alternates", monospace !important;
 }
 
 button *,
@@ -27,13 +29,6 @@ body {
   overflow: hidden;
   max-width: 1500px;
   margin-inline: auto;
-  font-family: "Montserrat", monospace !important;
-}
-
-.css-9tj150-MuiButton-endIcon > *:nth-of-type(1) {
-  width: 1em !important;
-  height: 1em !important;
-  color: currentColor !important;
 }
 
 .body {
@@ -120,6 +115,23 @@ body {
   background-size: cover;
   color: white;
   position: relative;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.Stories .Story,
+.Stories .Story * {
+  cursor: pointer;
+  z-index: 1;
+}
+
+.Stories .Story input {
+  z-index: 2;
+}
+
+.Stories .Story:hover {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .Stories .Story::before {
