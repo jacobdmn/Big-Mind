@@ -7,6 +7,15 @@
   gap: 1em;
   margin-top: 1em;
   .ContactItem {
+    transition: all 0.2s ease-in;
+    &,
+    * {
+      cursor: pointer;
+    }
+    &:hover {
+      background: rgba(245, 245, 245, 0.575);
+    }
+
     .active {
       p {
         color: rgb(23, 100, 14);
@@ -14,24 +23,57 @@
       }
     }
   }
+}
+.ChatBox {
+  position: fixed !important;
+  width: unset !important;
+  top: 100px;
+  right: -100%;
+  height: calc(100vh - 110px);
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: rgb(250, 250, 250);
+  transition: all 0.2s ease-in;
+  transform-origin: right;
+  // transform: translate(100%);
+  opacity: 0;
+  z-index: -1;
+  &.active {
+    @include componentBasics;
+    right: 0;
 
-  .ChatBox {
-    position: absolute; // relative to the .body
-    bottom: 0;
-    right: 28%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 30vh;
+    // transform: translate(0%);
+    opacity: 1;
+    z-index: 10;
+  }
 
-    .title {
-      height: 60px;
+  img.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .chat-header {
+    padding: 1em;
+
+    .ChatBoxheader {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 1em;
-    }
 
-    .body {
+      h4 {
+        flex: 1;
+      }
     }
+  }
+  .chat-box {
+    height: auto !important;
+    background-color: none;
+  }
+
+  .msg-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 }

@@ -22,13 +22,14 @@ input * {
   cursor: text;
 }
 
-body {
+html {
   color: #444;
   background: #fafcfe !important;
   height: 100vh;
   overflow: hidden;
   max-width: 1500px;
   margin-inline: auto;
+  position: relative;
 }
 
 .body {

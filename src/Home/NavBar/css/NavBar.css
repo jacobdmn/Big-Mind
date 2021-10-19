@@ -6,6 +6,7 @@
   cursor: default;
   -webkit-box-sizing: border-box !important;
           box-sizing: border-box !important;
+  font-family: "Montserrat Alternates", monospace !important;
 }
 
 button *,
@@ -28,7 +29,6 @@ body {
   overflow: hidden;
   max-width: 1500px;
   margin-inline: auto;
-  font-family: "Montserrat Alternates", monospace !important;
 }
 
 .NavBar {

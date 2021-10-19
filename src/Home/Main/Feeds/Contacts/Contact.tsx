@@ -10,9 +10,10 @@ const Contact: React.FC<{
   fullName: string;
   userAvatar: string;
   lastTimeActive: number | string;
-}> = ({ fullName, userAvatar, lastTimeActive }) => {
+  openChatBox: () => void;
+}> = ({ fullName, userAvatar, lastTimeActive, openChatBox }) => {
   return (
-    <div className='ContactItem'>
+    <div className='ContactItem' onClick={openChatBox}>
       <ListItem>
         <ListItemAvatar>
           <StyledAvatar src={userAvatar} />
