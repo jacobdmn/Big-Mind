@@ -12,8 +12,8 @@ export default function AvatarProfil() {
     <>
       <StyledAvatar src={data.userAvatar} />
       <div className='Name'>
-        <h4 style={{ cursor: "pointer" }}>{data.fullName}</h4>
-        <h5 style={{ cursor: "pointer" }}>@{data.username}</h5>
+        <h4>{data.fullName}</h4>
+        <h5>@{data.username}</h5>
       </div>
       <div>
         <SettingsIcon className='Setting' />

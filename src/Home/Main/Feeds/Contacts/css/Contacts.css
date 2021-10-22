@@ -61,6 +61,10 @@ h5 {
   font-weight: 400 !important;
 }
 
+button {
+  outline: none !important;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;

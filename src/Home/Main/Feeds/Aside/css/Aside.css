@@ -32,6 +32,39 @@ html {
   position: relative;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: initial !important;
+  font-family: "Montserrat Alternates", monospace !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  font-size: 1em !important;
+}
+
+h4 {
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+}
+
+h5 {
+  font-size: 0.9em !important;
+  font-weight: 400 !important;
+}
+
+button {
+  outline: none !important;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;

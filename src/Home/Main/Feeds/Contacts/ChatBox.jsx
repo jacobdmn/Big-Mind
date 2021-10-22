@@ -52,7 +52,7 @@ const ChatBoxWraper = ({
       className={isChating ? "ChatBox container active" : "ChatBox container "}>
       <div className='chat-header'>
         <div className='ChatBoxheader'>
-          <img class='avatar' src={secondPartUser.avatar} alt='' />
+          <img className='avatar' src={secondPartUser.avatar} alt='' />
           <h4>{secondPartUser.name}</h4>
           <ArrowForwardIcon onClick={hideChatBox} />
         </div>

@@ -22,6 +22,10 @@
     }
     .Name {
       flex-grow: 1;
+
+      * {
+        cursor: pointer;
+      }
     }
     .Setting {
       @include gridCenterItems;
