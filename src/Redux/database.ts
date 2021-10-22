@@ -36,19 +36,28 @@ class STORY {
   }
 }
 /// SCREAM CLASS
-class SCREAM {
+export class SCREAM {
   screamId: number;
-  screamContent: { text: string; img?: string };
   userId: number;
+  screamContent: { text: string; img?: string };
+  createdAt: string;
+  location?: string;
 
   constructor(
     screamId: number,
-    screamContent: { text: string; img?: string },
-    userId: number
+    userId: number,
+    screamContent: {
+      text: string;
+      img?: string;
+    },
+    createdAt: string,
+    location?: string
   ) {
     this.screamId = screamId;
-    this.screamContent = screamContent;
     this.userId = userId;
+    this.screamContent = screamContent;
+    this.createdAt = createdAt;
+    this.location = location;
   }
 }
 /// Users database
@@ -103,17 +112,23 @@ export const USER_INVITATIONS = [20, 3];
 export const SCREAMS = [
   new SCREAM(
     1,
+    20,
     { text: "this is the first scream using Redux! From Moha" },
-    20
+    "Jan 13",
+    "Manhattan, NYC"
   ),
   new SCREAM(
     234,
+    100,
     { text: "this is the first scream using Redux! From Jacob" },
-    100
+    "Apr 10",
+    "Bay Area, SF"
   ),
   new SCREAM(
     433,
+    3,
     { text: "this is the first scream using Redux! From Doha" },
-    3
+    "Mai 2",
+    "Brooklyn, NYC"
   ),
 ];

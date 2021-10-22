@@ -1,16 +1,20 @@
+import actionTypes from "../actionTypes/actionTypes";
 import { SCREAMS } from "./../database";
+import { SCREAM } from "./../database";
 
-interface actionTypeScript {
+export interface actionTypeScript {
   type: string;
   payload: {
-    screamId: number;
-    screamContent: {
-      text: string;
-      img: string;
-    };
-    userId: number;
+    newScream: SCREAM;
   };
 }
 
-export const reducer = (state = SCREAMS, action: actionTypeScript) =>
-  state.push(action.payload);
+export const reducer = (
+  state = SCREAMS,
+  { type, payload }: actionTypeScript
+) => {
+  /// Conclusion: the condition should be added cuz the function get executed automatically on start
+  type === actionTypes.POST_SCREAM && (state = [...state, payload.newScream]);
+
+  return state;
+};
