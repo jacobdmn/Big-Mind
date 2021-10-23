@@ -14,10 +14,9 @@ import "./style/NewScream.css";
 ///// import functions
 import { handleLoadingAnimation } from "./../../../Home";
 /// import store functions
-import store from "./../../../../Redux/store";
 import { CURRENT_USER } from "./../../../../Redux/database";
 import { POST_SCREAM } from "./../../../../Redux/reducers/POST_SCREAM";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const TextFieldStyled = styled(TextField)({
   "& *": {
@@ -32,6 +31,39 @@ const NewScream = (props: any) => {
     icon: <SendIcon />,
   });
 
+  const dispatch = useDispatch();
+  const handlePost = (
+    postContent: React.MutableRefObject<HTMLInputElement>,
+    setLoadingPost: React.Dispatch<React.SetStateAction<boolean>>,
+    postButtonContent: {
+      label: string;
+      icon: JSX.Element;
+    },
+    setPostButtonContent: React.Dispatch<
+      React.SetStateAction<{
+        label: string;
+        icon: JSX.Element;
+      }>
+    >
+  ) => {
+    const handlePostClass = new handleLoadingAnimation(
+      setLoadingPost,
+      postButtonContent,
+      setPostButtonContent
+    );
+    if (postContent?.current.value) {
+      handlePostClass.setLoadingFunc();
+      dispatch(
+        POST_SCREAM(CURRENT_USER.userId, {
+          text: postContent.current.value,
+        })
+      );
+      setTimeout(() => {
+        postContent.current.value = "";
+        handlePostClass.setDoneFunc();
+      }, 400);
+    }
+  };
   return (
     <div className='NewScream'>
       <StyledForm
@@ -39,8 +71,8 @@ const NewScream = (props: any) => {
         autoComplete='off'
         onSubmit={(e: React.SyntheticEvent) => {
           e.preventDefault();
-          props.friendshipReducerForProps(
-            screamInputRef?.current.value,
+          handlePost(
+            screamInputRef,
             setLoadingPost,
             postButtonContent,
             setPostButtonContent
@@ -69,8 +101,8 @@ const NewScream = (props: any) => {
         <StyledButton
           onClick={(e: React.SyntheticEvent) => {
             e.preventDefault();
-            props.friendshipReducerForProps(
-              screamInputRef?.current.value,
+            handlePost(
+              screamInputRef,
               setLoadingPost,
               postButtonContent,
               setPostButtonContent
@@ -86,43 +118,4 @@ const NewScream = (props: any) => {
   );
 };
 
-/// handle post function, keep the loading circle till the useEffect finishes the uploading
-
-const mapDispatchToProps = (dispatch: typeof store.dispatch) => {
-  return {
-    friendshipReducerForProps: (
-      postContent: string | null,
-      setLoadingPost: React.Dispatch<React.SetStateAction<boolean>>,
-      postButtonContent: {
-        label: string;
-        icon: JSX.Element;
-      },
-      setPostButtonContent: React.Dispatch<
-        React.SetStateAction<{
-          label: string;
-          icon: JSX.Element;
-        }>
-      >
-    ) => {
-      const handlePostClass = new handleLoadingAnimation(
-        setLoadingPost,
-        postButtonContent,
-        setPostButtonContent
-      );
-      if (postContent) {
-        handlePostClass.setLoadingFunc();
-        store.dispatch(
-          POST_SCREAM(CURRENT_USER.userId, {
-            text: postContent,
-          })
-        );
-        setTimeout(() => {
-          postContent = "";
-          handlePostClass.setDoneFunc();
-        }, 400);
-      }
-    },
-  };
-};
-
-export default connect(null, mapDispatchToProps)(NewScream);
+export default NewScream;

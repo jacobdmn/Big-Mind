@@ -3,9 +3,9 @@ import { USER_INVITATIONS } from "./../database";
 import { USER_FRIENDS } from "./../database";
 
 ////////////////////////////////////////////////////////////////
-export const ACCEPT_FRIENDSHIP_INVITATION = (INVIT_ID: number) => {
+export const ACCEPT_FRIENDSHIP_INVITATION_ACTION = (INVIT_ID: number) => {
   return {
-    type: actionTypes.ACCEPT_FRIENDSHIP_INVITATION,
+    type: actionTypes.ACCEPT_FRIENDSHIP_INVITATION_TYPE,
     payload: {
       id: INVIT_ID,
       userInvitations: [...USER_INVITATIONS],
@@ -27,7 +27,7 @@ const friendshipReducer = (
   action: actionTypeScript
 ) => {
   /// IF USER:> Accepts =====> NewUser =>  USER_FRIENDS
-  action.type === actionTypes.ACCEPT_FRIENDSHIP_INVITATION &&
+  action.type === actionTypes.ACCEPT_FRIENDSHIP_INVITATION_TYPE &&
     state.push(action.payload.id);
 
   return [...state];
