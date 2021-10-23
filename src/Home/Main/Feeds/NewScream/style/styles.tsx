@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 
 export const StyledForm = styled("form")({
   display: "grid",
-  alignItems: "center",
+  alignItems: "flex-end",
   gridTemplateColumns: "auto 1fr auto auto",
   padding: "0.7em 1em",
 

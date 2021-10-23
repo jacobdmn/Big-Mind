@@ -1,0 +1,32 @@
+// function handlePost(
+//   postContent: string | null,
+//   setLoadingPost: React.Dispatch<React.SetStateAction<boolean>>,
+//   postButtonContent: {
+//     label: string;
+//     icon: JSX.Element;
+//   },
+//   setPostButtonContent: React.Dispatch<
+//     React.SetStateAction<{
+//       label: string;
+//       icon: JSX.Element;
+//     }>
+//   >
+// ) {
+//   const handlePostClass = new handleLoadingAnimation(
+//     setLoadingPost,
+//     postButtonContent,
+//     setPostButtonContent
+//   );
+//   if (postContent) {
+//     handlePostClass.setLoadingFunc();
+//     store.dispatch(
+//       POST_SCREAM(CURRENT_USER.userId, {
+//         text: postContent,
+//       })
+//     );
+//     setTimeout(() => {
+//       postContent = "";
+//       handlePostClass.setDoneFunc();
+//     }, 400);
+//   }
+// }

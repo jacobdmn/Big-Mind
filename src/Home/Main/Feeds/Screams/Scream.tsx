@@ -11,37 +11,43 @@ import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { StyledScream } from "./style/styledComponents";
+import { USERS } from "./../../../../Redux/database";
 
 const RecipeReviewCard: React.FC<{
-  fullName: string;
-  userAvatar: string;
-  date: string;
-  location: string;
-  body: string;
-  //   location: string;
-  pics: string[];
-}> = ({ fullName, userAvatar, date, body, location, pics }) => {
+  screamId: number;
+  userId: number;
+  screamContent: { text: string; img?: string; location?: string };
+  createdAt: string;
+}> = ({ screamId, userId, screamContent, createdAt }) => {
+  const userOwner = USERS.find((user) => user.userId === userId);
   return (
     <div className='Scream'>
       <StyledScream>
         <CardHeader
           className='CardHeader'
-          avatar={<StyledAvatar src={userAvatar} />}
+          avatar={<StyledAvatar src={userOwner?.userAvatar} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
             </IconButton>
           }
-          title={fullName}
-          subheader={location}
+          title={userOwner?.fullName}
+          subheader={screamContent.location}
         />
-        <CardMedia className='imgBody' component='img' image={pics[0]} alt='' />
+        {screamContent.img && (
+          <CardMedia
+            className='imgBody'
+            component='img'
+            image={screamContent.img}
+            alt=''
+          />
+        )}
         <CardContent className='streamBody' component='div'>
           <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
-            {body}
+            {screamContent.text}
           </Typography>
           <Typography variant='body2' color='blue'>
-            {date}
+            {createdAt}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

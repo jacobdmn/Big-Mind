@@ -58,7 +58,7 @@ export class handleLoadingAnimation {
     setTimeout(() => {
       this.setContentDefault(this.contentDefault);
       this.setLoading(false);
-    }, 1000);
+    }, 500);
   };
 }
 
