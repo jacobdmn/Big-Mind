@@ -1,41 +1,42 @@
 @import "./../../css/Feeds";
 
-.Invits {
+.Invits-Container {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  margin-top: 1em;
-
-  .InvitationDiv {
-    padding: 1em;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    align-items: center;
-    padding-top: 1.5em;
-    position: relative;
-  }
-
-  .InvitationInfo {
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-
-    .fullName {
-      font-family: unset;
-      font-weight: bold;
-    }
-  }
-  .InvitationOptions {
-    flex-grow: 1;
-    display: flex;
-    justify-content: space-around;
-  }
-
   span.closeIcon {
-    position: absolute;
-    right: 0.4em;
-    top: 0.4em;
     color: inherit;
+    text-align: end;
+  }
+
+  .Invits {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .InvitationDiv {
+      padding: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      align-items: center;
+      padding-top: 1.5em;
+      position: relative;
+    }
+
+    .InvitationInfo {
+      display: flex;
+      gap: 0.5em;
+      align-items: center;
+
+      .fullName {
+        font-family: unset;
+        font-weight: bold;
+      }
+    }
+    .InvitationOptions {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-around;
+    }
   }
 }

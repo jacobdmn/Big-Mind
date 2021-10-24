@@ -71,7 +71,7 @@ const DropDownMenu: React.FC<{ componentName: string }> = ({
     zIndex: 1,
     border: "5px solid #f2f3f4",
     borderRadius: "3px",
-    padding: "1.5em .8em 0 .8em !important",
+    padding: "1.5em .8em 1.5em .8em !important",
     bgcolor: "#f4f6fa",
     minWidth: "350px",
     boxShadow: "2px 0 10px -1px #f2f3f4 !important",

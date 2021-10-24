@@ -1,13 +1,17 @@
 import React from "react";
 import { StyledButton, StyledAvatar } from "./../../../style/styledComponents";
 import { handleLoadingAnimation } from "./../../../Home";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-
 const Invit: React.FC<{
   fullName: string;
   userAvatar: string;
-  filterInvitations: (fullNameFilter: string) => void;
-}> = ({ fullName, userAvatar, filterInvitations }) => {
+  handleAcceptFromParent: () => {};
+  handleDeclineFromParent: () => {};
+}> = ({
+  fullName,
+  userAvatar,
+  handleAcceptFromParent,
+  handleDeclineFromParent,
+}) => {
   const [loadingRequest, setLoadingRequest] = React.useState(false);
   const [acceptButtonContent, setAcceptButtonContent] = React.useState({
     label: "ACCEPT",
@@ -27,8 +31,8 @@ const Invit: React.FC<{
     );
     handleAcceptFunc.setLoadingFunc();
     setTimeout(() => {
+      handleAcceptFromParent();
       handleAcceptFunc.setDoneFunc();
-      filterInvitations(fullName);
     }, 1000);
   }
 
@@ -41,8 +45,8 @@ const Invit: React.FC<{
     );
     handleDeclineFunc.setLoadingFunc();
     setTimeout(() => {
+      handleDeclineFromParent();
       handleDeclineFunc.setDoneFunc();
-      filterInvitations(fullName);
     }, 1000);
   }
 
@@ -78,9 +82,6 @@ const Invit: React.FC<{
           {declineButtonContent.label}
         </StyledButton>
       </div>
-      <span className='closeIcon'>
-        <HighlightOffIcon onClick={() => filterInvitations(fullName)} />
-      </span>
     </div>
   );
 };

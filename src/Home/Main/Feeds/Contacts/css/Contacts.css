@@ -171,9 +171,9 @@ main > div {
 .ChatBox {
   position: fixed !important;
   width: unset !important;
-  top: 100px;
+  bottom: 0px;
   right: -100%;
-  height: calc(100vh - 110px);
+  height: calc(95vh - 110px);
   margin: 0px;
   padding: 0px;
   display: -ms-grid;
@@ -230,9 +230,20 @@ main > div {
           flex: 1;
 }
 
+.ChatBox .chat-header input {
+  color: black !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.2px !important;
+  font-size: 1.2em !important;
+}
+
 .ChatBox .chat-box {
   height: auto !important;
   background-color: none;
+}
+
+.ChatBox .chat-box .msg-page {
+  height: auto !important;
 }
 
 .ChatBox .msg-footer {

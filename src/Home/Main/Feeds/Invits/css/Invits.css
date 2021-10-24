@@ -136,7 +136,22 @@ main > div {
   margin-bottom: 1em;
 }
 
-.Invits {
+.Invits-Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Invits-Container span.closeIcon {
+  color: inherit;
+  text-align: end;
+}
+
+.Invits-Container .Invits {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -145,10 +160,9 @@ main > div {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1em;
-  margin-top: 1em;
 }
 
-.Invits .InvitationDiv {
+.Invits-Container .Invits .InvitationDiv {
   padding: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,7 +177,7 @@ main > div {
   position: relative;
 }
 
-.Invits .InvitationInfo {
+.Invits-Container .Invits .InvitationInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,12 +187,12 @@ main > div {
           align-items: center;
 }
 
-.Invits .InvitationInfo .fullName {
+.Invits-Container .Invits .InvitationInfo .fullName {
   font-family: unset;
   font-weight: bold;
 }
 
-.Invits .InvitationOptions {
+.Invits-Container .Invits .InvitationOptions {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -187,12 +201,5 @@ main > div {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-}
-
-.Invits span.closeIcon {
-  position: absolute;
-  right: 0.4em;
-  top: 0.4em;
-  color: inherit;
 }
 /*# sourceMappingURL=Invits.css.map */

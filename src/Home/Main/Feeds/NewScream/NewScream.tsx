@@ -14,16 +14,16 @@ import "./style/NewScream.css";
 ///// import functions
 import { handleLoadingAnimation } from "./../../../Home";
 /// import store functions
-import { CURRENT_USER } from "./../../../../Redux/database";
+import { useDispatch, useSelector } from "react-redux";
 import { POST_SCREAM } from "./../../../../Redux/reducers/POST_SCREAM";
-import { useDispatch } from "react-redux";
-
 const TextFieldStyled = styled(TextField)({
   "& *": {
     boxSizing: "content-box !important",
   },
 });
 const NewScream = (props: any) => {
+  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
+  const dispatch = useDispatch();
   const screamInputRef = useRef<HTMLInputElement>(null!);
   const [loadingPost, setLoadingPost] = useState(false);
   const [postButtonContent, setPostButtonContent] = useState({
@@ -31,7 +31,6 @@ const NewScream = (props: any) => {
     icon: <SendIcon />,
   });
 
-  const dispatch = useDispatch();
   const handlePost = (
     postContent: React.MutableRefObject<HTMLInputElement>,
     setLoadingPost: React.Dispatch<React.SetStateAction<boolean>>,
@@ -87,7 +86,7 @@ const NewScream = (props: any) => {
           inputRef={screamInputRef}
           multiline
         />
-        <label htmlFor='icon-button-file'>
+        <label htmlFor='icon-button-file' style={{ margin: 0 }}>
           <StyledInput accept='image/*' id='icon-button-file' type='file' />
           <IconButton
             color='primary'

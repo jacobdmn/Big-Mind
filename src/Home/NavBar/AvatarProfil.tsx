@@ -1,19 +1,17 @@
 import * as React from "react";
 import { StyledAvatar } from "./../style/styledComponents";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { useSelector } from "react-redux";
 
 export default function AvatarProfil() {
-  const data = {
-    fullName: "Jacob Dmn",
-    username: "jacob.dmn",
-    userAvatar: "./imgs/users/jacob_dmn/avatar/jacob_dmn.jpeg",
-  };
+  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
+
   return (
     <>
-      <StyledAvatar src={data.userAvatar} />
+      <StyledAvatar src={CURRENT_USER.userAvatar} />
       <div className='Name'>
-        <h4>{data.fullName}</h4>
-        <h5>@{data.username}</h5>
+        <h4>{CURRENT_USER.fullName}</h4>
+        <h5>@{CURRENT_USER.userName}</h5>
       </div>
       <div>
         <SettingsIcon className='Setting' />

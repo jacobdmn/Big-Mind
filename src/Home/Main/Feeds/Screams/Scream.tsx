@@ -11,7 +11,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { StyledScream } from "./style/styledComponents";
-import { USERS } from "./../../../../Redux/database";
+import { useSelector } from "react-redux";
 
 const RecipeReviewCard: React.FC<{
   screamId: number;
@@ -19,19 +19,19 @@ const RecipeReviewCard: React.FC<{
   screamContent: { text: string; img?: string; location?: string };
   createdAt: string;
 }> = ({ screamId, userId, screamContent, createdAt }) => {
-  const userOwner = USERS.find((user) => user.userId === userId);
+  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
   return (
     <div className='Scream'>
       <StyledScream>
         <CardHeader
           className='CardHeader'
-          avatar={<StyledAvatar src={userOwner?.userAvatar} />}
+          avatar={<StyledAvatar src={CURRENT_USER?.userAvatar} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
             </IconButton>
           }
-          title={userOwner?.fullName}
+          title={CURRENT_USER?.fullName}
           subheader={screamContent.location}
         />
         {screamContent.img && (
