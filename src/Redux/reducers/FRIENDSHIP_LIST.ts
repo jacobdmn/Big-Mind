@@ -40,7 +40,7 @@ const friendshipListReducer = (
       state.USER_FRIENDS_COPIE.push(action.payload.id);
       break;
     case actionTypes.FILTER_INVITATION_LIST:
-      state.USER_INVITATIONS_COPIE = state.USER_INVITATIONS_COPIE.filter(
+      state.USER_INVITATIONS_COPIE.filter(
         (invitID) => invitID !== action.payload.id
       );
       break;

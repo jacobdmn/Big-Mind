@@ -1,13 +1,6 @@
 @import "./../../css/Feeds";
 
 .Invits-Container {
-  display: flex;
-  flex-direction: column;
-  span.closeIcon {
-    color: inherit;
-    text-align: end;
-  }
-
   .Invits {
     display: flex;
     flex-direction: column;

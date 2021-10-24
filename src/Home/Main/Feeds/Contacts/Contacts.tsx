@@ -5,12 +5,12 @@ import ChatBox from "./ChatBox.jsx";
 import { useSelector } from "react-redux";
 
 const Contacts = () => {
+  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
   const users = useSelector((state: any) => state.usersReducer);
   const contacts = useSelector(
     (state: any) => state.friendshipListReducer.USER_FRIENDS_COPIE
   );
 
-  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
   /// is chating
   const [isChating, setIsChating] = React.useState(false);
 

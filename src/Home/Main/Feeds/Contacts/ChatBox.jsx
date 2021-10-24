@@ -18,9 +18,9 @@ const ChatBoxWraper = ({
       text: "Hello there",
       id: "1",
       sender: {
-        name: firstPartUser.name,
+        name: firstPartUser.fullName.split(" ")[0],
         uid: "user1",
-        avatar: firstPartUser.avatar,
+        avatar: firstPartUser.userAvatar,
       },
     },
     {
@@ -36,9 +36,9 @@ const ChatBoxWraper = ({
       text: "Hello Spiderman, how are you today?",
       id: "3",
       sender: {
-        name: firstPartUser.name,
+        name: firstPartUser.fullName.split(" ")[0],
         uid: "user1",
-        avatar: firstPartUser.avatar,
+        avatar: firstPartUser.userAvatar,
       },
     },
   ];

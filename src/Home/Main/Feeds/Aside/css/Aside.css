@@ -141,6 +141,18 @@ aside {
       -ms-flex: 1 28%;
           flex: 1 28%;
   min-width: 300px;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+aside span.closeIcon {
+  color: inherit;
+  text-align: end;
 }
 
 @media (max-width: 1200px) {
