@@ -20,7 +20,9 @@ const RecipeReviewCard: React.FC<{
   screamContent: { text: string; img?: string; location?: string };
   createdAt: string;
 }> = ({ screamId, userId, screamContent, createdAt }) => {
-  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
+  const USER_OWNER = useSelector((state: any) => state.usersReducer).find(
+    (user: any) => user.userId === userId
+  );
 
   const StyledSpan = styled("span")({
     marginLeft: ".3em",
@@ -36,13 +38,13 @@ const RecipeReviewCard: React.FC<{
       <StyledScream>
         <CardHeader
           className='CardHeader'
-          avatar={<StyledAvatar src={CURRENT_USER?.userAvatar} />}
+          avatar={<StyledAvatar src={USER_OWNER?.userAvatar} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
             </IconButton>
           }
-          title={CURRENT_USER?.fullName}
+          title={USER_OWNER?.fullName}
           subheader={screamContent.location}
         />
         {screamContent.img && (

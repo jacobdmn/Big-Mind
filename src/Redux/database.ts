@@ -23,6 +23,29 @@ export class USER {
     this.location = location;
   }
 }
+/// Message Class
+export class MESSAGE {
+  id: number;
+  text: string;
+  sender: {
+    name: string;
+    uid: string;
+    avatar: string;
+  };
+  constructor(
+    id: number,
+    text: string,
+    sender: {
+      name: string;
+      uid: string;
+      avatar: string;
+    }
+  ) {
+    this.id = id;
+    this.text = text;
+    this.sender = sender;
+  }
+}
 /// Story Class
 export class STORY {
   storyId: number;
@@ -87,27 +110,33 @@ export const USERS = [
 ];
 /// Stories database
 export const STORIES = [
-  new STORY(
-    198,
-    "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    20
-  ),
-  new STORY(
-    298,
-    "https://images.unsplash.com/photo-1608159477202-8a0e27f807b4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmVhdXRpZnVsJTIwbmF0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
-    100
-  ),
-  new STORY(
-    212,
-    "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-    3
-  ),
+  new STORY(198, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
+  new STORY(298, "./imgs/users/jacob_dmn/stories/jacob_story1.jpg", 100),
+  new STORY(212, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
 ];
 
 /// currentUser
 export const CURRENT_USER = USERS[0];
 /// userFriends
 export const USER_FRIENDS: number[] = [];
+/// USER_MESSAGES
+export const USER_MESSAGES = [
+  new MESSAGE(0, "Hi, Jacob, You are Hired!", {
+    name: "Marius",
+    uid: "user2",
+    avatar: "./imgs/users/jacob_dmn/stories/jacob_story1.jpg",
+  }),
+  new MESSAGE(1, "Ow!, Wow, Great", {
+    name: "Jacob",
+    uid: "user1",
+    avatar: "./imgs/users/jacob_dmn/avatar/jacob_dmn.jpeg",
+  }),
+  new MESSAGE(2, "When Do u wanna start", {
+    name: "Marius",
+    uid: "user2",
+    avatar: "./imgs/users/jacob_dmn/stories/jacob_story1.jpg",
+  }),
+];
 /// userInvitations
 export const USER_INVITATIONS = [20, 3];
 /// User Screams

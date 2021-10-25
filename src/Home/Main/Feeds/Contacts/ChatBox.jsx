@@ -6,6 +6,7 @@ import "react-chatbox-component/dist/style.css";
 
 import Divider from "@mui/material/Divider";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useSelector } from "react-redux";
 
 const ChatBoxWraper = ({
   isChating,
@@ -13,35 +14,9 @@ const ChatBoxWraper = ({
   firstPartUser,
   secondPartUser,
 }) => {
-  const messages = [
-    {
-      text: "Hello there",
-      id: "1",
-      sender: {
-        name: firstPartUser.fullName.split(" ")[0],
-        uid: "user1",
-        avatar: firstPartUser.userAvatar,
-      },
-    },
-    {
-      text: "Hi Mr. Stark",
-      id: "2",
-      sender: {
-        name: secondPartUser.name,
-        uid: "user2",
-        avatar: secondPartUser.avatar,
-      },
-    },
-    {
-      text: "Hello Spiderman, how are you today?",
-      id: "3",
-      sender: {
-        name: firstPartUser.fullName.split(" ")[0],
-        uid: "user1",
-        avatar: firstPartUser.userAvatar,
-      },
-    },
-  ];
+  const messages = useSelector(
+    (state) => state.userMessagesReducer.USER_MESSAGES
+  );
 
   const user = {
     uid: "user1",

@@ -1,5 +1,5 @@
 @import "./../../css/Feeds";
-aside {
+.body aside {
   flex: 1 28%;
   min-width: 300px;
   display: flex !important;
@@ -8,10 +8,9 @@ aside {
     color: inherit;
     text-align: end;
   }
-}
-
-@media (max-width: $tablet2) {
-  aside {
-    display: none !important;
+  @media (max-width: $tablet2) {
+    & {
+      display: none !important;
+    }
   }
 }

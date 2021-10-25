@@ -94,19 +94,6 @@ button {
   /* Optional: just make scrollbar invisible */
 }
 
-.body aside {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 28%;
-          flex: 1 28%;
-  min-width: 300px;
-}
-
-@media (max-width: 1200px) {
-  .body aside {
-    display: none;
-  }
-}
-
 .NewScream,
 .InvitationDiv,
 .Contacts {
@@ -134,5 +121,11 @@ main {
 
 main > div {
   margin-bottom: 1em;
+}
+
+.NewScream {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1em;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=NewScream.css.map */

@@ -17,6 +17,8 @@ import { handleLoadingAnimation } from "./../../../Home";
 import { useDispatch, useSelector } from "react-redux";
 import { POST_SCREAM } from "./../../../../Redux/reducers/POST_SCREAM";
 const TextFieldStyled = styled(TextField)({
+  position: "relative",
+  top: ".5em",
   "& *": {
     boxSizing: "content-box !important",
   },
@@ -52,7 +54,9 @@ const NewScream = (props: any) => {
     );
     if (postContent?.current.value) {
       handlePostClass.setLoadingFunc();
-      dispatch(POST_SCREAM({ text: postContent.current.value }));
+      dispatch(
+        POST_SCREAM(CURRENT_USER.userid, { text: postContent.current.value })
+      );
       setTimeout(() => {
         postContent.current.value = "";
         handlePostClass.setDoneFunc();
@@ -73,7 +77,14 @@ const NewScream = (props: any) => {
             setPostButtonContent
           );
         }}>
-        <StyledAvatar src={CURRENT_USER.userAvatar} />
+        <StyledAvatar
+          src={CURRENT_USER.userAvatar}
+          fullName={CURRENT_USER.fullName}
+          sxPlus={{
+            position: "relative",
+            top: ".3em",
+          }}
+        />
         <TextFieldStyled
           id='outlined-search'
           label={`What's new ${CURRENT_USER.fullName.split(" ")[0]}?`}

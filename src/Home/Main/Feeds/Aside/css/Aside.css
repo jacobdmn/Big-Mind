@@ -94,19 +94,6 @@ button {
   /* Optional: just make scrollbar invisible */
 }
 
-.body aside {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 28%;
-          flex: 1 28%;
-  min-width: 300px;
-}
-
-@media (max-width: 1200px) {
-  .body aside {
-    display: none !important;
-  }
-}
-
 .NewScream,
 .InvitationDiv,
 .Contacts {
@@ -136,7 +123,7 @@ main > div {
   margin-bottom: 1em;
 }
 
-aside {
+.body aside {
   -webkit-box-flex: 1;
       -ms-flex: 1 28%;
           flex: 1 28%;
@@ -150,13 +137,13 @@ aside {
           flex-direction: column;
 }
 
-aside span.closeIcon {
+.body aside span.closeIcon {
   color: inherit;
   text-align: end;
 }
 
 @media (max-width: 1200px) {
-  aside {
+  .body aside {
     display: none !important;
   }
 }

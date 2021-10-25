@@ -94,25 +94,22 @@ button {
   /* Optional: just make scrollbar invisible */
 }
 
-.body aside {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 28%;
-          flex: 1 28%;
-  min-width: 300px;
-}
-
-@media (max-width: 1200px) {
-  .body aside {
-    display: none !important;
-  }
+.body main {
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .Stories {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   gap: 1em;
   overflow-x: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1em;
+  margin-bottom: 0;
+  padding-inline: 0.5em;
   scrollbar-width: none;
 }
 

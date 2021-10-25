@@ -3,16 +3,18 @@ import Avatar from "@mui/material/Avatar";
 import CircularProgress from "@mui/material/CircularProgress";
 import { styled } from "@mui/material/styles";
 
-export const StyledAvatar: React.FC<{ src?: string; fullName?: string }> = ({
-  src,
-  fullName = "",
-}) => {
+export const StyledAvatar: React.FC<{
+  src?: string;
+  fullName?: string;
+  sxPlus?: any;
+}> = ({ src = "", fullName = "", sxPlus }) => {
   return src ? (
     <Avatar
-      src={src && src}
+      src={src}
       sx={{
         width: "50px",
         height: "50px",
+        ...sxPlus,
       }}
     />
   ) : (

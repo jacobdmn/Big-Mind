@@ -12,6 +12,13 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 export default function MediaControlCard() {
   const theme = useTheme();
 
+  const [playing, setPlaying] = React.useState(true);
+
+  React.useEffect(() => {
+    const music = new Audio("./songs/avamax.mp3");
+    playing ? music.pause() : music.play();
+  }, [playing]);
+
   return (
     <Card
       className='MusicBox'
@@ -43,7 +50,11 @@ export default function MediaControlCard() {
               <SkipPreviousIcon />
             )}
           </IconButton>
-          <IconButton aria-label='play/pause'>
+          <IconButton
+            aria-label='play/pause'
+            onClick={() => {
+              setPlaying((prev) => !prev);
+            }}>
             <PlayArrowIcon sx={{ height: 38, width: 38 }} />
           </IconButton>
           <IconButton aria-label='next'>

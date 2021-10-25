@@ -15,15 +15,7 @@
     @include scrollBarNone;
     padding-top: calc(min(2vw, 1em));
   }
-
-  aside {
-    flex: 1 28%;
-    min-width: 300px;
-  }
-
-  @media (max-width: $tablet2) {
-    aside {
-      display: none !important;
-    }
+  main {
+    border-inline: 1px solid rgba(0, 0, 0, 0.1);
   }
 }

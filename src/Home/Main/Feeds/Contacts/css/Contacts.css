@@ -94,17 +94,8 @@ button {
   /* Optional: just make scrollbar invisible */
 }
 
-.body aside {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 28%;
-          flex: 1 28%;
-  min-width: 300px;
-}
-
-@media (max-width: 1200px) {
-  .body aside {
-    display: none;
-  }
+.body main {
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .NewScream,
@@ -170,7 +161,7 @@ main > div {
 
 .ChatBox {
   position: fixed !important;
-  width: unset !important;
+  width: 500px !important;
   bottom: 0px;
   right: -100%;
   height: calc(95vh - 110px);
@@ -239,7 +230,7 @@ main > div {
 
 .ChatBox .chat-box {
   height: auto !important;
-  background-color: none;
+  background: none !important;
 }
 
 .ChatBox .chat-box .msg-page {

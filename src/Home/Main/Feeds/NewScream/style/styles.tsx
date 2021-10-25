@@ -5,6 +5,7 @@ export const StyledForm = styled("form")({
   alignItems: "flex-end",
   gridTemplateColumns: "auto 1fr auto auto",
   padding: "0.7em 1em",
+  paddingTop: "0",
 
   "& .MuiTextField-root": {
     m: "0.5em",

@@ -26,7 +26,7 @@
 }
 .ChatBox {
   position: fixed !important;
-  width: unset !important;
+  width: 500px !important;
   bottom: 0px;
   right: -100%;
   height: calc(95vh - 110px);
@@ -76,7 +76,7 @@
   }
   .chat-box {
     height: auto !important;
-    background-color: none;
+    background: none !important;
 
     .msg-page {
       height: auto !important;

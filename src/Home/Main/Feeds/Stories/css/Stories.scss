@@ -1,8 +1,14 @@
 @import "./../../../css/Main";
 .Stories {
   display: flex;
+  justify-content: space-around;
   gap: 1em;
   overflow-x: auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 1em;
+  margin-bottom: 0;
+  padding-inline: 0.5em;
+
   @include scrollBarNone;
   &::before {
     content: "";
