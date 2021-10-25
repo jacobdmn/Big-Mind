@@ -52,11 +52,7 @@ const NewScream = (props: any) => {
     );
     if (postContent?.current.value) {
       handlePostClass.setLoadingFunc();
-      dispatch(
-        POST_SCREAM(CURRENT_USER.userId, {
-          text: postContent.current.value,
-        })
-      );
+      dispatch(POST_SCREAM({ text: postContent.current.value }));
       setTimeout(() => {
         postContent.current.value = "";
         handlePostClass.setDoneFunc();

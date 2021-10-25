@@ -9,7 +9,7 @@ export const StyledScream = styled(Card)({
   },
 
   //// styling the full name
-  "div.CardHeader div:nth-child(2) span:first-child": {
+  "span.css-et1ao3-MuiTypography-root, span.css-14tqbo1": {
     fontWeight: "bold",
     fontSize: "1em",
     lineHeight: "1.5",
@@ -23,11 +23,7 @@ export const StyledScream = styled(Card)({
   },
 
   //// body
-  "div.streamBody > *": {
-    "&:first-child": {
-      marginBottom: "1em !important",
-    },
-
+  "div.screamBody > *": {
     fontFamily: "unset !important",
     fontWeight: "500 !important",
     fontSize: "1em !important",

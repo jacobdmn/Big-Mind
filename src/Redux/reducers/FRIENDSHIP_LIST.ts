@@ -27,8 +27,8 @@ interface actionTypeScript {
   };
 }
 const initialState = {
-  USER_FRIENDS_COPIE: [...USER_FRIENDS, 3],
-  USER_INVITATIONS_COPIE: [...USER_INVITATIONS],
+  USER_FRIENDS_COPIE: [...new Set(USER_FRIENDS)],
+  USER_INVITATIONS_COPIE: [...new Set(USER_INVITATIONS)],
 };
 
 const friendshipListReducer = (
@@ -37,12 +37,15 @@ const friendshipListReducer = (
 ) => {
   switch (action.type) {
     case actionTypes.ACCEPT_FRIENDSHIP_INVITATION_TYPE:
-      state.USER_FRIENDS_COPIE.push(action.payload.id);
+      if (!state.USER_FRIENDS_COPIE.includes(action.payload.id))
+        state.USER_FRIENDS_COPIE.push(action.payload.id);
       break;
     case actionTypes.FILTER_INVITATION_LIST:
-      state.USER_INVITATIONS_COPIE.filter(
-        (invitID) => invitID !== action.payload.id
-      );
+      state.USER_INVITATIONS_COPIE = [
+        ...state.USER_INVITATIONS_COPIE.filter(
+          (invitID) => invitID !== action.payload.id
+        ),
+      ];
       break;
   }
   return { ...state };

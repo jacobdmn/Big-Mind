@@ -7,10 +7,12 @@ import { useSelector } from "react-redux";
 const Contacts = () => {
   const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
   const users = useSelector((state: any) => state.usersReducer);
+
   const contacts = useSelector(
     (state: any) => state.friendshipListReducer.USER_FRIENDS_COPIE
   );
 
+  React.useEffect(() => {});
   /// is chating
   const [isChating, setIsChating] = React.useState(false);
 
@@ -28,6 +30,8 @@ const Contacts = () => {
   };
 
   return (
+    // <></>
+
     <>
       <div className='Contacts-Container'>
         <div className='Contacts'>
@@ -39,7 +43,7 @@ const Contacts = () => {
                 )
                 .map((user: any) => (
                   <Contact
-                    key={user.id}
+                    key={user.userId}
                     {...user}
                     openChatBox={() =>
                       openChatBox(user.id, user.fullName, user.userAvatar)

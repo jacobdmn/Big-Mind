@@ -1,6 +1,7 @@
 import actionTypes from "../actionTypes";
 import { SCREAMS } from "./../database";
 import { SCREAM } from "./../database";
+import { CURRENT_USER } from "../database";
 
 ////////////////////////////////////////////////////////////////
 let lastIdScream = SCREAMS.length - 1;
@@ -19,16 +20,17 @@ const month = [
   "Dec",
 ];
 
-export const POST_SCREAM = (
-  userId: number,
-  screamContent: { text: string; img?: ""; location?: string }
-) => {
+export const POST_SCREAM = (screamContent: {
+  text: string;
+  img?: "";
+  location?: string;
+}) => {
   return {
     type: actionTypes.POST_SCREAM,
     payload: {
       newScream: new SCREAM(
         parseInt(`${Date.now() + lastIdScream++}`), /// scream id
-        userId, /// user id
+        CURRENT_USER.userId, /// user id
         screamContent, //// scream content
         `${month[new Date().getMonth()]}
          ${new Date().getDay()} at ${new Date().getHours()}:${new Date().getMinutes()}` /// created at, expected Output: Ex: Oct 22

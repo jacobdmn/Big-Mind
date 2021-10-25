@@ -134,7 +134,7 @@ button {
   padding-left: 2em;
 }
 
-.NavBar .Menu ul li:first-child {
+.NavBar .Menu ul li.first-child {
   padding-top: 1.5em;
 }
 

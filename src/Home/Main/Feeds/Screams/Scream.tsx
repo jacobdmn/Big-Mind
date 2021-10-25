@@ -42,8 +42,13 @@ const RecipeReviewCard: React.FC<{
             alt=''
           />
         )}
-        <CardContent className='streamBody' component='div'>
-          <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
+        <CardContent className='screamBody' component='div'>
+          <Typography
+            variant='body2'
+            color='rgba(0, 0, 0, 0.7)'
+            sx={{
+              marginBottom: "1em !important",
+            }}>
             {screamContent.text}
           </Typography>
           <Typography variant='body2' color='blue'>

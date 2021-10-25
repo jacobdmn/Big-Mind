@@ -4,58 +4,18 @@ import Story from "./Story";
 import "./css/Stories.css";
 import { styled } from "@mui/material/styles";
 import ShowFullScreen from "./ShowFullScreen";
+import { useSelector /* useDispatch */ } from "react-redux";
 
 const Stories = () => {
-  const data = [
-    {
-      id: 323,
-      fullName: "Amina Bibi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 3223,
-      fullName: "Amina Bibi",
-      userAvatar:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-      story:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-    },
-    {
-      id: 3123,
-      fullName: "Amina Bibi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 31123,
-      fullName: "Amina Bibi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 31223,
-      fullName: "Amina Bibi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 314323,
-      fullName: "Amina Bibi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-    },
-  ];
+  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
+  const users = useSelector((state: any) => state.usersReducer);
+  const stories = useSelector((state: any) => state.storiesReducer);
+
+  stories.forEach(
+    (story: { storyId: number; storySrc: string; userId: any }) => {
+      story.userId = users.find((user: any) => user.userId === story.userId);
+    }
+  );
   const StyledUploadInput = styled("input")({
     position: "absolute",
     top: "-100%",
@@ -79,7 +39,7 @@ const Stories = () => {
       <div
         className='Story'
         style={{
-          backgroundImage: `url('${data[1].story}')`,
+          backgroundImage: `url('${CURRENT_USER.userAvatar}')`,
         }}>
         <div className='add'>
           <AddIcon />
@@ -88,13 +48,15 @@ const Stories = () => {
         <StyledUploadInput type='file' accept='image' />
       </div>
 
-      {data.map((STORY) => (
-        <Story
-          key={STORY.id}
-          {...STORY}
-          handleClick={() => getStoryId(STORY.id)}
-        />
-      ))}
+      {stories.map(
+        (STORY: { storyId: number; storySrc: string; userId: any }) => (
+          <Story
+            key={STORY.storyId}
+            {...STORY}
+            handleClick={() => getStoryId(STORY.storyId)}
+          />
+        )
+      )}
 
       {/*  */}
       {open && <ShowFullScreen id={storyID} open={open} setOpen={setOpen} />}

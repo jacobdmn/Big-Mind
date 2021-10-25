@@ -4,12 +4,18 @@ import Contacts from "../Contacts/Contacts";
 import "./css/Aside.css";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Divider from "@mui/material/Divider";
+import { useSelector } from "react-redux";
 
 const Aside = () => {
   const [showInvits, setShowInvits] = useState(true);
+
+  const invits = useSelector(
+    (state: any) => state.friendshipListReducer.USER_INVITATIONS_COPIE
+  );
+
   return (
     <aside>
-      {showInvits && (
+      {invits.length > 0 && showInvits && (
         <>
           <span className='closeIcon'>
             <HighlightOffIcon onClick={() => setShowInvits(false)} />

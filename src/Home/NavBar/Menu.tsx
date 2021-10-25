@@ -17,7 +17,7 @@ export default function TypographyMenu() {
   return (
     <Paper className='Menu'>
       <MenuList>
-        <MenuItem className='activeLink'>
+        <MenuItem className='activeLink first-child'>
           <ListItemIcon>
             <HomeOutlinedIcon fontSize='large' />
           </ListItemIcon>
