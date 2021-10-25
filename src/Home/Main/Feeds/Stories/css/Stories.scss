@@ -18,8 +18,8 @@
   .Story {
     @include componentBasics;
     overflow: hidden;
-    min-width: 17%;
-    height: clamp(80px, calc(60px + 8vw), 200px);
+    width: clamp(100px, 17%, 200px);
+    height: clamp(140px, calc(60px + 8vw), 200px);
     background-position: center center;
     background-size: cover;
     color: white;

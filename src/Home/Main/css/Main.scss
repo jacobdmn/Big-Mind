@@ -23,7 +23,7 @@
 
   @media (max-width: $tablet2) {
     aside {
-      display: none;
+      display: none !important;
     }
   }
 }

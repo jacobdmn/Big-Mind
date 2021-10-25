@@ -103,7 +103,7 @@ button {
 
 @media (max-width: 1200px) {
   .body aside {
-    display: none;
+    display: none !important;
   }
 }
 /*# sourceMappingURL=Main.css.map */

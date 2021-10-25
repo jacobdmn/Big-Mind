@@ -103,7 +103,7 @@ button {
 
 @media (max-width: 1200px) {
   .body aside {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -157,7 +157,7 @@ aside span.closeIcon {
 
 @media (max-width: 1200px) {
   aside {
-    display: none;
+    display: none !important;
   }
 }
 /*# sourceMappingURL=Aside.css.map */

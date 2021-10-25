@@ -12,6 +12,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import { StyledScream } from "./style/styledComponents";
 import { useSelector } from "react-redux";
+import { styled } from "@mui/material/";
 
 const RecipeReviewCard: React.FC<{
   screamId: number;
@@ -20,6 +21,16 @@ const RecipeReviewCard: React.FC<{
   createdAt: string;
 }> = ({ screamId, userId, screamContent, createdAt }) => {
   const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
+
+  const StyledSpan = styled("span")({
+    marginLeft: ".3em",
+    fontSize: ".9em",
+    fontWeight: 400,
+  });
+
+  const StyledInteractionButton = styled(IconButton)({
+    borderRadius: "4px",
+  });
   return (
     <div className='Scream'>
       <StyledScream>
@@ -43,28 +54,34 @@ const RecipeReviewCard: React.FC<{
           />
         )}
         <CardContent className='screamBody' component='div'>
-          <Typography
-            variant='body2'
-            color='rgba(0, 0, 0, 0.7)'
-            sx={{
-              marginBottom: "1em !important",
-            }}>
+          <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
             {screamContent.text}
           </Typography>
-          <Typography variant='body2' color='blue'>
+        </CardContent>
+        <CardActions
+          disableSpacing
+          sx={{
+            gap: "1em",
+            flexWrap: "wrap",
+          }}>
+          <StyledInteractionButton aria-label='add to favorites'>
+            <FavoriteIcon />
+            <StyledSpan>Like</StyledSpan>
+          </StyledInteractionButton>
+          <StyledInteractionButton aria-label='add a comment'>
+            <ChatBubbleOutlineOutlinedIcon />
+            <StyledSpan>Comment</StyledSpan>
+          </StyledInteractionButton>
+          <StyledInteractionButton aria-label='share'>
+            <ShareIcon />
+            <StyledSpan>Share</StyledSpan>
+          </StyledInteractionButton>
+          <Typography
+            variant='body2'
+            color='blue'
+            sx={{ flex: 1, textAlign: "right" }}>
             {createdAt}
           </Typography>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label='add to favorites'>
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label='add a comment'>
-            <ChatBubbleOutlineOutlinedIcon />
-          </IconButton>
-          <IconButton aria-label='share'>
-            <ShareIcon />
-          </IconButton>
         </CardActions>
       </StyledScream>
     </div>

@@ -33,7 +33,7 @@ const SearchResults = () => {
     <ClickAwayListener onClickAway={handleClickAway}>
       <Box
         sx={{
-          width: "clamp(200px, 35vw, 600px) !important",
+          width: "clamp(270px, 35vw, 600px) !important",
           position: "relative",
           transition: "all .2s ease-in",
           display: "flex",
