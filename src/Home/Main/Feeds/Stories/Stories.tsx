@@ -11,11 +11,10 @@ const Stories = () => {
   const users = useSelector((state: any) => state.usersReducer);
   const stories = useSelector((state: any) => state.storiesReducer);
 
-  stories.forEach(
-    (story: { storyId: number; storySrc: string; userId: any }) => {
-      story.userId = users.find((user: any) => user.userId === story.userId);
-    }
-  );
+  stories.forEach((story: any) => {
+    /// create userInfos to map userId to userInfos [full profile]
+    story.userInfos = users.find((user: any) => user.userId === story.userId);
+  });
   const StyledUploadInput = styled("input")({
     position: "absolute",
     top: "-100%",
@@ -48,18 +47,24 @@ const Stories = () => {
         <StyledUploadInput type='file' accept='image' />
       </div>
 
-      {stories.map(
-        (STORY: { storyId: number; storySrc: string; userId: any }) => (
+      {stories.length > 0 &&
+        stories.map((STORY: any) => (
           <Story
             key={STORY.storyId}
             {...STORY}
             handleClick={() => getStoryId(STORY.storyId)}
           />
-        )
-      )}
+        ))}
 
       {/*  */}
-      {open && <ShowFullScreen id={storyID} open={open} setOpen={setOpen} />}
+      {open && (
+        <ShowFullScreen
+          stories={stories}
+          id={storyID}
+          open={open}
+          setOpen={setOpen}
+        />
+      )}
     </div>
   );
 };

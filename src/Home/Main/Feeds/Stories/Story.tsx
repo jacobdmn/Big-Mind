@@ -1,24 +1,23 @@
 import * as React from "react";
 
 const Story: React.FC<{
-  userId: {
+  userInfos: {
     fullName: string;
     userAvatar: string;
   };
   storySrc: string;
   handleClick: () => unknown;
-}> = ({ userId, storySrc, handleClick }) => {
-  // alert(storySrc);
+}> = ({ userInfos, storySrc, handleClick }) => {
   return (
     <>
       <div
         className='Story'
-        style={{ backgroundImage: `url('${storySrc}')` }}
+        style={{ backgroundImage: `url('${storySrc && storySrc}')` }}
         onClick={handleClick}>
         <div
           className='Avatar-Story'
-          style={{ backgroundImage: `url('${userId.userAvatar}')` }}></div>
-        <h4 className='Story-title'>{userId.fullName.split(" ")[0]}</h4>
+          style={{ backgroundImage: `url('${userInfos.userAvatar}')` }}></div>
+        <h4 className='Story-title'>{userInfos.fullName.split(" ")[0]}</h4>
       </div>
     </>
   );

@@ -4,75 +4,26 @@ import { styled } from "@mui/material/styles";
 import ChevronLeftSharpIcon from "@mui/icons-material/ChevronLeftSharp";
 
 const ShowFullScreen: React.FC<{
+  stories: any;
   id: number;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ id, open, setOpen }) => {
-  const data = [
-    {
-      id: 323,
-      fullName: "Maria MiMi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 3223,
-      fullName: "Maria MiMi",
-      userAvatar:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-      story:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-    },
-    {
-      id: 3123,
-      fullName: "Maria MiMi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 31123,
-      fullName: "Maria MiMi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 31223,
-      fullName: "Maria MiMi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://www.packard.org/wp-content/uploads/2019/03/Maria_Tourtchaninova_crop-524x643.jpg",
-    },
-    {
-      id: 314323,
-      fullName: "Maria MiMi",
-      userAvatar:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-      story:
-        "https://media.gettyimages.com/photos/personality-maria-menounos-attends-the-101st-annual-white-house-at-picture-id471130842?s=612x612",
-    },
-  ];
-
+}> = ({ stories, id, open, setOpen }) => {
   ///  this id will change when the user navigate between stories
   const [ID, setID] = React.useState(
-    data.indexOf(data.filter((story) => story.id === id)[0])
+    // get the index of story to use it to select later
+    stories.indexOf(stories.find((story: any) => story.storyId === id))
   );
 
   //// when the user clicks the arrows
   const changeStory = (type: string) => {
     switch (type) {
       case "previous":
-        ID > 0 && setID((ID) => ID - 1);
+        ID > 0 && setID((ID: number) => ID - 1);
 
         break;
       case "next":
-        ID < data.length - 1 && setID((ID) => ID + 1);
+        ID < stories.length - 1 && setID((ID: number) => ID + 1);
         break;
       default:
         break;
@@ -91,7 +42,7 @@ const ShowFullScreen: React.FC<{
     left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundColor: "rgba(0,0,0,0.95)",
     zIndex: 1000,
   });
 
@@ -113,7 +64,7 @@ const ShowFullScreen: React.FC<{
           <div
             className='Story'
             style={{
-              backgroundImage: `url('${data[ID].story}')`,
+              backgroundImage: `url('${stories[ID].storySrc}')`,
               position: "fixed",
               top: "50%",
               left: "50%",
@@ -127,9 +78,11 @@ const ShowFullScreen: React.FC<{
             <div
               className='Avatar-Story'
               style={{
-                backgroundImage: `url('${data[ID].userAvatar}')`,
+                backgroundImage: `url('${stories[ID].userInfos.userAvatar}')`,
               }}></div>
-            <h4 className='Story-title'>{data[ID].fullName.split(" ")[0]}</h4>
+            <h4 className='Story-title'>
+              {stories[ID].userInfos.fullName.split(" ")[0]}
+            </h4>
             <StyledChevronLeftSharpIcon
               style={{ left: 0 }}
               onClick={() => changeStory("previous")}
