@@ -5,7 +5,6 @@ import ChatBox from "./ChatBox.jsx";
 import { useSelector } from "react-redux";
 
 const Contacts = () => {
-  const CURRENT_USER = useSelector((state: any) => state.currentUserReducer);
   const users = useSelector((state: any) => state.usersReducer);
 
   const contacts = useSelector(
@@ -17,15 +16,19 @@ const Contacts = () => {
   const [isChating, setIsChating] = React.useState(false);
 
   const [secondPartUser, setSecondPartUser] = React.useState({
-    id: 1,
-    name: "",
-    avatar: "",
+    userId: 0,
+    fullName: "",
+    userAvatar: "",
   });
   const hideChatBox = () => {
     setIsChating(false);
   };
-  const openChatBox = (id: number, name: string, avatar: string) => {
-    setSecondPartUser({ id, name, avatar });
+  const openChatBox = (
+    userId: number,
+    fullName: string,
+    userAvatar: string
+  ) => {
+    setSecondPartUser({ userId, fullName, userAvatar });
     setIsChating(true);
   };
 
@@ -46,18 +49,19 @@ const Contacts = () => {
                     key={user.userId}
                     {...user}
                     openChatBox={() =>
-                      openChatBox(user.id, user.fullName, user.userAvatar)
+                      openChatBox(user.userId, user.fullName, user.userAvatar)
                     }
                   />
                 ))}
           </List>
         </div>
-        <ChatBox
-          isChating={isChating}
-          hideChatBox={hideChatBox}
-          firstPartUser={CURRENT_USER}
-          secondPartUser={secondPartUser}
-        />
+        {isChating && (
+          <ChatBox
+            isChating={isChating}
+            hideChatBox={hideChatBox}
+            secondPartUser={secondPartUser}
+          />
+        )}
       </div>
     </>
   );

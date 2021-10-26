@@ -25,25 +25,16 @@ export class USER {
 }
 /// Message Class
 export class MESSAGE {
-  id: number;
+  messageId: number;
   text: string;
-  sender: {
-    name: string;
-    uid: string;
-    avatar: string;
-  };
-  constructor(
-    id: number,
-    text: string,
-    sender: {
-      name: string;
-      uid: string;
-      avatar: string;
-    }
-  ) {
-    this.id = id;
+  senderId: number;
+  sentAt: number;
+
+  constructor(senderId: number, text: string) {
+    this.messageId = new Date().getDate();
+    this.senderId = senderId;
     this.text = text;
-    this.sender = sender;
+    this.sentAt = new Date().getDate();
   }
 }
 /// Story Class
@@ -121,21 +112,24 @@ export const CURRENT_USER = USERS[0];
 export const USER_FRIENDS: number[] = [];
 /// USER_MESSAGES
 export const USER_MESSAGES = [
-  new MESSAGE(0, "Hi, Jacob, You are Hired!", {
-    name: "Marius",
-    uid: "user2",
-    avatar: "./imgs/users/jacob_dmn/stories/jacob_story1.jpg",
-  }),
-  new MESSAGE(1, "Ow!, Wow, Great", {
-    name: "Jacob",
-    uid: "user1",
-    avatar: "./imgs/users/jacob_dmn/avatar/jacob_dmn.jpeg",
-  }),
-  new MESSAGE(2, "When Do u wanna start", {
-    name: "Marius",
-    uid: "user2",
-    avatar: "./imgs/users/jacob_dmn/stories/jacob_story1.jpg",
-  }),
+  {
+    with: 20,
+    messageBox: [
+      new MESSAGE(20, "Wech Frero we9tach netla3"),
+      new MESSAGE(100, "Janvier"),
+      new MESSAGE(20, "Sure?"),
+      new MESSAGE(100, "Non :D"),
+    ],
+  },
+  {
+    with: 3,
+    messageBox: [
+      new MESSAGE(20, "Jacob !"),
+      new MESSAGE(100, "Broo"),
+      new MESSAGE(20, "J'ai commencé Analyse 3 !!!"),
+      new MESSAGE(100, "DAAAMN"),
+    ],
+  },
 ];
 /// userInvitations
 export const USER_INVITATIONS = [20, 3];

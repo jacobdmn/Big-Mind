@@ -52,10 +52,10 @@ const NewScream = (props: any) => {
       postButtonContent,
       setPostButtonContent
     );
-    if (postContent?.current.value) {
+    if (typeof postContent.current !== "undefined") {
       handlePostClass.setLoadingFunc();
       dispatch(
-        POST_SCREAM(CURRENT_USER.userid, { text: postContent.current.value })
+        POST_SCREAM(CURRENT_USER.userId, { text: postContent.current.value })
       );
       setTimeout(() => {
         postContent.current.value = "";
@@ -79,7 +79,6 @@ const NewScream = (props: any) => {
         }}>
         <StyledAvatar
           src={CURRENT_USER.userAvatar}
-          fullName={CURRENT_USER.fullName}
           sxPlus={{
             position: "relative",
             top: ".3em",

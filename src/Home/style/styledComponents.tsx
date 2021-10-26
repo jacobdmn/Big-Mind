@@ -4,11 +4,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { styled } from "@mui/material/styles";
 
 export const StyledAvatar: React.FC<{
-  src?: string;
-  fullName?: string;
+  src: string;
   sxPlus?: any;
-}> = ({ src = "", fullName = "", sxPlus }) => {
-  return src ? (
+}> = ({ src, sxPlus }) => {
+  return (
     <Avatar
       src={src}
       sx={{
@@ -17,12 +16,6 @@ export const StyledAvatar: React.FC<{
         ...sxPlus,
       }}
     />
-  ) : (
-    <Avatar
-      sx={{ backgroundColor: "#539b27", width: "50px", height: "50px" }}
-      aria-label='recipe'>
-      {fullName.split("")[0].toUpperCase()}
-    </Avatar>
   );
 };
 

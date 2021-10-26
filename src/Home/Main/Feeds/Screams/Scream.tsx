@@ -38,13 +38,13 @@ const RecipeReviewCard: React.FC<{
       <StyledScream>
         <CardHeader
           className='CardHeader'
-          avatar={<StyledAvatar src={USER_OWNER?.userAvatar} />}
+          avatar={<StyledAvatar src={USER_OWNER.userAvatar} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
             </IconButton>
           }
-          title={USER_OWNER?.fullName}
+          title={USER_OWNER.fullName}
           subheader={screamContent.location}
         />
         {screamContent.img && (
