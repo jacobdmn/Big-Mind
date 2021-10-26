@@ -165,4 +165,14 @@ export const SCREAMS = [
     },
     "Mai 2"
   ),
+  new SCREAM(
+    1,
+    20,
+    {
+      text: "I'm the first guy who screamed twice YAAY",
+      img: "https://i.ytimg.com/vi/jkdtIcuTMsA/maxresdefault.jpg",
+      location: "Manhattan, NYC",
+    },
+    "Oct 26"
+  ),
 ];
