@@ -1,3 +1,4 @@
+import { LocalGroceryStoreOutlinedIcon } from "@mui/icons-material/LocalGroceryStoreOutlined";
 /// User Class
 export class USER {
   userId: number;
@@ -163,16 +164,6 @@ export const SCREAMS = [
       img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_Gotham.jpg/1200px-Above_Gotham.jpg",
       location: "Brooklyn, NYC",
     },
-    "Mai 2"
-  ),
-  new SCREAM(
-    1,
-    20,
-    {
-      text: "I'm the first guy who screamed twice YAAY",
-      img: "https://i.ytimg.com/vi/jkdtIcuTMsA/maxresdefault.jpg",
-      location: "Manhattan, NYC",
-    },
-    "Oct 26"
+    "Mai  2"
   ),
 ];
