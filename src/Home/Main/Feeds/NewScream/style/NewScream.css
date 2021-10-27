@@ -199,7 +199,7 @@ main .NewScream__Input textarea::placeholder {
 }
 
 main .NewScream__Audiance {
-  display: none;
+  opacity: 0;
 }
 
 main .NewScream__Audiance svg {

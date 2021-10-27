@@ -110,8 +110,6 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   gap: 1em;
   overflow-x: auto;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -148,8 +146,8 @@ textarea {
   color: #1c3a5f;
   padding: 0.5em;
   overflow: hidden;
-  width: clamp(100px, 17%, 200px);
-  height: clamp(140px, calc(60px + 8vw), 200px);
+  min-width: clamp(100px, 17%, 200px);
+  min-height: clamp(140px, calc(60px + 8vw), 200px);
   background-position: center center;
   background-size: cover;
   color: white;

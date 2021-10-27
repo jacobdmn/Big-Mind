@@ -102,7 +102,9 @@ export const USERS = [
 /// Stories database
 export const STORIES = [
   new STORY(198, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
+  new STORY(212, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
   new STORY(298, "./imgs/users/jacob_dmn/stories/jacob_story1.jpg", 100),
+  new STORY(198, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
   new STORY(212, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
 ];
 

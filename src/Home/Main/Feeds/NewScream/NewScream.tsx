@@ -21,16 +21,21 @@ const NewScream = (props: any) => {
   const screamTextAreaRef = useRef<HTMLTextAreaElement>(null!);
   const [loadingPost, setLoadingPost] = useState(false);
   const [postLength, setPostLength] = useState(0);
-  const [reachedLimit, setReachedLimit] = useState(false);
-  const [showAudiance, setShowAudiance] = useState(false);
-  const limit = 100;
-  /// track scream length
+  const [reachedLimit, setReachedLimit] = useState(false); ///
+  const [showAudiance, setShowAudiance] = useState(false); /// show/hide audiance privacy
+  const limit = 100; /// num of charachters allowed per scream
+
   const handlePost = (e: React.SyntheticEvent) => {
     e.preventDefault();
     if (screamTextAreaRef.current.value === "" || reachedLimit) return;
+    setLoadingPost(true);
     setTimeout(() => {
-      setLoadingPost(true);
-      screamTextAreaRef.current.value.replace("<br />", "\n");
+      screamTextAreaRef.current.value = screamTextAreaRef.current.value
+        .replace(/ {2}/g, "  ")
+        .replaceAll(/\n/g, " &#10 ");
+
+      console.log(screamTextAreaRef.current.value);
+
       dispatch(
         POST_SCREAM(CURRENT_USER.userId, {
           text: screamTextAreaRef.current.value,
@@ -43,14 +48,16 @@ const NewScream = (props: any) => {
   };
   return (
     <form noValidate autoComplete='off' onSubmit={handlePost}>
-      <div className='NewScream'>
+      <div
+        className='NewScream'
+        onMouseEnter={() => setShowAudiance(true)}
+        onMouseLeave={() => setShowAudiance(false)}>
         <div className='NewScream__Input'>
           <TextareaAutosize
             ref={screamTextAreaRef}
             disabled={loadingPost}
             placeholder="What's happening?"
             minRows={2}
-            onClick={() => setShowAudiance(true)}
             onChange={() => {
               setPostLength(screamTextAreaRef.current.value.length);
               postLength > limit
@@ -61,7 +68,7 @@ const NewScream = (props: any) => {
         </div>
         <div
           className='NewScream__Audiance'
-          style={showAudiance ? { display: "block" } : {}}>
+          style={showAudiance ? { opacity: 1 } : {}}>
           <PublicIcon />
           <span>Everyone can reply</span>
         </div>

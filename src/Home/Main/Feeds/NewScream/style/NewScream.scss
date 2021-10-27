@@ -35,7 +35,7 @@ main .NewScream {
     }
   }
   &__Audiance {
-    display: none;
+    opacity: 0;
     svg {
       vertical-align: middle;
       margin: 0.3em;

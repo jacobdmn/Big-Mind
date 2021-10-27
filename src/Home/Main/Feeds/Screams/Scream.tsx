@@ -45,7 +45,7 @@ const RecipeReviewCard: React.FC<{
             </IconButton>
           }
           title={USER_OWNER.fullName}
-          subheader={screamContent.location}
+          subheader={`${screamContent.location || ""} at: ${createdAt}`}
         />
         {screamContent.img && (
           <CardMedia
@@ -78,12 +78,6 @@ const RecipeReviewCard: React.FC<{
             <ShareIcon />
             <StyledSpan>Share</StyledSpan>
           </StyledInteractionButton>
-          <Typography
-            variant='body2'
-            color='blue'
-            sx={{ flex: 1, textAlign: "right" }}>
-            {createdAt}
-          </Typography>
         </CardActions>
       </StyledScream>
     </div>

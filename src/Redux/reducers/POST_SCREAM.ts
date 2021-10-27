@@ -35,7 +35,7 @@ export const POST_SCREAM = (
         userId, /// user id
         screamContent, //// scream content
         `${month[new Date().getMonth()]}
-         ${new Date().getDay()} at ${new Date().getHours()}:${new Date().getMinutes()}` /// created at, expected Output: Ex: Oct 22
+         ${new Date().getDay()}, ${new Date().getHours()}:${new Date().getMinutes()}` /// created at, expected Output: Ex: Oct 22
       ),
     },
   };
