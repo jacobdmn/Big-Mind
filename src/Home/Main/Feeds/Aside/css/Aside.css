@@ -61,8 +61,16 @@ h5 {
   font-weight: 400 !important;
 }
 
-button {
+button,
+textarea {
+  background: none;
+  border: none;
   outline: none !important;
+}
+
+textarea {
+  resize: none;
+  cursor: text;
 }
 
 .body {
@@ -92,6 +100,10 @@ button {
   /* Remove scrollbar space */
   background: transparent;
   /* Optional: just make scrollbar invisible */
+}
+
+.body main {
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .NewScream,

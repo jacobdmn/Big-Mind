@@ -61,8 +61,16 @@ h5 {
   font-weight: 400 !important;
 }
 
-button {
+button,
+textarea {
+  background: none;
+  border: none;
   outline: none !important;
+}
+
+textarea {
+  resize: none;
+  cursor: text;
 }
 
 .body {
@@ -94,17 +102,8 @@ button {
   /* Optional: just make scrollbar invisible */
 }
 
-.body aside {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 28%;
-          flex: 1 28%;
-  min-width: 300px;
-}
-
-@media (max-width: 1200px) {
-  .body aside {
-    display: none;
-  }
+.body main {
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .NewScream,

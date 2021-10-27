@@ -61,7 +61,15 @@ h5 {
   font-weight: 400 !important;
 }
 
-button {
+button,
+textarea {
+  background: none;
+  border: none;
   outline: none !important;
+}
+
+textarea {
+  resize: none;
+  cursor: text;
 }
 /*# sourceMappingURL=Home.css.map */

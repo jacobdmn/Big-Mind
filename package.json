@@ -29,6 +29,7 @@
     "react-google-button": "^0.7.2",
     "react-redux": "^7.2.5",
     "react-scripts": "4.0.3",
+    "react-textarea-autosize": "^8.3.3",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
     "styled-components": "^5.3.1",

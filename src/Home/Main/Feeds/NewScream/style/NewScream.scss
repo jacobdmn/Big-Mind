@@ -1,7 +1,79 @@
 @import "./../../css/Feeds";
 
-.NewScream {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding-bottom: 1em;
-  margin-bottom: 0;
+main .NewScream {
+  margin: 1em;
+  padding: 3em 4em 1em 4em;
+  box-shadow: 2px 0 10px -1px #d5d5d5 !important;
+  transition: all 0.2s ease-in;
+
+  &,
+  * {
+    font-weight: normal;
+    color: #1c395f;
+    transition: all 0.2s ease-in;
+    letter-spacing: 1px;
+  }
+  &:hover {
+    box-shadow: 2px 0 10px -1px #b8b8b8 !important;
+    // border: 1px solid #b8b8b8;
+
+    ::placeholder {
+      color: rgba(0, 0, 0, 0.7);
+    }
+  }
+  &__Input {
+    textarea {
+      font-weight: bold;
+      width: 100%;
+      border: none;
+      font-size: 1.3em;
+      white-space: pre-line;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+  }
+  &__Audiance {
+    display: none;
+    svg {
+      vertical-align: middle;
+      margin: 0.3em;
+    }
+  }
+  &__Options {
+    margin: 0.3em 1em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 0;
+    .Options__Icons {
+      display: flex;
+      gap: 1em;
+      button:hover {
+        opacity: 0.8;
+      }
+    }
+    .Options__charsLimit {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .Options__Tweet {
+      padding: 1em;
+      background: #3784d6;
+      color: white;
+      border-radius: 1em;
+      font-weight: 700;
+      padding-inline: 1.5em;
+
+      &:hover {
+        background: #2070c5;
+      }
+      &:disabled {
+        background: #d7d7d7;
+        cursor: not-allowed;
+      }
+    }
+  }
 }

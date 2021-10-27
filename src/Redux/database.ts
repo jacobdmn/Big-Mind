@@ -1,4 +1,3 @@
-import { LocalGroceryStoreOutlinedIcon } from "@mui/icons-material/LocalGroceryStoreOutlined";
 /// User Class
 export class USER {
   userId: number;

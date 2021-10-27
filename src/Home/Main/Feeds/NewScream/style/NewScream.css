@@ -61,8 +61,16 @@ h5 {
   font-weight: 400 !important;
 }
 
-button {
+button,
+textarea {
+  background: none;
+  border: none;
   outline: none !important;
+}
+
+textarea {
+  resize: none;
+  cursor: text;
 }
 
 .body {
@@ -94,6 +102,10 @@ button {
   /* Optional: just make scrollbar invisible */
 }
 
+.body main {
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .NewScream,
 .InvitationDiv,
 .Contacts {
@@ -123,9 +135,128 @@ main > div {
   margin-bottom: 1em;
 }
 
-.NewScream {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding-bottom: 1em;
+main .NewScream {
+  margin: 1em;
+  padding: 3em 4em 1em 4em;
+  -webkit-box-shadow: 2px 0 10px -1px #d5d5d5 !important;
+          box-shadow: 2px 0 10px -1px #d5d5d5 !important;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+main .NewScream,
+main .NewScream * {
+  font-weight: normal;
+  color: #1c395f;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  letter-spacing: 1px;
+}
+
+main .NewScream:hover {
+  -webkit-box-shadow: 2px 0 10px -1px #b8b8b8 !important;
+          box-shadow: 2px 0 10px -1px #b8b8b8 !important;
+}
+
+main .NewScream:hover ::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+main .NewScream:hover :-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+main .NewScream:hover ::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+main .NewScream:hover ::placeholder {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+main .NewScream__Input textarea {
+  font-weight: bold;
+  width: 100%;
+  border: none;
+  font-size: 1.3em;
+  white-space: pre-line;
+}
+
+main .NewScream__Input textarea::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+main .NewScream__Input textarea:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+main .NewScream__Input textarea::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+main .NewScream__Input textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+main .NewScream__Audiance {
+  display: none;
+}
+
+main .NewScream__Audiance svg {
+  vertical-align: middle;
+  margin: 0.3em;
+}
+
+main .NewScream__Options {
+  margin: 0.3em 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 0;
+}
+
+main .NewScream__Options .Options__Icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+main .NewScream__Options .Options__Icons button:hover {
+  opacity: 0.8;
+}
+
+main .NewScream__Options .Options__charsLimit {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+main .NewScream__Options .Options__Tweet {
+  padding: 1em;
+  background: #3784d6;
+  color: white;
+  border-radius: 1em;
+  font-weight: 700;
+  padding-inline: 1.5em;
+}
+
+main .NewScream__Options .Options__Tweet:hover {
+  background: #2070c5;
+}
+
+main .NewScream__Options .Options__Tweet:disabled {
+  background: #d7d7d7;
+  cursor: not-allowed;
 }
 /*# sourceMappingURL=NewScream.css.map */
