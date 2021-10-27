@@ -73,6 +73,14 @@ textarea {
   cursor: text;
 }
 
+a {
+  color: inherit !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
 header {
   position: relative;
   z-index: 999;

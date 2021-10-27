@@ -12,9 +12,9 @@ const NavBar: React.FC = () => {
       <div>
         <Menu />
       </div>
-      <div className='Music'>
+      {/* <div className='Music'>
         <Music />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,24 +1,18 @@
 @import "./../../style/Home";
 
-.NavBar {
-  min-width: 230px;
+.body .NavBar {
+  padding: 1em;
+  min-width: fit-content;
+  max-width: 250px;
   display: flex !important;
   flex-grow: 1;
   flex-direction: column;
   gap: 1.5em;
 
-  .ProfileAvatar,
-  .Menu {
-    @include componentBasics;
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    line-height: 1.5;
-  }
-
   .ProfileAvatar {
     h4 {
       font-weight: bold;
+      white-space: nowrap;
     }
     .Name {
       flex-grow: 1;
@@ -31,6 +25,14 @@
       @include gridCenterItems;
     }
   }
+  .ProfileAvatar,
+  .Menu {
+    @include componentBasics;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    line-height: 1.5;
+  }
 
   .Menu {
     padding: 0;
@@ -39,9 +41,25 @@
       padding: 0;
       border-radius: 15px;
       overflow: hidden;
+      .Menu__NavLink__active {
+        li {
+          background: $gray-light;
+          border-left: 0.15em solid $blue-bright;
+
+          &,
+          * {
+            cursor: default;
+          }
+
+          svg,
+          p {
+            color: $blue-bright;
+          }
+        }
+      }
       li {
         padding-block: 1em;
-        padding-left: 2em;
+        padding-left: 1em;
 
         &.first-child {
           padding-top: 1.5em;
@@ -64,20 +82,6 @@
           opacity: 0.9;
         }
 
-        &.activeLink {
-          background: $gray-light;
-          border-left: 0.15em solid $blue-bright;
-
-          &,
-          * {
-            cursor: default;
-          }
-
-          svg,
-          p {
-            color: $blue-bright;
-          }
-        }
         & > * {
           cursor: pointer;
         }

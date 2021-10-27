@@ -73,6 +73,14 @@ textarea {
   cursor: text;
 }
 
+a {
+  color: inherit !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;

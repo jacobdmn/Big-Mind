@@ -73,8 +73,20 @@ textarea {
   cursor: text;
 }
 
-.NavBar {
-  min-width: 230px;
+a {
+  color: inherit !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+.body .NavBar {
+  padding: 1em;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: 250px;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
   display: flex !important;
@@ -88,8 +100,29 @@ textarea {
   gap: 1.5em;
 }
 
-.NavBar .ProfileAvatar,
-.NavBar .Menu {
+.body .NavBar .ProfileAvatar h4 {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.body .NavBar .ProfileAvatar .Name {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.body .NavBar .ProfileAvatar .Name * {
+  cursor: pointer;
+}
+
+.body .NavBar .ProfileAvatar .Setting {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.body .NavBar .ProfileAvatar,
+.body .NavBar .Menu {
   -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
           box-shadow: 2px 0 10px -1px #f2f3f4 !important;
   border-radius: 15px;
@@ -106,95 +139,75 @@ textarea {
   line-height: 1.5;
 }
 
-.NavBar .ProfileAvatar h4 {
-  font-weight: bold;
-}
-
-.NavBar .ProfileAvatar .Name {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-
-.NavBar .ProfileAvatar .Name * {
-  cursor: pointer;
-}
-
-.NavBar .ProfileAvatar .Setting {
-  display: -ms-grid;
-  display: grid;
-  place-items: center;
-}
-
-.NavBar .Menu {
+.body .NavBar .Menu {
   padding: 0;
 }
 
-.NavBar .Menu ul {
+.body .NavBar .Menu ul {
   width: 100%;
   padding: 0;
   border-radius: 15px;
   overflow: hidden;
 }
 
-.NavBar .Menu ul li {
-  padding-block: 1em;
-  padding-left: 2em;
-}
-
-.NavBar .Menu ul li.first-child {
-  padding-top: 1.5em;
-}
-
-.NavBar .Menu ul li:last-child {
-  padding-bottom: 1.5em;
-}
-
-.NavBar .Menu ul li .css-tzssek-MuiSvgIcon-root,
-.NavBar .Menu ul li .css-6flbmm {
-  color: rgba(76, 96, 123, 0.5);
-}
-
-.NavBar .Menu ul li .css-pwyk3z-MuiBadge-badge,
-.NavBar .Menu ul li .css-106c1u2-MuiBadge-badge,
-.NavBar .Menu ul li .css-13xqbvb,
-.NavBar .Menu ul li .css-1p3d99h {
-  opacity: 0.9;
-}
-
-.NavBar .Menu ul li.activeLink {
+.body .NavBar .Menu ul .Menu__NavLink__active li {
   background: #f4f6fa;
   border-left: 0.15em solid #1e76e8;
 }
 
-.NavBar .Menu ul li.activeLink,
-.NavBar .Menu ul li.activeLink * {
+.body .NavBar .Menu ul .Menu__NavLink__active li,
+.body .NavBar .Menu ul .Menu__NavLink__active li * {
   cursor: default;
 }
 
-.NavBar .Menu ul li.activeLink svg,
-.NavBar .Menu ul li.activeLink p {
+.body .NavBar .Menu ul .Menu__NavLink__active li svg,
+.body .NavBar .Menu ul .Menu__NavLink__active li p {
   color: #1e76e8;
 }
 
-.NavBar .Menu ul li > * {
+.body .NavBar .Menu ul li {
+  padding-block: 1em;
+  padding-left: 1em;
+}
+
+.body .NavBar .Menu ul li.first-child {
+  padding-top: 1.5em;
+}
+
+.body .NavBar .Menu ul li:last-child {
+  padding-bottom: 1.5em;
+}
+
+.body .NavBar .Menu ul li .css-tzssek-MuiSvgIcon-root,
+.body .NavBar .Menu ul li .css-6flbmm {
+  color: rgba(76, 96, 123, 0.5);
+}
+
+.body .NavBar .Menu ul li .css-pwyk3z-MuiBadge-badge,
+.body .NavBar .Menu ul li .css-106c1u2-MuiBadge-badge,
+.body .NavBar .Menu ul li .css-13xqbvb,
+.body .NavBar .Menu ul li .css-1p3d99h {
+  opacity: 0.9;
+}
+
+.body .NavBar .Menu ul li > * {
   cursor: pointer;
 }
 
-.NavBar .Menu ul li p {
+.body .NavBar .Menu ul li p {
   margin-left: 1.5em;
   font-weight: 400;
 }
 
-.NavBar .Menu ul .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root,
-.NavBar .Menu ul .css-1km1ehz + .MuiDivider-root {
+.body .NavBar .Menu ul .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root + .MuiDivider-root,
+.body .NavBar .Menu ul .css-1km1ehz + .MuiDivider-root {
   width: 80%;
   margin: 0;
   margin-inline: auto;
   opacity: 0.5;
 }
 
-.NavBar .MusicBox {
+.body .NavBar .MusicBox {
   -webkit-box-shadow: 2px 0 10px -1px #f2f3f4 !important;
           box-shadow: 2px 0 10px -1px #f2f3f4 !important;
   border-radius: 15px;
@@ -204,29 +217,29 @@ textarea {
   padding-inline: 0;
 }
 
-.NavBar .MusicBox .css-1ndgitk {
+.body .NavBar .MusicBox .css-1ndgitk {
   padding: 0;
 }
 
 @media (max-width: 1024px) {
-  .NavBar {
+  .body .NavBar {
     min-width: -webkit-fit-content;
     min-width: -moz-fit-content;
     min-width: fit-content;
   }
-  .NavBar .ProfileAvatar {
+  .body .NavBar .ProfileAvatar {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .NavBar h4,
-  .NavBar h5,
-  .NavBar p,
-  .NavBar .Music {
+  .body .NavBar h4,
+  .body .NavBar h5,
+  .body .NavBar p,
+  .body .NavBar .Music {
     display: none !important;
   }
-  .NavBar li {
+  .body .NavBar li {
     padding-inline: 0 !important;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -238,7 +251,7 @@ textarea {
 }
 
 @media (max-width: 500px) {
-  .NavBar {
+  .body .NavBar {
     display: none !important;
   }
 }

@@ -72,4 +72,12 @@ textarea {
   resize: none;
   cursor: text;
 }
+
+a {
+  color: inherit !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
 /*# sourceMappingURL=Home.css.map */
