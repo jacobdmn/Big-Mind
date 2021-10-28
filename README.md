@@ -4,4 +4,4 @@
 
 ### and much more
 
-## [#Live_Link](https://big-mind-community.web.app/)
+## LINK: https://big-mind-community.web.app/
