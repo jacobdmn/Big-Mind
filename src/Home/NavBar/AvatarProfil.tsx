@@ -9,7 +9,7 @@ export default function AvatarProfil() {
 
   return (
     <>
-      <Link to='/Profile/:CURRENT_USER.userName'>
+      <Link to='/Profile'>
         <StyledAvatar src={CURRENT_USER.userAvatar} />
       </Link>
       <Link to='/Profile'>
@@ -20,7 +20,7 @@ export default function AvatarProfil() {
       </Link>
 
       <div>
-        <Link to='/ProfileSettings'>
+        <Link to='/Settings'>
           <SettingsIcon className='Setting' />
         </Link>
       </div>

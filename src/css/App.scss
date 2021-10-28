@@ -18,12 +18,6 @@ $gray-light: rgb(244, 246, 250); //// for input search
 $white-slighter: rgb(253, 253, 253); //
 $shadow-light: rgb(242, 243, 244); /// header shadow
 
-//// Grid center alignItems
-@mixin gridCenterItems {
-  display: grid;
-  place-items: center;
-}
-
 /// SCREENS
 $tablet: 1024px;
 $tablet2: 1200px;
@@ -53,7 +47,7 @@ html {
   color: #444;
   background: rgb(250, 252, 254) !important; // for background
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
   max-width: 1500px;
   margin-inline: auto;
   position: relative;
@@ -86,6 +80,9 @@ h6 {
   font-size: 1em !important;
 }
 
+h1 {
+  font-size: 2em !important;
+}
 h4 {
   font-size: 1.1em !important;
   font-weight: 600 !important;

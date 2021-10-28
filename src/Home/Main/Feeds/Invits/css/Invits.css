@@ -26,7 +26,7 @@ html {
   color: #444;
   background: #fafcfe !important;
   height: 100vh;
-  overflow: hidden;
+  overflow: scroll;
   max-width: 1500px;
   margin-inline: auto;
   position: relative;
@@ -49,6 +49,10 @@ h6 {
   font-weight: 400 !important;
   line-height: 1.5 !important;
   font-size: 1em !important;
+}
+
+h1 {
+  font-size: 2em !important;
 }
 
 h4 {
@@ -94,9 +98,7 @@ a:hover {
 .body aside,
 .body .NavBar {
   display: block;
-  height: calc(100vh - 100px);
   overflow-y: auto;
-  position: relative;
   scrollbar-width: none;
   padding-top: calc(min(2vw, 1em));
 }
@@ -112,6 +114,14 @@ a:hover {
 
 .body main {
   border-inline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.body .NavBar,
+.body aside {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
 }
 
 .NewScream,

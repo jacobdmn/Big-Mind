@@ -1,122 +1,105 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import "./css/login.css";
-// import LoadingButton from "@mui/lab/LoadingButton";
-// import GoogleButton from "react-google-button";
+import Checkbox from "@mui/material/Checkbox";
+
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import TextField from "@mui/material/TextField";
 
-// import "./form-login";
 const Login = () => {
-  const [addClass, setAddClass] = useState(false);
-  const [addClassPassword, setAddClassPassword] = useState(false);
   const refInput = useRef<HTMLInputElement>(null);
   const refInputPassword = useRef<HTMLInputElement>(null);
-  const inputEffect = (
-    Ref: React.RefObject<HTMLInputElement>,
-    setClass: React.Dispatch<React.SetStateAction<boolean>>
-  ) => {
-    if (Ref !== null && Ref.current !== null && Ref.current.value !== null)
-      Ref.current.value ? setClass(true) : setClass(false);
-  };
+
+  const Banner =
+    "https://cmapp-prod.azureedge.net/assets/resources/5c3798b8410f47f4aa734ff5ecb37437-love.jpg?width=800";
   return (
     <>
-      <div className='limiter'>
-        <div className='container-login100'>
-          <div className='wrap-login100'>
-            <form className='login100-form validate-form'>
-              <span className='login100-form-title p-b-43'>
-                {" "}
-                Login to continue{" "}
-              </span>
-
-              <div
-                className='wrap-input100 validate-input'
-                data-validate='Valid email is required: ex@abc.xyz'>
-                <input
-                  className={addClass ? "input100 focus" : "input100"}
-                  type='text'
-                  name='email'
-                  ref={refInput}
-                  onMouseEnter={() => setAddClass(true)}
-                  onMouseLeave={() => {
-                    inputEffect(refInput, setAddClass);
-                  }}
-                  onChange={() => {
-                    inputEffect(refInput, setAddClass);
+      <div
+        className='Login__Form'
+        style={{ backgroundImage: `url(${Banner})` }}>
+        <div className='container'>
+          <div className='Banner'>
+            <img
+              className='logo'
+              src='./imgs/_bigmid_files_/logo/logo_high_quality.png'
+              alt=''
+            />
+            <h1>Big Mind</h1>
+            <h2>Where Smart People Meet !</h2>
+          </div>
+          <div className='formBox'>
+            <h1 className='title'>Login to continue</h1>
+            <div className='formApp'>
+              <div className='email input'>
+                <TextField
+                  id='emailInput'
+                  label='Email'
+                  variant='outlined'
+                  inputRef={refInput}
+                  sx={{
+                    "&, &> *": {
+                      width: "100%",
+                      height: "100%",
+                    },
                   }}
                 />
-                <span className='focus-input100'></span>
-                <span className='label-input100'>Email</span>
               </div>
 
-              <div
-                className='wrap-input100 validate-input'
-                data-validate='Password is required'>
-                <input
-                  className={addClassPassword ? "input100 focus" : "input100"}
+              <div className='password input'>
+                <TextField
+                  id='passwordInput'
+                  label='Password'
+                  variant='outlined'
                   type='password'
-                  name='pass'
-                  ref={refInputPassword}
-                  onMouseEnter={() => setAddClassPassword(true)}
-                  onMouseLeave={() => {
-                    inputEffect(refInputPassword, setAddClassPassword);
+                  inputRef={refInputPassword}
+                  sx={{
+                    "&, &> *": {
+                      width: "100%",
+                      height: "100%",
+                    },
                   }}
                 />
-                <span className='focus-input100'></span>
-                <span className='label-input100'>Password</span>
+              </div>
+              <div className='rememberMe'>
+                <Checkbox className='rememberMeInput' id='rememberMeInput' />
+                <label className='rememberMeLabel' htmlFor='rememberMeInput'>
+                  Remember me
+                </label>
               </div>
 
-              <div className='flex-sb-m w-full p-t-3 p-b-32 other-options'>
-                <div className='contact100-form-checkbox'>
-                  <input
-                    className='input-checkbox100'
-                    id='ckb1'
-                    type='checkbox'
-                    name='remember-me'
-                  />
-                  <label className='label-checkbox100' htmlFor='ckb1'>
-                    Remember me
-                  </label>
+              <div className='submitButton'>
+                <button>LOGIN</button>
+              </div>
+
+              <div className='Options'>
+                <h3 className='options2Title'> Create an account </h3>
+                <h3 className='options2Title'> or sign up using </h3>
+
+                <div className='Options__Buttons'>
+                  <button className='google'>
+                    <GoogleIcon />
+                  </button>
+
+                  <button className='facebook'>
+                    <FacebookIcon />
+                  </button>
+
+                  <button className='twitter'>
+                    <TwitterIcon />
+                  </button>
                 </div>
 
-                <div>
-                  <button className='txt1'> Forgot Password? </button>
+                <div className='forgotPassword'>
+                  <button> Forgot Password? </button>
                 </div>
               </div>
-
-              <div className='container-login100-form-btn'>
-                <button className='login100-form-btn'>Login</button>
-              </div>
-
-              <div className='text-center p-t-46 p-b-20 sign-up-other-options'>
-                <span className='txt2'> or sign up using </span>
-              </div>
-
-              <div className='login100-form-social flex-c-m sign-up-other-options-links'>
-                <button className='login100-form-social-item flex-c-m bg1 m-r-5'>
-                  <GoogleIcon />
-                </button>
-
-                <button className='login100-form-social-item flex-c-m bg2 m-r-5'>
-                  <FacebookIcon />{" "}
-                </button>
-
-                <button className='login100-form-social-item flex-c-m bg2-2 m-r-5'>
-                  <TwitterIcon />{" "}
-                </button>
-              </div>
-            </form>
-
-            <div
-              className='login100-more'
-              style={{ backgroundImage: `url('./imgs/bg-login.jpg')` }}>
-              <footer>
-                <h5>Powered By Jacob</h5>
-              </footer>
             </div>
           </div>
         </div>
+        <footer>
+          <h5>Powered By Jacob</h5>
+        </footer>
       </div>
     </>
   );

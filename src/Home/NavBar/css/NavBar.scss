@@ -22,7 +22,8 @@
       }
     }
     .Setting {
-      @include gridCenterItems;
+      display: grid;
+      place-items: center;
     }
   }
   .ProfileAvatar,

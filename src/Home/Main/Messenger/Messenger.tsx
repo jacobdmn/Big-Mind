@@ -2,9 +2,9 @@ import React from "react";
 
 const Messenger = () => {
   return (
-    <div>
+    <main>
       <h2>Messenger</h2>
-    </div>
+    </main>
   );
 };
 
