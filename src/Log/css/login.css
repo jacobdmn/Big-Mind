@@ -78,8 +78,9 @@ label {
 }
 
 .Login__Form .container .formBox {
-  padding: 3em;
-  padding-top: 4em;
+  padding: clamp(2em, calc(1em + 5vw), 3em);
+  padding-top: clamp(3em, calc(2em + 5vw), 4em);
+  margin-inline: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,7 +91,7 @@ label {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 3em;
+  gap: clamp(2em, calc(1em + 5vw), 3em);
   background: white;
   border-radius: 1em;
   -webkit-box-flex: 1;
