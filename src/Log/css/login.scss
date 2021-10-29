@@ -1,3 +1,5 @@
+$blue-focus: rgb(28, 58, 95); /// for names
+
 * {
   margin: 0;
   padding: 0;
@@ -102,7 +104,7 @@ a {
           background: #6675df;
 
           font-weight: 500;
-          font-size: 12px;
+          font-size: 1.3rem;
           color: #fff;
           line-height: 1.2;
           letter-spacing: 1px;
@@ -122,6 +124,11 @@ a {
             line-height: 1.4;
             color: #999999;
             text-align: center;
+
+            &.Options__SignUp a {
+              color: $blue-focus !important;
+              font-size: 1.3em;
+            }
           }
           .Options__Buttons {
             display: flex;
@@ -136,7 +143,8 @@ a {
               place-items: center;
               border-radius: 50%;
               color: white;
-
+              width: 3em;
+              height: 3em;
               &:hover {
                 opacity: 0.9;
                 transform: translate(0, 1px);

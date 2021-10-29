@@ -134,7 +134,7 @@ a {
   border-radius: 10px;
   background: #6675df;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 1.3rem;
   color: #fff;
   line-height: 1.2;
   letter-spacing: 1px;
@@ -161,6 +161,11 @@ a {
   text-align: center;
 }
 
+.Log__Form .container .Login__formBox .formApp .Options h3.Options__SignUp a {
+  color: #1c3a5f !important;
+  font-size: 1.3em;
+}
+
 .Log__Form .container .Login__formBox .formApp .Options .Options__Buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,6 +185,8 @@ a {
   place-items: center;
   border-radius: 50%;
   color: white;
+  width: 3em;
+  height: 3em;
 }
 
 .Log__Form .container .Login__formBox .formApp .Options .Options__Buttons button:hover {

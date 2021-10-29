@@ -3,7 +3,7 @@ import Checkbox from "@mui/material/Checkbox";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-import TextField from "@mui/material/TextField";
+import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -15,33 +15,21 @@ const Login = () => {
       <h1 className='title'>Login to continue</h1>
       <div className='formApp'>
         <div className='email input'>
-          <TextField
+          <StyledTextField
             id='emailInput'
             label='Email'
             variant='outlined'
             inputRef={refInput}
-            sx={{
-              "&, &> *": {
-                width: "100%",
-                height: "100%",
-              },
-            }}
           />
         </div>
 
         <div className='password input'>
-          <TextField
+          <StyledTextField
             id='passwordInput'
             label='Password'
             variant='outlined'
             type='password'
             inputRef={refInputPassword}
-            sx={{
-              "&, &> *": {
-                width: "100%",
-                height: "100%",
-              },
-            }}
           />
         </div>
         <div className='rememberMe'>
@@ -52,14 +40,14 @@ const Login = () => {
         </div>
 
         <div className='submitButton'>
-          <button>LOGIN</button>
+          <button>Continue</button>
         </div>
 
         <div className='Options'>
-          <h3 className='options2Title'>
-            <Link to=''> Create an account </Link>
+          <h3 className='Options__SignUp'>
+            <Link to='/signup'> Sign Up </Link>
           </h3>
-          <h3 className='options2Title'>or sign up using</h3>
+          <h3 className='Options__Title'>or sign in/up using</h3>
 
           <div className='Options__Buttons'>
             <button className='google'>
@@ -75,8 +63,8 @@ const Login = () => {
             </button>
           </div>
 
-          <div className='forgotPassword'>
-            <Link to=''> Forgot Password? </Link>
+          <div className='Options__other'>
+            <Link to='forgot-password'> Forgot Password? </Link>
           </div>
         </div>
       </div>

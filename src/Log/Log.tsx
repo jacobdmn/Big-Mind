@@ -1,8 +1,19 @@
 import React from "react";
 import "./css/login.css";
 import Login from "./Login";
+import SignUp from "./SignUp";
+import ForgotPassword from "./ForgotPassword";
+import TextField from "@mui/material/TextField";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+
+import { styled } from "@mui/material";
+export const StyledTextField = styled(TextField)({
+  "&, &> *": {
+    width: "100%",
+    height: "100%",
+  },
+});
 
 const Log = () => {
   const Banner =
@@ -20,7 +31,11 @@ const Log = () => {
             <h1>Big Mind</h1>
             <h2>Where Smart People Meet !</h2>
           </div>
-          <Switch></Switch>
+          <Switch>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/forgot-password' component={ForgotPassword} />
+          </Switch>
         </div>
         <footer>
           <h5>Powered By Jacob</h5>
