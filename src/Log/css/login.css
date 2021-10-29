@@ -107,11 +107,10 @@ a {
 }
 
 .Log__Form .container .Login__formBox fieldset:disabled * {
-  cursor: default !important;
   pointer-events: none;
 }
 
-.Log__Form .container .Login__formBox fieldset:disabled button {
+.Log__Form .container .Login__formBox fieldset:disabled * button {
   background: #1c3a5f !important;
 }
 

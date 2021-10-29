@@ -9,6 +9,8 @@ import { Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LOGGED_IN } from "./../Redux/reducers/CURRENT_USER";
 import { USERS } from "./../Redux/database";
+// import Home from "./../Home/Home";
+// import { useSelector } from "react-redux";
 
 import { styled } from "@mui/material";
 export const StyledTextField = styled(TextField)({
@@ -19,29 +21,49 @@ export const StyledTextField = styled(TextField)({
 });
 
 const Log = () => {
+  /// Dispatch function to get the current user
   const dispatch = useDispatch();
+
+  /// var check isProcessing
   const [isProcessing, setIsProcessing] = React.useState(false);
+
+  //// var button content: isProcessing ? Continue / Loading
   const [submitButtonContent, setSubmitButtonContent] =
     React.useState("Continue");
+
+  /// the banner picture
   const Banner =
     "https://cmapp-prod.azureedge.net/assets/resources/5c3798b8410f47f4aa734ff5ecb37437-love.jpg?width=800";
+
+  //// handle the login process
   const handleLoginProcess = (e: React.SyntheticEvent) => {
     e.preventDefault();
+
     setSubmitButtonContent("Loading..");
+
+    /// set Loading : true
     setIsProcessing(true);
+
+    /// Do something, when finish reset Loading to false
     setTimeout(() => {
-      setIsProcessing(false);
-      setSubmitButtonContent("Done");
       dispatch(LOGGED_IN(USERS[0]));
+
+      // reset loading
+      setIsProcessing(false);
+      // set Button Content: Done
+      setSubmitButtonContent("Done");
     }, 2000);
   };
-  React.useEffect(() => {
-    setSubmitButtonContent("Continue");
-  }, []);
+
   return (
     <>
       <div className='Log__Form' style={{ backgroundImage: `url(${Banner})` }}>
         <div className='container'>
+          {/* 
+          Container:
+            - Banner: contains just the banner
+            - Login__formBox: contains the forms: login/signup/forgot password
+          */}
           <div className='Banner'>
             <img
               className='logo'
