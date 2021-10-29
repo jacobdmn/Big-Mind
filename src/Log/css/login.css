@@ -106,6 +106,15 @@ a {
   text-align: center;
 }
 
+.Log__Form .container .Login__formBox fieldset:disabled * {
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.Log__Form .container .Login__formBox fieldset:disabled button {
+  background: #1c3a5f !important;
+}
+
 .Log__Form .container .Login__formBox .formApp {
   display: -webkit-box;
   display: -ms-flexbox;

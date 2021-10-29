@@ -80,6 +80,16 @@ a {
         text-align: center;
       }
 
+      fieldset:disabled {
+        * {
+          cursor: default !important;
+          pointer-events: none;
+        }
+        button {
+          background: rgb(28, 58, 95) !important;
+        }
+      }
+
       .formApp {
         display: flex;
         flex-direction: column;
