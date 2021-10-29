@@ -39,6 +39,7 @@ a {
 }
 
 .Log__Form .container {
+  max-width: unset;
   height: 90vh;
   width: 97%;
   margin-inline: auto;

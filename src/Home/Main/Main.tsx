@@ -25,6 +25,7 @@ const Main = () => {
       <Route exact path='/Movies' component={Movies} />
       <Route exact path='/Music' component={Music} />
       <Route exact path='/Marketplace' component={Marketplace} />
+      <Route path='*' component={Feeds} />
     </Switch>
   );
 };

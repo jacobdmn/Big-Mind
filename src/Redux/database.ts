@@ -1,3 +1,30 @@
+// import { GLOBAL_DB } from "./../../firebase";
+import { collection, getDocs } from "firebase/firestore";
+// doc, setDoc, addDoc,
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+import { getAuth } from "firebase/auth"; // New import
+import { getAnalytics } from "firebase/analytics";
+
+/// Firebase Config
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+export const GLOBAL_DB = getFirestore();
+
 /// User Class
 export class USER {
   userId: number;
@@ -23,6 +50,8 @@ export class USER {
     this.location = location;
   }
 }
+//// inside the use class we make a new function that dispatch the data to Firebase
+
 /// Message Class
 export class MESSAGE {
   messageId: number;
@@ -72,7 +101,10 @@ export class SCREAM {
     this.createdAt = createdAt;
   }
 }
-/// Users database
+
+/* GENERAL DBs */
+
+/// Users
 export const USERS = [
   new USER(
     100,
@@ -99,43 +131,7 @@ export const USERS = [
     "Manhattan, NY"
   ),
 ];
-/// Stories database
-export const STORIES = [
-  new STORY(198, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
-  new STORY(212, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
-  new STORY(983, "./imgs/users/jacob_dmn/stories/jacob_story1.jpg", 100),
-  new STORY(764, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
-  new STORY(342, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
-];
-
-/// currentUser
-export const CURRENT_USER = USERS[0];
-/// userFriends
-export const USER_FRIENDS: number[] = [];
-/// USER_MESSAGES
-export const USER_MESSAGES = [
-  {
-    with: 20,
-    messageBox: [
-      new MESSAGE(20, "Wech Frero we9tach netla3"),
-      new MESSAGE(100, "Janvier"),
-      new MESSAGE(20, "Sure?"),
-      new MESSAGE(100, "Non :D"),
-    ],
-  },
-  {
-    with: 3,
-    messageBox: [
-      new MESSAGE(20, "Jacob !"),
-      new MESSAGE(100, "Broo"),
-      new MESSAGE(20, "J'ai commencé Analyse 3 !!!"),
-      new MESSAGE(100, "DAAAMN"),
-    ],
-  },
-];
-/// userInvitations
-export const USER_INVITATIONS = [20, 3];
-/// User Screams
+/// Screams
 export const SCREAMS = [
   new SCREAM(
     1,
@@ -168,3 +164,59 @@ export const SCREAMS = [
     "Mai  2"
   ),
 ];
+/// Stories
+export const STORIES = [
+  new STORY(198, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
+  new STORY(212, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
+  new STORY(983, "./imgs/users/jacob_dmn/stories/jacob_story1.jpg", 100),
+  new STORY(764, "./imgs/users/moha_dmn/stories/moha_story1.jpg", 20),
+  new STORY(342, "./imgs/users/zino_bacha3a/stories/zino_story1.jpg", 3),
+];
+
+/// CURRENT_USER: GET FROM ASKING FIREBASE AUTH
+export const CURRENT_USER = {
+  userId: 0,
+  userName: "",
+  fullName: "",
+  age: 0,
+  userAvatar: "",
+  location: "",
+};
+
+/* USER_DBs */
+
+/// USER_Friends
+export const USER_FRIENDS: number[] = [];
+/// USER_MESSAGES
+export const USER_MESSAGES = [
+  {
+    with: 20,
+    messageBox: [
+      new MESSAGE(20, "Wech Frero we9tach netla3"),
+      new MESSAGE(100, "Janvier"),
+      new MESSAGE(20, "Sure?"),
+      new MESSAGE(100, "Non :D"),
+    ],
+  },
+  {
+    with: 3,
+    messageBox: [
+      new MESSAGE(20, "Jacob !"),
+      new MESSAGE(100, "Broo"),
+      new MESSAGE(20, "J'ai commencé Analyse 3 !!!"),
+      new MESSAGE(100, "DAAAMN"),
+    ],
+  },
+];
+/// USER_Invitations
+export const USER_INVITATIONS = [20, 3];
+
+try {
+  getDocs(collection(GLOBAL_DB, "users")).then((x: any) =>
+    x.forEach((doc: any) => {
+      console.log(`${doc} => ${doc.data()}`);
+    })
+  );
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
