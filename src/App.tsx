@@ -1,6 +1,6 @@
 import React from "react";
 import "./css/App.css";
-import Login from "./Log/Login";
+import Login from "./Log/Log";
 import SignUp from "./Log/SignUp";
 import Home from "./Home/Home";
 // import { pipe } from "lodash/fp";

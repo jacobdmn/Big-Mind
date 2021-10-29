@@ -11,11 +11,12 @@
 }
 
 button,
-label {
+label,
+a {
   cursor: pointer;
 }
 
-.Login__Form {
+.Log__Form {
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -27,7 +28,7 @@ label {
       align-content: center;
 }
 
-.Login__Form::before {
+.Log__Form::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +38,7 @@ label {
   background-color: #0000008a;
 }
 
-.Login__Form .container {
+.Log__Form .container {
   height: 90vh;
   width: 97%;
   margin-inline: auto;
@@ -51,7 +52,7 @@ label {
   position: relative;
 }
 
-.Login__Form .container .Banner {
+.Log__Form .container .Banner {
   padding-left: 4vw;
   color: white;
   -webkit-box-flex: 1;
@@ -59,25 +60,25 @@ label {
           flex: 1;
 }
 
-.Login__Form .container .Banner img.logo {
+.Log__Form .container .Banner img.logo {
   width: 30vw;
 }
 
-.Login__Form .container .Banner h1 {
+.Log__Form .container .Banner h1 {
   font-size: 6vw !important;
 }
 
-.Login__Form .container .Banner h2 {
+.Log__Form .container .Banner h2 {
   font-size: 3vw !important;
 }
 
 @media only screen and (max-width: 800px) {
-  .Login__Form .container .Banner {
+  .Log__Form .container .Banner {
     display: none;
   }
 }
 
-.Login__Form .container .formBox {
+.Log__Form .container .Login__formBox {
   padding: clamp(2em, calc(1em + 5vw), 3em);
   padding-top: clamp(3em, calc(2em + 5vw), 4em);
   margin-inline: auto;
@@ -100,11 +101,11 @@ label {
   max-width: 450px;
 }
 
-.Login__Form .container .formBox h1.title {
+.Log__Form .container .Login__formBox h1.title {
   text-align: center;
 }
 
-.Login__Form .container .formBox .formApp {
+.Log__Form .container .Login__formBox .formApp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,15 +116,15 @@ label {
   gap: 1em;
 }
 
-.Login__Form .container .formBox .formApp .input {
+.Log__Form .container .Login__formBox .formApp .input {
   height: 70px;
 }
 
-.Login__Form .container .formBox .formApp .rememberMe span {
+.Log__Form .container .Login__formBox .formApp .rememberMe span {
   padding-left: 0;
 }
 
-.Login__Form .container .formBox .formApp .submitButton button {
+.Log__Form .container .Login__formBox .formApp .submitButton button {
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -141,11 +142,11 @@ label {
   transition: all 0.2s ease-in;
 }
 
-.Login__Form .container .formBox .formApp .submitButton button:hover {
+.Log__Form .container .Login__formBox .formApp .submitButton button:hover {
   background: #6674dfd3;
 }
 
-.Login__Form .container .formBox .formApp .Options {
+.Log__Form .container .Login__formBox .formApp .Options {
   display: -ms-grid;
   display: grid;
   place-content: center;
@@ -154,13 +155,13 @@ label {
   gap: 1em;
 }
 
-.Login__Form .container .formBox .formApp .Options h3 {
+.Log__Form .container .Login__formBox .formApp .Options h3 {
   line-height: 1.4;
   color: #999999;
   text-align: center;
 }
 
-.Login__Form .container .formBox .formApp .Options .Options__Buttons {
+.Log__Form .container .Login__formBox .formApp .Options .Options__Buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,7 +172,7 @@ label {
   margin-bottom: 1em;
 }
 
-.Login__Form .container .formBox .formApp .Options .Options__Buttons button {
+.Log__Form .container .Login__formBox .formApp .Options .Options__Buttons button {
   padding: 0.7em;
   display: -ms-grid;
   display: grid;
@@ -181,29 +182,29 @@ label {
   color: white;
 }
 
-.Login__Form .container .formBox .formApp .Options .Options__Buttons button:hover {
+.Log__Form .container .Login__formBox .formApp .Options .Options__Buttons button:hover {
   opacity: 0.9;
   -webkit-transform: translate(0, 1px);
           transform: translate(0, 1px);
 }
 
-.Login__Form .container .formBox .formApp .Options .Options__Buttons button.google {
+.Log__Form .container .Login__formBox .formApp .Options .Options__Buttons button.google {
   background: #43a539;
 }
 
-.Login__Form .container .formBox .formApp .Options .Options__Buttons button.facebook {
+.Log__Form .container .Login__formBox .formApp .Options .Options__Buttons button.facebook {
   background: #1d68f2;
 }
 
-.Login__Form .container .formBox .formApp .Options .Options__Buttons button.twitter {
+.Log__Form .container .Login__formBox .formApp .Options .Options__Buttons button.twitter {
   background: #1da1f2;
 }
 
-.Login__Form .container .formBox .formApp .Options .forgotPassword {
+.Log__Form .container .Login__formBox .formApp .Options .forgotPassword {
   text-align: center;
 }
 
-.Login__Form footer {
+.Log__Form footer {
   position: absolute;
   bottom: 0;
   color: #c4c4c4;

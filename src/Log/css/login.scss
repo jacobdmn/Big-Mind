@@ -8,10 +8,11 @@
   font-weight: normal !important;
 }
 button,
-label {
+label,
+a {
   cursor: pointer;
 }
-.Login__Form {
+.Log__Form {
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -60,7 +61,7 @@ label {
       }
     }
 
-    .formBox {
+    .Login__formBox {
       padding: clamp(2em, calc(1em + 5vw), 3em);
       padding-top: clamp(3em, calc(2em + 5vw), 4em);
       margin-inline: auto;
