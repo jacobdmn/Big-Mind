@@ -11,33 +11,45 @@ const SignUp: React.FC<{
   const dispatch = useDispatch();
 
   /// full name, email, password
-  const refInputName = useRef<HTMLInputElement>(null);
-  const refInputEmail = useRef<HTMLInputElement>(null);
-  const refInputPassword = useRef<HTMLInputElement>(null);
+  const refInputName = useRef<HTMLInputElement>(null!);
+  const refInputEmail = useRef<HTMLInputElement>(null!);
+  const refInputPassword = useRef<HTMLInputElement>(null!);
 
-  const [nameEmpty, setNameEmpty] = useState(false);
-  const [emailEmpty, setEmailEmpty] = useState(false);
-  const [passwordEmpty, setPasswordEmpty] = useState(false);
+  /// Error Detecters
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
+
+  const validateInput = (
+    ref: React.RefObject<HTMLInputElement>,
+    setWhat: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    Boolean(ref.current?.value) ? setWhat(false) : setWhat(true);
+  };
+
   //// handle the login process
   const handleSignUp = (e: React.SyntheticEvent) => {
-    !refInputName.current && setNameEmpty(true);
-    !refInputEmail.current && setEmailEmpty(true);
-    !refInputPassword.current && setPasswordEmpty(true);
-
-    if (nameEmpty || emailEmpty || passwordEmpty) return;
     e.preventDefault();
+    /// Validation
+    if (
+      !Boolean(refInputName.current?.value) ||
+      !Boolean(refInputEmail.current?.value) ||
+      !Boolean(refInputPassword.current?.value)
+    )
+      return;
+    /// set Loading to true
     setLoadingTrue();
 
     ///  creating the account
     try {
       setTimeout(() => {
-        // dispatch(
-        //   SIGN_UP_ACTION(
-        //     refInputName.current.value,
-        //     refInputEmail.current.value,
-        //     refInputPassword.current.value
-        //   )
-        // );
+        dispatch(
+          SIGN_UP_ACTION(
+            refInputName.current.value,
+            refInputEmail.current.value,
+            refInputPassword.current.value
+          )
+        );
         console.log("Done");
 
         // reset loading
@@ -48,10 +60,6 @@ const SignUp: React.FC<{
     }
   };
 
-  const [borderColor, setBorderColor] = useState("");
-  useEffect(() => {
-    !refInputName.current ? setBorderColor("error") : setBorderColor("primary");
-  }, [refInputName.current]);
   return (
     <>
       <h1 className='title'>Sign Up</h1>
@@ -62,8 +70,8 @@ const SignUp: React.FC<{
             label='Name'
             variant='outlined'
             inputRef={refInputName}
-            // required
-            color={borderColor}
+            onChange={() => validateInput(refInputName, setNameError)}
+            error={nameError}
           />
         </div>
 
@@ -73,7 +81,8 @@ const SignUp: React.FC<{
             label='Email'
             variant='outlined'
             inputRef={refInputEmail}
-            // required
+            onChange={() => validateInput(refInputEmail, setEmailError)}
+            error={emailError}
           />
         </div>
 
@@ -83,9 +92,10 @@ const SignUp: React.FC<{
             label='Password'
             variant='outlined'
             type='password'
-            inputRef={refInputPassword}
             autoComplete='on'
-            // required
+            inputRef={refInputPassword}
+            onChange={() => validateInput(refInputPassword, setPasswordError)}
+            error={passwordError}
           />
         </div>
 
