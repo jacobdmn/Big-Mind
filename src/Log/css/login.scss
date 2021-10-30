@@ -76,6 +76,7 @@ a {
       border-radius: 1em;
       flex: 1;
       max-width: 450px;
+      overflow: auto;
 
       fieldset:disabled * {
         pointer-events: none;
@@ -89,9 +90,6 @@ a {
         form {
           display: flex;
           flex-direction: column;
-        }
-        gap: 2em;
-        form {
           gap: 1em;
         }
 
@@ -128,10 +126,22 @@ a {
           }
         }
 
+        .ErrorConsole {
+          font-size: 0.8em;
+          padding: 0.4em;
+          border-radius: 0.2em;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+
+          // & > div {
+          //   background: #fff1f1;
+          // }
+        }
         .Options {
           display: grid;
           place-content: center;
-          padding: 3em;
+          padding: 1em;
           padding-bottom: 0;
           gap: 1em;
           h3 {

@@ -3,6 +3,8 @@ import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
 import { SIGN_UP_ACTION } from "./../Redux/reducers/SIGN_UP";
 import { useDispatch } from "react-redux";
+import Alert from "@mui/material/Alert";
+
 const SignUp: React.FC<{
   submitButtonContent: string;
   setLoadingTrue: () => void;
@@ -16,13 +18,13 @@ const SignUp: React.FC<{
   const refInputPassword = useRef<HTMLInputElement>(null!);
 
   /// Error Detecters
-  const [nameError, setNameError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [nameError, setNameError] = useState<boolean | null>(null);
+  const [emailError, setEmailError] = useState<boolean | null>(null);
+  const [passwordError, setPasswordError] = useState<boolean | null>(null);
 
   const validateInput = (
     ref: React.RefObject<HTMLInputElement>,
-    setWhat: React.Dispatch<React.SetStateAction<boolean>>
+    setWhat: React.Dispatch<React.SetStateAction<boolean | null>>
   ) => {
     Boolean(ref.current?.value) ? setWhat(false) : setWhat(true);
   };
@@ -71,7 +73,7 @@ const SignUp: React.FC<{
             variant='outlined'
             inputRef={refInputName}
             onChange={() => validateInput(refInputName, setNameError)}
-            error={nameError}
+            error={nameError || false}
           />
         </div>
 
@@ -82,7 +84,7 @@ const SignUp: React.FC<{
             variant='outlined'
             inputRef={refInputEmail}
             onChange={() => validateInput(refInputEmail, setEmailError)}
-            error={emailError}
+            error={emailError || false}
           />
         </div>
 
@@ -94,8 +96,12 @@ const SignUp: React.FC<{
             type='password'
             autoComplete='on'
             inputRef={refInputPassword}
-            onChange={() => validateInput(refInputPassword, setPasswordError)}
-            error={passwordError}
+            onChange={() => {
+              Boolean(refInputPassword.current?.value.length > 6)
+                ? setPasswordError(false)
+                : setPasswordError(true);
+            }}
+            error={passwordError || false}
           />
         </div>
 
@@ -103,6 +109,38 @@ const SignUp: React.FC<{
           <button type='submit'>{submitButtonContent} </button>
         </div>
       </form>
+      <div className='ErrorConsole'>
+        {/* Full name Verification */}
+        {nameError === false ? (
+          <Alert severity='success'> Full Name </Alert>
+        ) : nameError === true ? (
+          <Alert severity='error'> Full Name</Alert>
+        ) : (
+          <Alert severity='info'> Full Name required</Alert>
+        )}
+
+        {/* Email Verification */}
+        {emailError === false ? (
+          <Alert severity='success'> Email </Alert>
+        ) : emailError === true ? (
+          <Alert severity='error'> Email</Alert>
+        ) : (
+          <Alert severity='info'> Email required</Alert>
+        )}
+
+        {/* Password Verification */}
+        {passwordError === false ? (
+          <Alert severity='success'> Password </Alert>
+        ) : passwordError === true ? (
+          <Alert severity='error'> Password</Alert>
+        ) : (
+          <Alert severity='info'>
+            password must contain:
+            <br /> &gt; 6 characters
+            <br /> &gt; 1 Uppercase and a number
+          </Alert>
+        )}
+      </div>
       <div className='Options'>
         <div className='Options__other'>
           <Link to='/login'> Have an account? Login </Link>

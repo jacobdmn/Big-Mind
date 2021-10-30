@@ -100,6 +100,7 @@ a {
       -ms-flex: 1;
           flex: 1;
   max-width: 450px;
+  overflow: auto;
 }
 
 .Log__Form .container .Login__formBox fieldset:disabled * {
@@ -108,10 +109,6 @@ a {
 
 .Log__Form .container .Login__formBox fieldset:disabled * button {
   background: #1c3a5f !important;
-}
-
-.Log__Form .container .Login__formBox .formApp {
-  gap: 2em;
 }
 
 .Log__Form .container .Login__formBox .formApp,
@@ -123,9 +120,6 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.Log__Form .container .Login__formBox .formApp form {
   gap: 1em;
 }
 
@@ -163,11 +157,25 @@ a {
   background: #6674dfd3;
 }
 
+.Log__Form .container .Login__formBox .formApp .ErrorConsole {
+  font-size: 0.8em;
+  padding: 0.4em;
+  border-radius: 0.2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5em;
+}
+
 .Log__Form .container .Login__formBox .formApp .Options {
   display: -ms-grid;
   display: grid;
   place-content: center;
-  padding: 3em;
+  padding: 1em;
   padding-bottom: 0;
   gap: 1em;
 }
