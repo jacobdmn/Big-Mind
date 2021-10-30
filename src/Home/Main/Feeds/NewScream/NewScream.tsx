@@ -75,9 +75,13 @@ const NewScream = (props: any) => {
         <Divider style={{ marginBottom: "1em" }} />
         <div className='NewScream__Options'>
           <div className='Options__Icons'>
-            <button className='Icons__addImg' disabled={loadingPost}>
-              <PhotoCamera />
-            </button>
+            {/* <input
+              className='Icons__addImg'
+              disabled={loadingPost}
+              type='file'
+              accept='image'
+            /> */}
+
             <button className='Icons__addLocation' disabled={loadingPost}>
               <AddLocationAltIcon />
             </button>

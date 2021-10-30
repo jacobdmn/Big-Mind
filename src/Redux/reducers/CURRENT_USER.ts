@@ -1,12 +1,12 @@
 import { CURRENT_USER, USER } from "./../database";
 import actionTypes from "./../actionTypes";
 
-export const LOGGED_IN = (CURRENT_USER: USER) => {
-  return {
-    type: actionTypes.LOGGED_IN,
-    payload: { CURRENT_USER },
-  };
-};
+// export const LOGGED_IN = (CURRENT_USER: USER) => {
+//   return {
+//     type: actionTypes.LOGGED_IN,
+//     payload: { CURRENT_USER },
+//   };
+// };
 
 const initialState = {
   CURRENT_USER,

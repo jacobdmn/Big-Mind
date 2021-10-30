@@ -6,9 +6,10 @@ import ForgotPassword from "./ForgotPassword";
 import TextField from "@mui/material/TextField";
 
 import { Switch, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { LOGGED_IN } from "./../Redux/reducers/CURRENT_USER";
-import { USERS } from "./../Redux/database";
+import { Redirect } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { LOGGED_IN } from "./../Redux/reducers/CURRENT_USER";
+// import { USERS } from "./../Redux/database";
 // import Home from "./../Home/Home";
 // import { useSelector } from "react-redux";
 
@@ -22,7 +23,7 @@ export const StyledTextField = styled(TextField)({
 
 const Log = () => {
   /// Dispatch function to get the current user
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   /// var check isProcessing
   const [isProcessing, setIsProcessing] = React.useState(false);
@@ -36,23 +37,17 @@ const Log = () => {
     "https://cmapp-prod.azureedge.net/assets/resources/5c3798b8410f47f4aa734ff5ecb37437-love.jpg?width=800";
 
   //// handle the login process
-  const handleLoginProcess = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-
+  const setLoadingTrue = () => {
+    /// set Button Content
     setSubmitButtonContent("Loading..");
-
     /// set Loading : true
     setIsProcessing(true);
-
-    /// Do something, when finish reset Loading to false
-    setTimeout(() => {
-      dispatch(LOGGED_IN(USERS[0]));
-
-      // reset loading
-      setIsProcessing(false);
-      // set Button Content: Done
-      setSubmitButtonContent("Done");
-    }, 2000);
+  };
+  const setLoadingDone = () => {
+    /// set Button Content
+    setSubmitButtonContent("Done");
+    /// set Loading : true
+    setIsProcessing(false);
   };
 
   return (
@@ -74,26 +69,35 @@ const Log = () => {
             <h2>Where Smart People Meet !</h2>
           </div>
           <div className='Login__formBox'>
-            <form onSubmit={handleLoginProcess} autoComplete='on'>
-              <fieldset disabled={isProcessing}>
-                <div className='formApp'>
-                  <Switch>
-                    <Route path='/login'>
-                      <Login submitButtonContent={submitButtonContent} />
-                    </Route>
-                    <Route exact path='/signup' component={SignUp}>
-                      <SignUp submitButtonContent={submitButtonContent} />
-                    </Route>
-                    <Route exact path='/forgot-password'>
-                      <ForgotPassword
-                        submitButtonContent={submitButtonContent}
-                      />
-                    </Route>
-                    <Route path='*' component={Login} />
-                  </Switch>
-                </div>
-              </fieldset>
-            </form>
+            <fieldset disabled={isProcessing}>
+              <div className='formApp'>
+                <Switch>
+                  <Route exact path='/login'>
+                    {/* <Redirect to='/login' /> */}
+                    <Login
+                      submitButtonContent={submitButtonContent}
+                      setLoadingTrue={setLoadingTrue}
+                      setLoadingDone={setLoadingDone}
+                    />
+                  </Route>
+                  <Route exact path='/signup' component={SignUp}>
+                    <SignUp
+                      submitButtonContent={submitButtonContent}
+                      setLoadingTrue={setLoadingTrue}
+                      setLoadingDone={setLoadingDone}
+                    />
+                  </Route>
+                  <Route exact path='/forgot-password'>
+                    <ForgotPassword
+                      submitButtonContent={submitButtonContent}
+                      // setLoadingTrue={setLoadingTrue}
+                      // setLoadingDone={setLoadingDone}
+                    />
+                  </Route>
+                  <Route path='*'>404</Route>
+                </Switch>
+              </div>
+            </fieldset>
           </div>
         </div>
         <footer>

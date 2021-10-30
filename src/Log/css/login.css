@@ -102,10 +102,6 @@ a {
   max-width: 450px;
 }
 
-.Log__Form .container .Login__formBox h1.title {
-  text-align: center;
-}
-
 .Log__Form .container .Login__formBox fieldset:disabled * {
   pointer-events: none;
 }
@@ -115,6 +111,11 @@ a {
 }
 
 .Log__Form .container .Login__formBox .formApp {
+  gap: 2em;
+}
+
+.Log__Form .container .Login__formBox .formApp,
+.Log__Form .container .Login__formBox .formApp form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,7 +123,14 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.Log__Form .container .Login__formBox .formApp form {
   gap: 1em;
+}
+
+.Log__Form .container .Login__formBox .formApp h1.title {
+  text-align: center;
 }
 
 .Log__Form .container .Login__formBox .formApp .input {
@@ -216,7 +224,7 @@ a {
   background: #1da1f2;
 }
 
-.Log__Form .container .Login__formBox .formApp .Options .forgotPassword {
+.Log__Form .container .Login__formBox .formApp .Options .Options__other {
   text-align: center;
 }
 

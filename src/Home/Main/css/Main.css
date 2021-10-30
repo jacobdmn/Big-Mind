@@ -94,33 +94,20 @@ a:hover {
   margin: 0;
 }
 
-.body main,
-.body aside,
 .body .NavBar {
-  display: block;
   overflow-y: auto;
   scrollbar-width: none;
   padding-top: calc(min(2vw, 1em));
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
 }
 
-.body main::-webkit-scrollbar,
-.body aside::-webkit-scrollbar,
 .body .NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
   background: transparent;
   /* Optional: just make scrollbar invisible */
-}
-
-.body main {
-  border-inline: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.body .NavBar,
-.body aside {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100px;
-  height: calc(100vh - 100px);
 }
 /*# sourceMappingURL=Main.css.map */

@@ -10,6 +10,7 @@ export const ACCEPT_FRIENDSHIP_INVITATION_ACTION = (id: number) => {
     },
   };
 };
+
 ////////////////////////////////////////////////////////////////
 export const FILTER_INVITATION_LIST = (id: number) => {
   return {

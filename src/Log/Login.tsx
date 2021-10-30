@@ -6,45 +6,67 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
 
-const Login = ({ submitButtonContent }: { submitButtonContent: String }) => {
+const Login: React.FC<{
+  submitButtonContent: string;
+  setLoadingTrue: () => void;
+  setLoadingDone: () => void;
+}> = ({ submitButtonContent, setLoadingTrue, setLoadingDone }) => {
   const refInput = useRef<HTMLInputElement>(null);
   const refInputPassword = useRef<HTMLInputElement>(null);
 
+  //// handle the login process
+  const handleLogin = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setLoadingTrue();
+
+    ///  creating the account
+    try {
+      setTimeout(() => {
+        // dispatch(LOGGED_IN(USERS[0]));
+
+        // reset loading
+        setLoadingDone();
+      }, 2000);
+    } catch {
+      console.log("Error Signing up !");
+    }
+  };
   return (
     <>
       <h1 className='title'>Login to continue</h1>
-      <div className='email input'>
-        <StyledTextField
-          id='emailInput'
-          label='Email'
-          variant='outlined'
-          inputRef={refInput}
-          autoComplete='on'
-        />
-      </div>
+      <form onSubmit={handleLogin} autoComplete='on'>
+        <div className='email input'>
+          <StyledTextField
+            id='emailInput'
+            label='Email'
+            variant='outlined'
+            inputRef={refInput}
+            autoComplete='on'
+          />
+        </div>
 
-      <div className='password input'>
-        <StyledTextField
-          id='passwordInput'
-          label='Password'
-          variant='outlined'
-          type='password'
-          autoComplete='on'
-          inputRef={refInputPassword}
-        />
-      </div>
+        <div className='password input'>
+          <StyledTextField
+            id='passwordInput'
+            label='Password'
+            variant='outlined'
+            type='password'
+            autoComplete='on'
+            inputRef={refInputPassword}
+          />
+        </div>
 
-      <div className='rememberMe'>
-        <Checkbox className='rememberMeInput' id='rememberMeInput' />
-        <label className='rememberMeLabel' htmlFor='rememberMeInput'>
-          Remember me
-        </label>
-      </div>
+        <div className='rememberMe'>
+          <Checkbox className='rememberMeInput' id='rememberMeInput' />
+          <label className='rememberMeLabel' htmlFor='rememberMeInput'>
+            Remember me
+          </label>
+        </div>
 
-      <div className='submitButton'>
-        <button type='submit'>{submitButtonContent}</button>
-      </div>
-
+        <div className='submitButton'>
+          <button type='submit'>{submitButtonContent}</button>
+        </div>
+      </form>
       <div className='Options'>
         <h3 className='Options__SignUp'>
           <Link to='/signup'> Sign Up </Link>

@@ -1,5 +1,27 @@
 @import "./../../css/Main";
 
+main,
+aside {
+  display: block;
+  overflow-y: auto;
+  @include scrollBarNone;
+  padding-top: calc(min(2vw, 1em));
+}
+aside {
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
+}
+
+main {
+  flex: 1 1 70%;
+
+  & > div {
+    margin-bottom: 1em;
+  }
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .NewScream,
 .InvitationDiv,
 .Contacts {
@@ -10,11 +32,4 @@
 aside .Invits,
 aside .Contacts {
   margin: 0;
-}
-main {
-  flex: 1 1 70%;
-
-  & > div {
-    margin-bottom: 1em;
-  }
 }

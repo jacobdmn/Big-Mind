@@ -7,7 +7,7 @@ import usersReducer from "./USERS";
 import userFriendsReducer from "./USER_FRIENDS";
 import storiesReducer from "./POST_STORY";
 import userMessagesReducer from "./USER_MESSAGES";
-
+import SIGNUP_REDUCER from "./SIGN_UP";
 const allReducers = combineReducers({
   usersReducer,
   friendshipListReducer,
@@ -16,6 +16,7 @@ const allReducers = combineReducers({
   userFriendsReducer,
   storiesReducer,
   userMessagesReducer,
+  SIGNUP_REDUCER,
 });
 
 export default allReducers;

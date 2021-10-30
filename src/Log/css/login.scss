@@ -76,9 +76,6 @@ a {
       border-radius: 1em;
       flex: 1;
       max-width: 450px;
-      h1.title {
-        text-align: center;
-      }
 
       fieldset:disabled * {
         pointer-events: none;
@@ -88,10 +85,19 @@ a {
       }
 
       .formApp {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
+        &,
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+        gap: 2em;
+        form {
+          gap: 1em;
+        }
 
+        h1.title {
+          text-align: center;
+        }
         .input {
           height: 70px;
         }
@@ -168,7 +174,7 @@ a {
               }
             }
           }
-          .forgotPassword {
+          .Options__other {
             text-align: center;
           }
         }

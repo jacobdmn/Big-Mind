@@ -94,17 +94,16 @@ a:hover {
   margin: 0;
 }
 
-.body main,
-.body aside,
 .body .NavBar {
-  display: block;
   overflow-y: auto;
   scrollbar-width: none;
   padding-top: calc(min(2vw, 1em));
+  position: -webkit-sticky;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
 }
 
-.body main::-webkit-scrollbar,
-.body aside::-webkit-scrollbar,
 .body .NavBar::-webkit-scrollbar {
   width: 0;
   /* Remove scrollbar space */
@@ -112,16 +111,38 @@ a:hover {
   /* Optional: just make scrollbar invisible */
 }
 
-.body main {
-  border-inline: 1px solid rgba(0, 0, 0, 0.1);
+main,
+aside {
+  display: block;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-top: calc(min(2vw, 1em));
 }
 
-.body .NavBar,
-.body aside {
+main::-webkit-scrollbar,
+aside::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+aside {
   position: -webkit-sticky;
   position: sticky;
   top: 100px;
   height: calc(100vh - 100px);
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 70%;
+          flex: 1 1 70%;
+  border-inline: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+main > div {
+  margin-bottom: 1em;
 }
 
 .NewScream,
@@ -141,16 +162,6 @@ a:hover {
 aside .Invits,
 aside .Contacts {
   margin: 0;
-}
-
-main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 70%;
-          flex: 1 1 70%;
-}
-
-main > div {
-  margin-bottom: 1em;
 }
 
 main .NewScream {

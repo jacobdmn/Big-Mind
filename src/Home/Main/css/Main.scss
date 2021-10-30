@@ -6,20 +6,10 @@
   gap: calc(min(4vw, 2em));
   margin: 0;
 
-  main,
-  aside,
   .NavBar {
-    display: block;
     overflow-y: auto;
     @include scrollBarNone;
     padding-top: calc(min(2vw, 1em));
-  }
-  main {
-    border-inline: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .NavBar,
-  aside {
     position: sticky;
     top: 100px;
     height: calc(100vh - 100px);
