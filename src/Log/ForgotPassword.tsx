@@ -13,7 +13,7 @@ const ForgotPassword: React.FC<{
   const [emailError, setEmailError] = useState<null | boolean>(null);
 
   //// handle the login process
-  const handleForgotPassword = (e: React.SyntheticEvent) => {
+  const handleForgotPassword = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     /// Validation
     if (emailError) return;
@@ -21,14 +21,17 @@ const ForgotPassword: React.FC<{
     /// set Loading to true
     setLoadingTrue();
 
-    setTimeout(() => {
-      ///  login the account
-      try {
-      } catch (error) {
-        console.log(error);
-      }
-      /// reset inputs [for security]
-    }, 2000);
+    ///  login the account
+    try {
+      // await function here
+
+      setTimeout(() => {
+        // set inputs [for security]
+        setLoadingDone();
+      }, 2000);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

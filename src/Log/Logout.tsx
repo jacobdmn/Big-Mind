@@ -4,16 +4,19 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { auth } from "./../firebase";
-
+import { useHistory } from "react-router";
 export default function SimpleBackdrop() {
   const [open, setOpen] = React.useState(false);
-  const handleSignOut = () => {
-    setOpen(false);
+  const history = useHistory();
+
+  const handleSignOut = async () => {
+    setOpen(true);
 
     try {
-      setTimeout(() => {
-        auth.signOut().then(() => console.log("Signed out"));
-      }, 2000);
+      await auth.signOut().then(() => {
+        history.push("/");
+        console.log("Signed out");
+      });
     } catch (error) {
       console.log(error);
     }

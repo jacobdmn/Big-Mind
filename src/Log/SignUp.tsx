@@ -32,7 +32,7 @@ const SignUp: React.FC<{
   });
 
   //// handle the login process
-  const handleSignUp = (e: React.SyntheticEvent) => {
+  const handleSignUp = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     /// Validation
     if (
@@ -45,28 +45,26 @@ const SignUp: React.FC<{
     /// set Loading to true
     setLoadingTrue();
 
-    setTimeout(() => {
-      ///  login the account
-      try {
-        createUserWithEmailAndPassword(
-          auth,
-          refInputEmail.current.value,
-          refInputPassword.current.value
-        ).then((err) => {
-          console.log(err);
+    ///  login the account
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        refInputEmail.current.value,
+        refInputPassword.current.value
+      ).then((err) => {
+        console.log(err);
 
-          refInputName.current.value = "";
-          refInputEmail.current.value = "";
-          refInputPassword.current.value = "";
-          // reset loading
-          console.log("Submited");
-          setLoadingDone();
-        });
-      } catch (error) {
-        console.log(error);
-      }
-      /// reset inputs [for security]
-    }, 2000);
+        /// reset inputs [for security]
+        refInputName.current.value = "";
+        refInputEmail.current.value = "";
+        refInputPassword.current.value = "";
+        // reset loading
+        console.log("Submited");
+        setLoadingDone();
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

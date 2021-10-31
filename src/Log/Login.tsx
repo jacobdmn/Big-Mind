@@ -29,7 +29,7 @@ const Login: React.FC<{
   });
 
   //// handle the login process
-  const handleLogin = (e: React.SyntheticEvent) => {
+  const handleLogin = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     /// Validation
     if (errors.emailError !== false || errors.passwordError !== false) return;
@@ -37,27 +37,25 @@ const Login: React.FC<{
     /// set Loading to true
     setLoadingTrue();
 
-    setTimeout(() => {
-      ///  login the account
-      try {
-        signInWithEmailAndPassword(
-          auth,
-          refInputEmail.current.value,
-          refInputPassword.current.value
-        ).then((err) => {
-          console.log(err);
+    ///  login the account
+    try {
+      await signInWithEmailAndPassword(
+        auth,
+        refInputEmail.current.value,
+        refInputPassword.current.value
+      ).then((err) => {
+        console.log(err);
 
-          refInputEmail.current.value = "";
-          refInputPassword.current.value = "";
-          // reset loading
-          console.log("Submited");
-          setLoadingDone();
-        });
-      } catch (error) {
-        console.log(error);
-      }
-      /// reset inputs [for security]
-    }, 2000);
+        // reset inputs [for security]
+        refInputEmail.current.value = "";
+        refInputPassword.current.value = "";
+        // reset loading
+        console.log("Submited");
+        setLoadingDone();
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

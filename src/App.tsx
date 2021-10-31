@@ -3,8 +3,9 @@ import "./css/App.css";
 import Log from "./Log/Log";
 import Home from "./Home/Home";
 import { auth } from "./firebase";
+import { Switch, Route } from "react-router";
 const App: React.FC = () => {
-  const [currentUser, setCurrentUser] = React.useState<boolean>();
+  const [currentUser, setCurrentUser] = React.useState(false);
 
   React.useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -12,10 +13,13 @@ const App: React.FC = () => {
     });
   }, []);
 
-  // return <div className='App'>{currentUser ? <Home /> : <Log />}</div>;
   return (
     <div className='App'>
-      <Log />
+      {
+        <Switch>
+          <Route path='/' component={currentUser ? Home : Log} />
+        </Switch>
+      }
     </div>
   );
 };

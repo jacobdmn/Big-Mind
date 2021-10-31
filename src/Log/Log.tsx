@@ -3,6 +3,7 @@ import "./css/login.css";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
+import notFound from "./../notFound";
 import TextField from "@mui/material/TextField";
 import { Switch, Route } from "react-router-dom";
 import { styled } from "@mui/material";
@@ -81,7 +82,7 @@ const Log = () => {
                       setLoadingDone={setLoadingDone}
                     />
                   </Route>
-                  <Route path='*'>404</Route>
+                  <Route path='*' component={notFound} />
                 </Switch>
               </div>
             </fieldset>
