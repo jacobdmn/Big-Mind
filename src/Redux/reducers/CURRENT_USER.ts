@@ -9,7 +9,13 @@ import actionTypes from "./../actionTypes";
 // };
 
 const initialState = {
-  CURRENT_USER,
+  // CURRENT_USER,
+  userId: 0,
+  userName: "jacob.dmn",
+  fullName: "Jacob Dmn",
+  age: 23,
+  userAvatar: "./imgs/users/jacob_dmn/avatar/jacob_dmn.jpeg",
+  location: "Bay Area, SF",
   /// import here the current user id, and use that to get the rest of the infos from the database
 };
 const currentUserReducer = (state = initialState, action: any) => {
