@@ -1,16 +1,19 @@
 import React, { useRef, useState } from "react";
 import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
-import { SIGN_UP_ACTION } from "./../Redux/reducers/SIGN_UP";
-import { useDispatch } from "react-redux";
+// import { SIGN_UP_ACTION } from "./../Redux/reducers/SIGN_UP";
+// import { useDispatch } from "react-redux";
 import Alert from "@mui/material/Alert";
+
+import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "./../firebase";
 
 const SignUp: React.FC<{
   submitButtonContent: string;
   setLoadingTrue: () => void;
   setLoadingDone: () => void;
 }> = ({ submitButtonContent, setLoadingTrue, setLoadingDone }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   /// full name, email, password
   const refInputName = useRef<HTMLInputElement>(null!);
@@ -18,43 +21,50 @@ const SignUp: React.FC<{
   const refInputPassword = useRef<HTMLInputElement>(null!);
 
   /// Error Detecters
-  const [nameError, setNameError] = useState<boolean | null>(null);
-  const [emailError, setEmailError] = useState<boolean | null>(null);
-  const [passwordError, setPasswordError] = useState<boolean | null>(null);
-
-  const validateInput = (
-    ref: React.RefObject<HTMLInputElement>,
-    setWhat: React.Dispatch<React.SetStateAction<boolean | null>>
-  ) => {
-    Boolean(ref.current?.value) ? setWhat(false) : setWhat(true);
-  };
+  const [errors, setErrors] = useState<{
+    nameError: null | boolean;
+    emailError: null | boolean;
+    passwordError: null | boolean;
+  }>({
+    nameError: null,
+    emailError: null,
+    passwordError: null,
+  });
+  /// email checking
+  const [usedBefore, setUsedBefore] = useState(true);
 
   //// handle the login process
   const handleSignUp = (e: React.SyntheticEvent) => {
     e.preventDefault();
     /// Validation
     if (
-      !Boolean(refInputName.current?.value) ||
-      !Boolean(refInputEmail.current?.value) ||
-      !Boolean(refInputPassword.current?.value)
+      errors.nameError !== false ||
+      errors.emailError !== false ||
+      errors.passwordError !== false
     )
       return;
+
     /// set Loading to true
     setLoadingTrue();
 
-    ///  creating the account
     try {
       setTimeout(() => {
-        dispatch(
-          SIGN_UP_ACTION(
-            refInputName.current.value,
+        ///  login the account
+        try {
+          createUserWithEmailAndPassword(
+            auth,
             refInputEmail.current.value,
             refInputPassword.current.value
-          )
-        );
-        console.log("Done");
-
+          );
+        } catch (error) {
+          console.log(error);
+        }
+        /// reset inputs [for security]
+        refInputName.current.value = "";
+        refInputEmail.current.value = "";
+        refInputPassword.current.value = "";
         // reset loading
+        console.log("Submited");
         setLoadingDone();
       }, 2000);
     } catch {
@@ -66,28 +76,49 @@ const SignUp: React.FC<{
     <>
       <h1 className='title'>Sign Up</h1>
       <form onSubmit={handleSignUp} autoComplete='on'>
+        {/* FULL NAME FIELD */}
         <div className='name input'>
           <StyledTextField
             id='nameInput'
             label='Name'
             variant='outlined'
             inputRef={refInputName}
-            onChange={() => validateInput(refInputName, setNameError)}
-            error={nameError || false}
+            onChange={() => {
+              refInputName.current?.value.length > 3
+                ? setErrors((prev) => ({ ...prev, nameError: false }))
+                : setErrors((prev) => ({ ...prev, nameError: true }));
+            }}
+            error={errors.nameError || false}
           />
         </div>
 
+        {/* EMAIL FIELD */}
         <div className='email input'>
           <StyledTextField
             id='emailInput'
             label='Email'
+            type='email'
             variant='outlined'
             inputRef={refInputEmail}
-            onChange={() => validateInput(refInputEmail, setEmailError)}
-            error={emailError || false}
+            onChange={() => {
+              /// regex validator
+              const re =
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+              re.test(String(refInputEmail.current.value).toLowerCase())
+                ? setErrors((prev) => ({ ...prev, emailError: false }))
+                : setErrors((prev) => ({ ...prev, emailError: true }));
+
+              /// check email used before
+              refInputEmail.current.value === "s@s.ss" /// replace this with firebase function checker
+                ? setUsedBefore(true)
+                : setUsedBefore(false);
+            }}
+            error={errors.emailError || false}
           />
         </div>
 
+        {/* PASSWORD FIELD */}
         <div className='password input'>
           <StyledTextField
             id='passwordInput'
@@ -97,11 +128,11 @@ const SignUp: React.FC<{
             autoComplete='on'
             inputRef={refInputPassword}
             onChange={() => {
-              Boolean(refInputPassword.current?.value.length > 6)
-                ? setPasswordError(false)
-                : setPasswordError(true);
+              Boolean(refInputPassword.current?.value.length > 5)
+                ? setErrors((prev) => ({ ...prev, passwordError: false }))
+                : setErrors((prev) => ({ ...prev, passwordError: true }));
             }}
-            error={passwordError || false}
+            error={errors.passwordError || false}
           />
         </div>
 
@@ -109,36 +140,38 @@ const SignUp: React.FC<{
           <button type='submit'>{submitButtonContent} </button>
         </div>
       </form>
+
+      {/*  ERROR CONSOLE  */}
       <div className='ErrorConsole'>
         {/* Full name Verification */}
-        {nameError === false ? (
+        {errors.nameError === false ? (
           <Alert severity='success'> Full Name </Alert>
-        ) : nameError === true ? (
-          <Alert severity='error'> Full Name</Alert>
+        ) : errors.nameError === true ? (
+          <Alert severity='warning'> Full Name</Alert>
         ) : (
           <Alert severity='info'> Full Name required</Alert>
         )}
 
         {/* Email Verification */}
-        {emailError === false ? (
-          <Alert severity='success'> Email </Alert>
-        ) : emailError === true ? (
-          <Alert severity='error'> Email</Alert>
-        ) : (
+        {errors.emailError === false ? (
+          usedBefore ? (
+            <Alert severity='warning'>Used Email</Alert>
+          ) : (
+            <Alert severity='success'> Email </Alert>
+          )
+        ) : errors.emailError === null ? (
           <Alert severity='info'> Email required</Alert>
-        )}
+        ) : errors.emailError ? (
+          <Alert severity='warning'>Email</Alert>
+        ) : null}
 
         {/* Password Verification */}
-        {passwordError === false ? (
+        {errors.passwordError === false ? (
           <Alert severity='success'> Password </Alert>
-        ) : passwordError === true ? (
-          <Alert severity='error'> Password</Alert>
+        ) : errors.passwordError === true ? (
+          <Alert severity='warning'>password &gt; 5 characters</Alert>
         ) : (
-          <Alert severity='info'>
-            password must contain:
-            <br /> &gt; 6 characters
-            <br /> &gt; 1 Uppercase and a number
-          </Alert>
+          <Alert severity='info'>password &gt; 5 characters</Alert>
         )}
       </div>
       <div className='Options'>

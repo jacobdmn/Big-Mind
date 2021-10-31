@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -6,25 +6,57 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
 
+import { signInWithEmailAndPassword } from "@firebase/auth";
+import { auth } from "./../firebase";
+
 const Login: React.FC<{
   submitButtonContent: string;
   setLoadingTrue: () => void;
   setLoadingDone: () => void;
 }> = ({ submitButtonContent, setLoadingTrue, setLoadingDone }) => {
-  const refInput = useRef<HTMLInputElement>(null);
-  const refInputPassword = useRef<HTMLInputElement>(null);
+  const refInputEmail = useRef<HTMLInputElement>(null!);
+  const refInputPassword = useRef<HTMLInputElement>(null!);
+
+  /// Validation
+  const [emailError, setEmailError] = useState<boolean | null>(null);
+  const [passwordError, setPasswordError] = useState<boolean | null>(null);
+
+  /// Validation function
+  const validateInput = (
+    ref: React.RefObject<HTMLInputElement>,
+    setWhat: React.Dispatch<React.SetStateAction<boolean | null>>
+  ) => {
+    Boolean(ref.current?.value) ? setWhat(false) : setWhat(true);
+  };
 
   //// handle the login process
   const handleLogin = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    /// Validation
+    if (
+      !Boolean(refInputEmail.current?.value) ||
+      !Boolean(refInputPassword.current?.value)
+    )
+      return;
     setLoadingTrue();
 
-    ///  creating the account
     try {
       setTimeout(() => {
-        // dispatch(LOGGED_IN(USERS[0]));
-
+        ///  creating the account
+        try {
+          signInWithEmailAndPassword(
+            auth,
+            refInputEmail.current.value,
+            refInputPassword.current.value
+          );
+        } catch (error) {
+          console.log(error);
+        }
+        /// reset inputs [for security]
+        refInputEmail.current.value = "";
+        refInputPassword.current.value = "";
         // reset loading
+        console.log("Continue");
         setLoadingDone();
       }, 2000);
     } catch {
@@ -40,7 +72,7 @@ const Login: React.FC<{
             id='emailInput'
             label='Email'
             variant='outlined'
-            inputRef={refInput}
+            inputRef={refInputEmail}
             autoComplete='on'
           />
         </div>

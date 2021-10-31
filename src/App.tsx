@@ -3,17 +3,18 @@ import "./css/App.css";
 import Log from "./Log/Log";
 import Home from "./Home/Home";
 import { useSelector } from "react-redux";
-
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "./firebase";
 const App: React.FC = () => {
-  const CURRENT_USER = useSelector(
-    (state: any) => state.currentUserReducer.CURRENT_USER
-  );
+  // const CURRENT_USER = useSelector(
+  //   (state: any) => state.currentUserReducer.CURRENT_USER
+  // );
 
-  return (
-    <div className='App'>
-      {Boolean(CURRENT_USER.userId) ? <Home /> : <Log />}
-    </div>
-  );
+  let CURRENT_USER;
+  onAuthStateChanged(auth, (user) => {
+    CURRENT_USER = Boolean(user);
+  });
+  return <div className='App'>{CURRENT_USER ? <Home /> : <Log />}</div>;
 };
 
 export default App;

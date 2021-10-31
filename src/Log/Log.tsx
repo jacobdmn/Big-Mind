@@ -47,7 +47,7 @@ const Log = () => {
     /// set Button Content
     setSubmitButtonContent("Done");
     /// set Loading : true
-    setIsProcessing(false);
+    // setIsProcessing(false);
   };
 
   return (

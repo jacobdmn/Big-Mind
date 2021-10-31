@@ -31,11 +31,17 @@ const SIGNUP_REDUCER = (
 ) => {
   switch (action.type) {
     case actionTypes.SIGNUP:
-      createUserWithEmailAndPassword(
-        auth,
-        action.payload.email,
-        action.payload.password
-      );
+      try {
+        createUserWithEmailAndPassword(
+          auth,
+          action.payload.email,
+          action.payload.password
+        ).then((credential) => {
+          console.log(credential);
+        });
+      } catch (error) {
+        console.error(error);
+      }
       break;
   }
   return null;
