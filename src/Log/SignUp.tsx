@@ -24,14 +24,14 @@ const SignUp: React.FC<{
   const [errors, setErrors] = useState<{
     nameError: null | boolean;
     emailError: null | boolean;
+    emailUsedBefore: null | boolean;
     passwordError: null | boolean;
   }>({
     nameError: null,
     emailError: null,
+    emailUsedBefore: null,
     passwordError: null,
   });
-  /// email checking
-  const [usedBefore, setUsedBefore] = useState(true);
 
   //// handle the login process
   const handleSignUp = (e: React.SyntheticEvent) => {
@@ -55,17 +55,20 @@ const SignUp: React.FC<{
             auth,
             refInputEmail.current.value,
             refInputPassword.current.value
-          );
+          ).then((err) => {
+            console.log(err.operationType.charCodeAt);
+
+            refInputName.current.value = "";
+            refInputEmail.current.value = "";
+            refInputPassword.current.value = "";
+            // reset loading
+            console.log("Submited");
+            setLoadingDone();
+          });
         } catch (error) {
           console.log(error);
         }
         /// reset inputs [for security]
-        refInputName.current.value = "";
-        refInputEmail.current.value = "";
-        refInputPassword.current.value = "";
-        // reset loading
-        console.log("Submited");
-        setLoadingDone();
       }, 2000);
     } catch {
       console.log("Error Signing up !");
@@ -89,6 +92,13 @@ const SignUp: React.FC<{
                 : setErrors((prev) => ({ ...prev, nameError: true }));
             }}
             error={errors.nameError || false}
+            color={
+              errors.nameError === true
+                ? "warning"
+                : errors.nameError === false
+                ? "success"
+                : "primary"
+            }
           />
         </div>
 
@@ -109,12 +119,19 @@ const SignUp: React.FC<{
                 ? setErrors((prev) => ({ ...prev, emailError: false }))
                 : setErrors((prev) => ({ ...prev, emailError: true }));
 
-              /// check email used before
-              refInputEmail.current.value === "s@s.ss" /// replace this with firebase function checker
-                ? setUsedBefore(true)
-                : setUsedBefore(false);
+              ///  used email ?
+              re.test(String(refInputEmail.current.value).toLowerCase())
+                ? setErrors((prev) => ({ ...prev, emailUsedBefore: false }))
+                : setErrors((prev) => ({ ...prev, emailUsedBefore: true }));
             }}
             error={errors.emailError || false}
+            color={
+              errors.emailError === true
+                ? "warning"
+                : errors.emailError === false
+                ? "success"
+                : "primary"
+            }
           />
         </div>
 
@@ -133,6 +150,13 @@ const SignUp: React.FC<{
                 : setErrors((prev) => ({ ...prev, passwordError: true }));
             }}
             error={errors.passwordError || false}
+            color={
+              errors.passwordError === true
+                ? "warning"
+                : errors.passwordError === false
+                ? "success"
+                : "primary"
+            }
           />
         </div>
 
@@ -143,40 +167,15 @@ const SignUp: React.FC<{
 
       {/*  ERROR CONSOLE  */}
       <div className='ErrorConsole'>
-        {/* Full name Verification */}
-        {errors.nameError === false ? (
-          <Alert severity='success'> Full Name </Alert>
-        ) : errors.nameError === true ? (
-          <Alert severity='warning'> Full Name</Alert>
-        ) : (
-          <Alert severity='info'> Full Name required</Alert>
-        )}
-
-        {/* Email Verification */}
-        {errors.emailError === false ? (
-          usedBefore ? (
-            <Alert severity='warning'>Used Email</Alert>
-          ) : (
-            <Alert severity='success'> Email </Alert>
-          )
-        ) : errors.emailError === null ? (
-          <Alert severity='info'> Email required</Alert>
-        ) : errors.emailError ? (
-          <Alert severity='warning'>Email</Alert>
-        ) : null}
-
         {/* Password Verification */}
-        {errors.passwordError === false ? (
-          <Alert severity='success'> Password </Alert>
-        ) : errors.passwordError === true ? (
+        {errors.emailUsedBefore && <Alert severity='warning'>Used Email</Alert>}
+        {errors.passwordError && (
           <Alert severity='warning'>password &gt; 5 characters</Alert>
-        ) : (
-          <Alert severity='info'>password &gt; 5 characters</Alert>
         )}
       </div>
       <div className='Options'>
         <div className='Options__other'>
-          <Link to='/login'> Have an account? Login </Link>
+          <Link to='/'> Have an account? Login </Link>
         </div>
       </div>
     </>

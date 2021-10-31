@@ -10,11 +10,15 @@ const App: React.FC = () => {
   //   (state: any) => state.currentUserReducer.CURRENT_USER
   // );
 
-  let CURRENT_USER;
-  onAuthStateChanged(auth, (user) => {
-    CURRENT_USER = Boolean(user);
-  });
-  return <div className='App'>{CURRENT_USER ? <Home /> : <Log />}</div>;
+  const [currentUser, setCurrentUser] = React.useState<boolean>();
+
+  React.useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setCurrentUser(Boolean(user));
+    });
+  }, []);
+
+  return <div className='App'>{currentUser ? <Home /> : <Log />}</div>;
 };
 
 export default App;

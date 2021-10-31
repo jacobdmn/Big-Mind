@@ -5,8 +5,8 @@
   background: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -webkit-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
   font-weight: normal !important;
 }
 
@@ -14,6 +14,13 @@ button,
 label,
 a {
   cursor: pointer;
+}
+
+button:active,
+label:active,
+a:active {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
 }
 
 .Log__Form {
@@ -142,19 +149,17 @@ a {
   padding: 0 1em;
   width: 100%;
   height: 50px;
-  border-radius: 10px;
-  background: #6675df;
+  border-radius: 5px;
+  background: #1c3a5f;
   font-weight: 500;
   font-size: 1.3rem;
   color: #fff;
   line-height: 1.2;
   letter-spacing: 1px;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
 }
 
 .Log__Form .container .Login__formBox .formApp .submitButton button:hover {
-  background: #6674dfd3;
+  background: #152b46;
 }
 
 .Log__Form .container .Login__formBox .formApp .ErrorConsole {
@@ -184,11 +189,20 @@ a {
   line-height: 1.4;
   color: #999999;
   text-align: center;
+  font-size: 1.3em !important;
 }
 
-.Log__Form .container .Login__formBox .formApp .Options h3.Options__SignUp a {
-  color: #1c3a5f !important;
-  font-size: 1.3em;
+.Log__Form .container .Login__formBox .formApp .Options h3.Options__SignUp {
+  font-weight: 400 !important;
+  border-radius: 4px;
+  padding: 0.3em 0;
+  position: relative;
+  background: #42b72a;
+  color: white;
+}
+
+.Log__Form .container .Login__formBox .formApp .Options h3.Options__SignUp:hover {
+  background: #3ca826;
 }
 
 .Log__Form .container .Login__formBox .formApp .Options .Options__Buttons {

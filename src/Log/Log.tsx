@@ -72,8 +72,7 @@ const Log = () => {
             <fieldset disabled={isProcessing}>
               <div className='formApp'>
                 <Switch>
-                  <Route exact path='/login'>
-                    {/* <Redirect to='/login' /> */}
+                  <Route exact path='/'>
                     <Login
                       submitButtonContent={submitButtonContent}
                       setLoadingTrue={setLoadingTrue}

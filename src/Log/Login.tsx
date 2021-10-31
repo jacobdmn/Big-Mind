@@ -48,16 +48,20 @@ const Login: React.FC<{
             auth,
             refInputEmail.current.value,
             refInputPassword.current.value
-          );
+          ).then((err) => {
+            // if all good, do this
+            /// reset inputs [for security]
+            refInputEmail.current.value = "";
+            refInputPassword.current.value = "";
+            // reset loading
+            console.log("Continue");
+            setLoadingDone();
+
+            //// otherwise do this
+          });
         } catch (error) {
           console.log(error);
         }
-        /// reset inputs [for security]
-        refInputEmail.current.value = "";
-        refInputPassword.current.value = "";
-        // reset loading
-        console.log("Continue");
-        setLoadingDone();
       }, 2000);
     } catch {
       console.log("Error Signing up !");
@@ -100,9 +104,9 @@ const Login: React.FC<{
         </div>
       </form>
       <div className='Options'>
-        <h3 className='Options__SignUp'>
-          <Link to='/signup'> Sign Up </Link>
-        </h3>
+        <Link to='/signup'>
+          <h3 className='Options__SignUp'>Sign Up</h3>
+        </Link>
         <h3 className='Options__Title'>or sign in/up using</h3>
 
         <div className='Options__Buttons'>
