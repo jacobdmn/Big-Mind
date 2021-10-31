@@ -4,15 +4,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
 import TextField from "@mui/material/TextField";
-
 import { Switch, Route } from "react-router-dom";
-import { Redirect } from "react-router-dom";
-// import { useDispatch } from "react-redux";
-// import { LOGGED_IN } from "./../Redux/reducers/CURRENT_USER";
-// import { USERS } from "./../Redux/database";
-// import Home from "./../Home/Home";
-// import { useSelector } from "react-redux";
-
 import { styled } from "@mui/material";
 export const StyledTextField = styled(TextField)({
   "&, &> *": {
@@ -22,9 +14,6 @@ export const StyledTextField = styled(TextField)({
 });
 
 const Log = () => {
-  /// Dispatch function to get the current user
-  // const dispatch = useDispatch();
-
   /// var check isProcessing
   const [isProcessing, setIsProcessing] = React.useState(false);
 
@@ -46,7 +35,6 @@ const Log = () => {
   const setLoadingDone = () => {
     /// set Button Content
     setSubmitButtonContent("Done");
-    /// set Loading : true
     // setIsProcessing(false);
   };
 
@@ -89,8 +77,8 @@ const Log = () => {
                   <Route exact path='/forgot-password'>
                     <ForgotPassword
                       submitButtonContent={submitButtonContent}
-                      // setLoadingTrue={setLoadingTrue}
-                      // setLoadingDone={setLoadingDone}
+                      setLoadingTrue={setLoadingTrue}
+                      setLoadingDone={setLoadingDone}
                     />
                   </Route>
                   <Route path='*'>404</Route>

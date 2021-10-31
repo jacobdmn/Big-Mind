@@ -1,8 +1,6 @@
 import React, { useRef, useState } from "react";
 import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
-// import { SIGN_UP_ACTION } from "./../Redux/reducers/SIGN_UP";
-// import { useDispatch } from "react-redux";
 import Alert from "@mui/material/Alert";
 
 import { createUserWithEmailAndPassword } from "@firebase/auth";
@@ -47,32 +45,28 @@ const SignUp: React.FC<{
     /// set Loading to true
     setLoadingTrue();
 
-    try {
-      setTimeout(() => {
-        ///  login the account
-        try {
-          createUserWithEmailAndPassword(
-            auth,
-            refInputEmail.current.value,
-            refInputPassword.current.value
-          ).then((err) => {
-            console.log(err.operationType.charCodeAt);
+    setTimeout(() => {
+      ///  login the account
+      try {
+        createUserWithEmailAndPassword(
+          auth,
+          refInputEmail.current.value,
+          refInputPassword.current.value
+        ).then((err) => {
+          console.log(err);
 
-            refInputName.current.value = "";
-            refInputEmail.current.value = "";
-            refInputPassword.current.value = "";
-            // reset loading
-            console.log("Submited");
-            setLoadingDone();
-          });
-        } catch (error) {
-          console.log(error);
-        }
-        /// reset inputs [for security]
-      }, 2000);
-    } catch {
-      console.log("Error Signing up !");
-    }
+          refInputName.current.value = "";
+          refInputEmail.current.value = "";
+          refInputPassword.current.value = "";
+          // reset loading
+          console.log("Submited");
+          setLoadingDone();
+        });
+      } catch (error) {
+        console.log(error);
+      }
+      /// reset inputs [for security]
+    }, 2000);
   };
 
   return (

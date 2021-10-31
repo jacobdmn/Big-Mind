@@ -16,6 +16,7 @@ button,
 label,
 a {
   cursor: pointer;
+  text-decoration: none;
   &:active {
     transform: scale(0.96);
   }
