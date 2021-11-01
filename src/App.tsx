@@ -15,30 +15,31 @@ const App: React.FC = () => {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      !user && setCurrentUser(false);
-      if (user) {
-        const docRef = doc(db, "users", user.uid);
-        const docSnapFunc = async () => {
-          const docSnap = await getDoc(docRef);
-          if (docSnap.exists()) {
-            console.log("User data:", user.uid);
-            console.log("Document data:", docSnap.data());
-            dispatch(
-              LOGIN({
-                ...docSnap.data(),
-                userId: user.uid,
-              })
-            );
-            setCurrentUser(true);
-          } else {
-            console.log("No such document!"); // doc.data() will be undefined in this case
-          }
-        };
-        docSnapFunc(); // i need to create this function to wrap the await by a sync
+      if (!user) {
+        setCurrentUser(false);
+        return;
       }
+
+      const docRef = doc(db, "users", user.uid);
+      const docSnapFunc = async () => {
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          console.log("User ID:", user.uid);
+          console.log("User Info:", docSnap.data());
+          dispatch(
+            LOGIN({
+              ...docSnap.data(),
+              userId: user.uid,
+            })
+          );
+          setCurrentUser(true);
+        } else {
+          console.log("No such document!"); // doc.data() will be undefined in this case
+        }
+      };
+      docSnapFunc(); // i need to create this function to wrap the await by a sync
     });
-    history.push("/");
-  }, [dispatch, history]);
+  }, []);
 
   return (
     <div className='App'>
