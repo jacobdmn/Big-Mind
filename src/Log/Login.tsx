@@ -18,7 +18,7 @@ import {
 } from "@firebase/auth";
 import { auth, db } from "./../firebase";
 import { Alert } from "@mui/material";
-import { collection, doc, setDoc } from "@firebase/firestore";
+import { collection, doc, setDoc, getDoc } from "@firebase/firestore";
 
 const Login: React.FC<{
   submitButtonContent: string;
@@ -84,15 +84,23 @@ const Login: React.FC<{
       const addNewUserLoggedWithGoogle = async () => {
         try {
           const usersCollection = collection(db, "users");
-          await setDoc(doc(usersCollection, currentUser.uid), newUserToCreate);
-          alert("user added to db");
+          const isUserInDB = doc(db, "users", currentUser.uid);
+          const isUserInDB_Snap = await getDoc(isUserInDB);
+          if (!isUserInDB_Snap.exists()) {
+            await setDoc(
+              doc(usersCollection, currentUser.uid),
+              newUserToCreate
+            );
+            // alert("user added to db");
+            window.location.reload();
+          }
         } catch (error) {
-          console.error(error);
+          console.log(error);
         }
       };
       addNewUserLoggedWithGoogle();
+      console.log("Logged in with google!");
     }
-    console.log("Logged in with google!");
   };
 
   //// handle facebook sign in

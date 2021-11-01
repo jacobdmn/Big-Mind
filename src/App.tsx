@@ -13,6 +13,22 @@ const App: React.FC = () => {
   const [currentUser, setCurrentUser] = useState(false);
   const dispatch = useDispatch();
 
+  // the whole story is
+  // on auth => login ?
+  //              existed Used ?
+  //                      *getDoc his [userName*, fullName*, userAvatar, location..] from db using his UID
+  //                      *fullName, and username are required to load the Home page
+  //                    dispatch his infos to redux
+  //                    setCurrentUser(true) to redurect to Home
+  //              doesnt exist ?
+  //               console log error
+
+  //           logout ?
+  //              say good bye
+  //              setCurrentUser(false) to redurect to Login
+
+  //  We're DONE !
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (!user) {
@@ -44,7 +60,7 @@ const App: React.FC = () => {
       userProfileSnapFunction();
     });
     history.push("/");
-  }, [dispatch, history]);
+  }, []);
 
   return (
     <div className='App'>
