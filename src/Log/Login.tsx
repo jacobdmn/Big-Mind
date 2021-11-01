@@ -13,11 +13,12 @@ import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
-  signInWithRedirect,
+  // signInWithRedirect,
   TwitterAuthProvider,
 } from "@firebase/auth";
-import { auth } from "./../firebase";
+import { auth, db } from "./../firebase";
 import { Alert } from "@mui/material";
+import { collection, doc, setDoc } from "@firebase/firestore";
 
 const Login: React.FC<{
   submitButtonContent: string;
@@ -71,6 +72,26 @@ const Login: React.FC<{
   //// handle gmail sign in
   const handleLoginWithGmail = async () => {
     await signInWithPopup(auth, new GoogleAuthProvider());
+    const currentUser = auth.currentUser;
+
+    if (currentUser && currentUser.email !== null) {
+      const newUserToCreate = {
+        userId: currentUser.uid,
+        fullName: currentUser.email.split("@")[0],
+        userName: currentUser.email.split("@")[0],
+      };
+
+      const addNewUserLoggedWithGoogle = async () => {
+        try {
+          const usersCollection = collection(db, "users");
+          await setDoc(doc(usersCollection, currentUser.uid), newUserToCreate);
+          alert("user added to db");
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      addNewUserLoggedWithGoogle();
+    }
     console.log("Logged in with google!");
   };
 

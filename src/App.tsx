@@ -19,24 +19,29 @@ const App: React.FC = () => {
         setCurrentUser(false);
         return;
       }
-      const docRef = doc(db, "users", user.uid);
-      const docSnapFunc = async () => {
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          console.log("User ID:", user.uid);
-          console.log("User Info:", docSnap.data());
-          dispatch(
-            LOGIN({
-              ...docSnap.data(),
-              userId: user.uid,
-            })
-          );
-          setCurrentUser(true);
-        } else {
-          console.log("No such document!"); // doc.data() will be undefined in this case
+      const userProfileSnapFunction = async () => {
+        const userProfileReference = doc(db, "users", user.uid);
+        const userProfileSnap = await getDoc(userProfileReference);
+        if (!userProfileSnap.exists()) {
+          console.log("User doesn't exist !..");
+          return;
         }
+        console.log("User exists !.. let's just login");
+        dispatch(
+          LOGIN({
+            ...userProfileSnap.data(),
+            userId: user.uid,
+          })
+        );
+        /// set the current user to true
+        setCurrentUser(true);
+
+        /// console log user infos
+        console.log(`User ID:   ${user.uid}\n
+                     User Info: ${userProfileSnap.data()}`);
       };
-      docSnapFunc(); // i need to create this function to wrap the await by a sync
+      // i need to create this function to wrap the await by an async
+      userProfileSnapFunction();
     });
     history.push("/");
   }, [dispatch, history]);
