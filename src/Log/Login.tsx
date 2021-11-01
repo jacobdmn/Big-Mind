@@ -8,7 +8,14 @@ import { StyledTextField } from "./Log";
 
 import { Link } from "react-router-dom";
 
-import { signInWithEmailAndPassword } from "@firebase/auth";
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signInWithRedirect,
+  TwitterAuthProvider,
+} from "@firebase/auth";
 import { auth } from "./../firebase";
 import { Alert } from "@mui/material";
 
@@ -29,8 +36,8 @@ const Login: React.FC<{
     passwordError: null,
   });
 
-  //// handle the login process
-  const handleLogin = async (e: React.SyntheticEvent) => {
+  //// handle email/password process
+  const handleLoginWithEmailAndPassword = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     /// Validation
     if (errors.emailError !== false || errors.passwordError !== false) return;
@@ -61,10 +68,28 @@ const Login: React.FC<{
     setLoadingDone();
   };
 
+  //// handle gmail sign in
+  const handleLoginWithGmail = async () => {
+    await signInWithPopup(auth, new GoogleAuthProvider());
+    console.log("Logged in with google!");
+  };
+
+  //// handle facebook sign in
+  const handleLoginWithFacebook = async () => {
+    await signInWithPopup(auth, new FacebookAuthProvider());
+    console.log("Logged in with facebook !");
+  };
+
+  //// handle twitter sign in
+  const handleLoginWithTwitter = async () => {
+    await signInWithPopup(auth, new TwitterAuthProvider());
+    console.log("Logged in with twitter!");
+  };
+
   return (
     <>
       <h1 className='title'>Login to continue</h1>
-      <form onSubmit={handleLogin} autoComplete='on'>
+      <form onSubmit={handleLoginWithEmailAndPassword} autoComplete='on'>
         <div className='name input'>
           <StyledTextField
             id='emailInput'
@@ -148,15 +173,15 @@ const Login: React.FC<{
         <h3 className='Options__Title'>or sign in/up using</h3>
 
         <div className='Options__Buttons'>
-          <button className='google'>
+          <button className='google' onClick={handleLoginWithGmail}>
             <GoogleIcon />
           </button>
 
-          <button className='facebook'>
+          <button className='facebook' onClick={handleLoginWithFacebook}>
             <FacebookIcon />
           </button>
 
-          <button className='twitter'>
+          <button className='twitter' onClick={handleLoginWithTwitter}>
             <TwitterIcon />
           </button>
         </div>

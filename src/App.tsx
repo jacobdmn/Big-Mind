@@ -19,7 +19,6 @@ const App: React.FC = () => {
         setCurrentUser(false);
         return;
       }
-
       const docRef = doc(db, "users", user.uid);
       const docSnapFunc = async () => {
         const docSnap = await getDoc(docRef);
@@ -39,7 +38,8 @@ const App: React.FC = () => {
       };
       docSnapFunc(); // i need to create this function to wrap the await by a sync
     });
-  }, []);
+    history.push("/");
+  }, [dispatch, history]);
 
   return (
     <div className='App'>
