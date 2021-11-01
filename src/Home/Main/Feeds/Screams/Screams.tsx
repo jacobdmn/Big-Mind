@@ -6,6 +6,7 @@ import Scream from "./Scream";
 
 const Screams: React.FC = (props) => {
   const screamsFromStore = useSelector((state: any) => state.screamingReducer);
+
   return (
     <div className='Screams'>
       {screamsFromStore.length > 0 ? (

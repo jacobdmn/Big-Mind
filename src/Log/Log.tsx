@@ -35,8 +35,8 @@ const Log = () => {
   };
   const setLoadingDone = () => {
     /// set Button Content
-    setSubmitButtonContent("Done");
-    // setIsProcessing(false);
+    setIsProcessing(false);
+    setSubmitButtonContent("Continue");
   };
 
   return (

@@ -38,6 +38,7 @@ const SignUp: React.FC<{
     if (
       errors.nameError !== false ||
       errors.emailError !== false ||
+      errors.emailUsedBefore !== false ||
       errors.passwordError !== false
     )
       return;
@@ -51,20 +52,18 @@ const SignUp: React.FC<{
         auth,
         refInputEmail.current.value,
         refInputPassword.current.value
-      ).then((err) => {
-        console.log(err);
-
-        /// reset inputs [for security]
-        refInputName.current.value = "";
-        refInputEmail.current.value = "";
-        refInputPassword.current.value = "";
-        // reset loading
-        console.log("Submited");
-        setLoadingDone();
-      });
-    } catch (error) {
-      console.log(error);
+      );
+      /// reset inputs [for security]
+      refInputName.current.value = "";
+      refInputEmail.current.value = "";
+      refInputPassword.current.value = "";
+      console.log("Submited");
+    } catch (error: any) {
+      error.code === "auth/email-already-in-use" &&
+        setErrors((prev) => ({ ...prev, emailUsedBefore: true }));
     }
+    // reset loading
+    setLoadingDone();
   };
 
   return (

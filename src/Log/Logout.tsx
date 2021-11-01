@@ -10,15 +10,13 @@ export default function SimpleBackdrop() {
   const history = useHistory();
 
   const handleSignOut = async () => {
-    setOpen(true);
-
     try {
-      await auth.signOut().then(() => {
-        history.push("/");
-        console.log("Signed out");
-      });
+      setOpen(true);
+      await auth.signOut();
+      history.push("/");
+      console.log("Signed out");
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 

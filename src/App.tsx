@@ -1,25 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./css/App.css";
 import Log from "./Log/Log";
 import Home from "./Home/Home";
 import { auth } from "./firebase";
-import { Switch, Route } from "react-router";
-const App: React.FC = () => {
-  const [currentUser, setCurrentUser] = React.useState(false);
+import { Switch, Route, useHistory } from "react-router";
 
-  React.useEffect(() => {
+const App: React.FC = () => {
+  const history = useHistory();
+  const [currentUser, setCurrentUser] = useState(false);
+
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      setCurrentUser(Boolean(user));
+      user ? setCurrentUser(true) : setCurrentUser(false);
     });
-  }, []);
+    history.push("/");
+  }, [history]);
 
   return (
     <div className='App'>
-      {
-        <Switch>
-          <Route path='/' component={currentUser ? Home : Log} />
-        </Switch>
-      }
+      <Switch>
+        <Route path='/' component={currentUser ? Home : Log} />
+      </Switch>
     </div>
   );
 };

@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
 import { StyledTextField } from "./Log";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase";
+import { sendPasswordResetEmail } from "@firebase/auth";
+import { Alert } from "@mui/material";
 
 const ForgotPassword: React.FC<{
   submitButtonContent: string;
@@ -9,6 +12,11 @@ const ForgotPassword: React.FC<{
 }> = ({ submitButtonContent, setLoadingTrue, setLoadingDone }) => {
   const refInputEmail = useRef<HTMLInputElement>(null!);
 
+  /// Email Confirmation sent
+  const [emailConfirmationSent, setEmailConfirmationSent] = useState<
+    null | boolean
+  >(null);
+
   /// Error Detecters
   const [emailError, setEmailError] = useState<null | boolean>(null);
 
@@ -16,22 +24,20 @@ const ForgotPassword: React.FC<{
   const handleForgotPassword = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     /// Validation
-    if (emailError) return;
+    if (emailError || emailError === null) return;
 
     /// set Loading to true
     setLoadingTrue();
 
-    ///  login the account
+    ///  try send email reset
     try {
-      // await function here
-
-      setTimeout(() => {
-        // set inputs [for security]
-        setLoadingDone();
-      }, 2000);
+      await sendPasswordResetEmail(auth, refInputEmail.current.value);
+      setEmailConfirmationSent(true);
     } catch (error) {
-      console.log(error);
+      setEmailConfirmationSent(false);
     }
+    // reset loading
+    setLoadingDone();
   };
 
   return (
@@ -74,6 +80,16 @@ const ForgotPassword: React.FC<{
           <button type='submit'>{submitButtonContent} </button>
         </div>
       </form>
+
+      {/*  RESULT CONSOLE  */}
+      <div className='ErrorConsole'>
+        {emailConfirmationSent === null ? null : emailConfirmationSent ? (
+          <Alert severity='success'>Check your inbox !</Alert>
+        ) : (
+          <Alert severity='warning'>Unexisted email !</Alert>
+        )}
+      </div>
+
       <div className='Options'>
         <div className='Options__other'>
           <Link to='/'> Back to Login </Link>

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "./../firebase";
+import { Alert } from "@mui/material";
 
 const Login: React.FC<{
   submitButtonContent: string;
@@ -43,19 +44,21 @@ const Login: React.FC<{
         auth,
         refInputEmail.current.value,
         refInputPassword.current.value
-      ).then((err) => {
-        console.log(err);
+      );
+      // reset inputs [for security]
+      refInputEmail.current.value = "";
+      refInputPassword.current.value = "";
 
-        // reset inputs [for security]
-        refInputEmail.current.value = "";
-        refInputPassword.current.value = "";
-        // reset loading
-        console.log("Submited");
-        setLoadingDone();
-      });
-    } catch (error) {
-      console.log(error);
+      console.log("Submited");
+    } catch (error: any) {
+      // alert(error.code);
+      error.code === "auth/user-not-found" &&
+        setErrors((prev) => ({ ...prev, emailError: true }));
+      error.code === "auth/wrong-password" &&
+        setErrors((prev) => ({ ...prev, passwordError: true }));
     }
+    // reset loading
+    setLoadingDone();
   };
 
   return (
@@ -129,6 +132,15 @@ const Login: React.FC<{
           <button type='submit'>{submitButtonContent}</button>
         </div>
       </form>
+
+      {/* Error console */}
+      <div className='ErrorConsole'>
+        {errors.emailError && <Alert severity='warning'>Invalid Email</Alert>}
+        {errors.passwordError && (
+          <Alert severity='warning'>Invalid Password</Alert>
+        )}
+      </div>
+
       <div className='Options'>
         <Link to='/signup'>
           <h3 className='Options__SignUp'>Sign Up</h3>
