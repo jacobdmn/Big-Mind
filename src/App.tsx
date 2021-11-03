@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./css/App.css";
 import Log from "./Log/Log";
 import Home from "./Home/Home";
@@ -39,45 +40,58 @@ const App: React.FC = () => {
         const usersCollection = collection(db, "users");
         const userProfileReference = doc(db, "users", user.uid);
         const userProfileSnap = await getDoc(userProfileReference);
-        if (!userProfileSnap.exists() && user.uid && user.email) {
-          console.log("User doesn't exist !.. let's create it");
+        if (user.uid && user.email) {
+          if (!userProfileSnap.exists()) {
+            console.log("User doesn't exist !.. let's create it");
 
-          const newUser = {
-            userName: user.email.split("@")[0],
-            fullName: user.email.split("@")[0].toUpperCase(),
-            userAvatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
-            age: 1,
-            friendship: {
-              friends: [],
-              invits: [],
-            },
-            location: "US",
-          };
+            const newUser = {
+              userName: user.email.split("@")[0],
+              fullName: user.email.split("@")[0].toUpperCase(),
+              userAvatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
+              age: 1,
+              friendship: {
+                friends: [],
+                invits: [],
+              },
+              location: "US",
+            };
 
-          //// dispatch userInfos to Firebase
-          await setDoc(doc(usersCollection, user.uid), newUser);
+            //// dispatch userInfos to Firebase
+            await setDoc(doc(usersCollection, user.uid), newUser);
 
-          //// dispatch userInfos to Home page
+            //// dispatch userInfos to Home page
+            dispatch(
+              LOGIN({
+                ...newUser,
+                userId: user.uid,
+              })
+            );
+            // axios.post();
+            return;
+          }
+          console.log("User exists !.. let's just login");
+          try {
+            await axios.get("https://api.chatengine.io/users/me", {
+              headers: {
+                "project-id": "1369a0e9-3f10-4042-b741-1d8d4e1e5037",
+                "user-name": user.email,
+                "user-secret": user.uid,
+              },
+            });
+          } catch (error) {
+            console.log(error);
+          }
           dispatch(
             LOGIN({
-              ...newUser,
+              ...userProfileSnap.data(),
               userId: user.uid,
             })
           );
-          // setCurrentUser(true);
-          return;
-        }
-        console.log("User exists !.. let's just login");
-        dispatch(
-          LOGIN({
-            ...userProfileSnap.data(),
-            userId: user.uid,
-          })
-        );
 
-        /// console log user infos
-        console.log(`User ID:   ${user.uid}\n
+          /// console log user infos
+          console.log(`User ID:   ${user.uid}\n
                      User Info: ${userProfileSnap.data()}`);
+        }
       };
       // i need to create this function to wrap the await by an async
       userProfileSnapFunction();

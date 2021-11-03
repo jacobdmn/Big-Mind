@@ -1,5 +1,5 @@
 import Feeds from "./Feeds/Feeds";
-import Messenger from "./Messenger/Messenger";
+import Messenger from "./Messenger/./Messenger";
 import FindPeople from "./FindPeople/FindPeople";
 import Games from "./Games/Games";
 import Music from "./Music/Music";

@@ -1,0 +1,91 @@
+import actionTypes from "../actionTypes";
+import { auth, db } from "../../firebase";
+import { collection, doc, getDoc, setDoc } from "@firebase/firestore";
+
+/* 
+
+the whole story is what
+when login: 
+    - get {uid, email} = user
+    - search his infos in colleciton 'users'
+    - replace CURRENT_USER infos
+    - refresh 
+
+ */
+const fetchOrCreate = async (fullName?: string) => {
+  let userInfos = {
+    userId: "",
+    userName: "",
+    fullName: "",
+    age: 0,
+    userAvatar: "",
+    location: "",
+  };
+
+  if (auth.currentUser) {
+    const { uid, email } = auth.currentUser;
+    try {
+      const usersCollection = collection(db, "users");
+      const UserRef = doc(db, "users", uid);
+      const User_Snap = await getDoc(UserRef);
+
+      if (User_Snap.exists()) {
+        userInfos = { ...userInfos, ...User_Snap.data() };
+        console.log("user logged in");
+      } else {
+        userInfos = {
+          ...userInfos,
+          fullName: fullName || email,
+          userName: email,
+        };
+        console.log("user signed up");
+      }
+      console.log(userInfos);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  return userInfos;
+};
+
+// const fetchOrCreateUserProfileAfterSignInUp = (fullName?: string) => {
+//   /*
+//     switch(sign up method)
+//       - case EMAIL/PASS: fullName = true
+//       - case OTHERS: fullName = email.split("@")[0]
+//   */
+//   if (auth.currentUser) {
+//     const { uid, email } = auth.currentUser;
+//     const fetchOrCreate = async () => {
+//       try {
+//         const usersCollection = collection(db, "users");
+//         const UserRef = doc(db, "users", uid);
+//         const User_Snap = await getDoc(UserRef);
+
+//         /// if users exists in 'users' return his profile
+//         if (User_Snap.exists()) {
+//           console.log({ ...User_Snap.data() });
+//           return;
+//           // return { ...User_Snap.data(), fullName: "It wurks !" };
+//         }
+//         /// if User doesn't exist in 'users' create his profile
+//         await setDoc(doc(usersCollection, uid), {
+//           fullName: fullName || email?.split("@")[0],
+//           userName: email?.split("@")[0] || "",
+//         });
+//         console.log("new user's added to db ");
+//         // window.location.reload(); /// if new user, reload to ensure success
+//         return {
+//           /// i can re-make query from firebase, or copy paste this part from above
+//           fullName: fullName || email?.split("@")[0],
+//           userName: email?.split("@")[0],
+//         };
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
+//     return fetchOrCreate();
+//   }
+//   return initialUserRedux;
+// };

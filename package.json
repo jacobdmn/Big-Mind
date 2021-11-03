@@ -19,11 +19,13 @@
     "@types/node": "^12.20.28",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.9",
+    "axios": "^0.24.0",
     "firebase": "^9.1.2",
     "firebase-admin": "^9.12.0",
     "firebase-functions": "^3.15.7",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
+    "react-chat-engine": "^1.11.21",
     "react-chatbox-component": "^0.0.5",
     "react-dom": "^17.0.2",
     "react-google-button": "^0.7.2",
@@ -66,6 +68,7 @@
   },
   "typeRoots": [
     "../node_modules/@types",
-    "../@types"
+    "../@types",
+    "../src/global.d.ts"
   ]
 }
