@@ -1,17 +1,2 @@
 @import "./../../../Home/style/Home";
 
-.body {
-  display: flex;
-  padding-inline: calc(min(4vw, 2em));
-  gap: calc(min(4vw, 2em));
-  margin: 0;
-
-  .NavBar {
-    overflow-y: auto;
-    @include scrollBarNone;
-    padding-top: calc(min(2vw, 1em));
-    position: sticky;
-    top: 100px;
-    height: calc(100vh - 100px);
-  }
-}

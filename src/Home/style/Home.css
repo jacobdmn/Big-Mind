@@ -84,4 +84,30 @@ a {
 a:hover {
   text-decoration: none !important;
 }
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-inline: calc(min(4vw, 2em));
+  gap: calc(min(4vw, 2em));
+  margin: 0;
+}
+
+.body .NavBar {
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-top: calc(min(2vw, 1em));
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  height: calc(100vh - 100px);
+}
+
+.body .NavBar::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
 /*# sourceMappingURL=Home.css.map */

@@ -25,11 +25,13 @@ const SignUp: React.FC<{
     emailUsedBefore: null | boolean;
     passwordError: null | boolean;
   }>({
-    nameError: null,
+    nameError: false,
     emailError: null,
     emailUsedBefore: null,
     passwordError: null,
   });
+
+  /// i disabled the fullName form temperarly
 
   //// handle the login process
   const handleSignUp = async (e: React.SyntheticEvent) => {
@@ -71,7 +73,7 @@ const SignUp: React.FC<{
       <h1 className='title'>Sign Up</h1>
       <form onSubmit={handleSignUp} autoComplete='on'>
         {/* FULL NAME FIELD */}
-        <div className='name input'>
+        {/* <div className='name input'>
           <StyledTextField
             id='nameInput'
             label='Name'
@@ -91,7 +93,7 @@ const SignUp: React.FC<{
                 : "primary"
             }
           />
-        </div>
+        </div> */}
 
         {/* EMAIL FIELD */}
         <div className='email input'>

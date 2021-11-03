@@ -5,20 +5,18 @@ import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import { StyledTextField } from "./Log";
+import { Alert } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
+import { auth } from "./../firebase";
 import {
-  FacebookAuthProvider,
-  GoogleAuthProvider,
   signInWithEmailAndPassword,
-  signInWithPopup,
-  // signInWithRedirect,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
   TwitterAuthProvider,
+  signInWithPopup,
 } from "@firebase/auth";
-import { auth, db } from "./../firebase";
-import { Alert } from "@mui/material";
-import { collection, doc, setDoc, getDoc } from "@firebase/firestore";
 
 const Login: React.FC<{
   submitButtonContent: string;

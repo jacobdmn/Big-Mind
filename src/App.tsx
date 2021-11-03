@@ -85,7 +85,7 @@ const App: React.FC = () => {
       setCurrentUser(true);
       history.push("/");
     });
-  }, []);
+  }, [dispatch, history]);
 
   return (
     <div className='App'>
