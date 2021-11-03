@@ -174,8 +174,8 @@ a:hover {
 }
 
 .Stories .Story:hover {
-  -webkit-transform: scale(0.995);
-          transform: scale(0.995);
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
 }
 
 .Stories .Story::before {

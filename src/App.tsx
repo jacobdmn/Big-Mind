@@ -4,7 +4,7 @@ import Log from "./Log/Log";
 import Home from "./Home/Home";
 import { auth, db } from "./firebase";
 import { Switch, Route, useHistory } from "react-router";
-import { doc, getDoc } from "@firebase/firestore";
+import { collection, doc, getDoc, setDoc } from "@firebase/firestore";
 import { useDispatch } from "react-redux";
 import { LOGIN } from "./Redux/reducers/CURRENT_USER";
 
@@ -36,10 +36,35 @@ const App: React.FC = () => {
         return;
       }
       const userProfileSnapFunction = async () => {
+        const usersCollection = collection(db, "users");
         const userProfileReference = doc(db, "users", user.uid);
         const userProfileSnap = await getDoc(userProfileReference);
-        if (!userProfileSnap.exists()) {
-          console.log("User doesn't exist !..");
+        if (!userProfileSnap.exists() && user.uid && user.email) {
+          console.log("User doesn't exist !.. let's create it");
+
+          const newUser = {
+            userName: user.email.split("@")[0],
+            fullName: user.email.split("@")[0].toUpperCase(),
+            userAvatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
+            age: 1,
+            friendship: {
+              friends: [],
+              invits: [],
+            },
+            location: "US",
+          };
+
+          //// dispatch userInfos to Firebase
+          await setDoc(doc(usersCollection, user.uid), newUser);
+
+          //// dispatch userInfos to Home page
+          dispatch(
+            LOGIN({
+              ...newUser,
+              userId: user.uid,
+            })
+          );
+          // setCurrentUser(true);
           return;
         }
         console.log("User exists !.. let's just login");
@@ -49,8 +74,6 @@ const App: React.FC = () => {
             userId: user.uid,
           })
         );
-        /// set the current user to true
-        setCurrentUser(true);
 
         /// console log user infos
         console.log(`User ID:   ${user.uid}\n
@@ -58,8 +81,10 @@ const App: React.FC = () => {
       };
       // i need to create this function to wrap the await by an async
       userProfileSnapFunction();
+      /// set the current user to true
+      setCurrentUser(true);
+      history.push("/");
     });
-    history.push("/");
   }, []);
 
   return (
