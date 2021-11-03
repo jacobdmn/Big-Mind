@@ -40,11 +40,11 @@ export const LOGIN = (CURRENT_USER: USER_TS) => {
 
 const currentUser = {
   userId: "",
-  userName: "",
-  fullName: "",
+  userName: "xxxx",
+  fullName: "XXXX",
   age: 0,
   userAvatar: "",
-  location: "",
+  location: "XX",
   /// import here the current user id, and use that to get the rest of the infos from the database
 };
 const currentUserReducer = (
