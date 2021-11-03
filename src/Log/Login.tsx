@@ -72,35 +72,7 @@ const Login: React.FC<{
   //// handle gmail sign in
   const handleLoginWithGmail = async () => {
     await signInWithPopup(auth, new GoogleAuthProvider());
-    const currentUser = auth.currentUser;
-
-    if (currentUser && currentUser.email !== null) {
-      const newUserToCreate = {
-        userId: currentUser.uid,
-        fullName: currentUser.email.split("@")[0],
-        userName: currentUser.email.split("@")[0],
-      };
-
-      const addNewUserLoggedWithGoogle = async () => {
-        try {
-          const usersCollection = collection(db, "users");
-          const isUserInDB = doc(db, "users", currentUser.uid);
-          const isUserInDB_Snap = await getDoc(isUserInDB);
-          if (!isUserInDB_Snap.exists()) {
-            await setDoc(
-              doc(usersCollection, currentUser.uid),
-              newUserToCreate
-            );
-            // alert("user added to db");
-            window.location.reload();
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      addNewUserLoggedWithGoogle();
-      console.log("Logged in with google!");
-    }
+    console.log("Logged in with Google !");
   };
 
   //// handle facebook sign in
