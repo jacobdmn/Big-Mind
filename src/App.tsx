@@ -45,8 +45,8 @@ const App: React.FC = () => {
             console.log("User doesn't exist !.. let's create it");
 
             const newUser = {
-              userName: user.email.split("@")[0],
-              fullName: user.email.split("@")[0].toUpperCase(),
+              userName: user.email.split("@")[0].substring(0, 10),
+              fullName: user.email.split("@")[0].substring(0, 10).toUpperCase(),
               userAvatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
               age: 1,
               friendship: {
@@ -66,10 +66,26 @@ const App: React.FC = () => {
                 userId: user.uid,
               })
             );
-            // axios.post();
+
+            let formdata = new FormData();
+            formdata.append("username", user.email);
+            formdata.append("email", user.email);
+            formdata.append("secret", user.uid);
+
+            try {
+              await axios.post("https://api.chatengine.io/users", formdata, {
+                headers: {
+                  "private-key": "7bebaaa0-9e48-4b68-9990-103f81cd4f43",
+                },
+              });
+            } catch (error) {
+              console.log(error);
+            }
+
             return;
           }
           console.log("User exists !.. let's just login");
+          /// messenger login
           try {
             await axios.get("https://api.chatengine.io/users/me", {
               headers: {

@@ -69,6 +69,6 @@
   "typeRoots": [
     "../node_modules/@types",
     "../@types",
-    "../src/global.d.ts"
+    "../src"
   ]
 }

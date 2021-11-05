@@ -1,0 +1,180 @@
+.Chat__Container.Dark {
+  /* Chat List */
+  /* Chat Feed */
+  /* Chat Settings */
+}
+
+.Chat__Container.Dark .shadow {
+  -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.68);
+          box-shadow: 0 2px 15px rgba(0, 0, 0, 0.68);
+}
+
+.Chat__Container.Dark .ce-wrapper {
+  background-color: #4a5162 !important;
+}
+
+.Chat__Container.Dark .ce-chats-container {
+  background-color: #4a5162 !important;
+  border-radius: 0px !important;
+}
+
+.Chat__Container.Dark .ce-chat-form-container {
+  background-color: #4a5162 !important;
+  color: white;
+}
+
+.Chat__Container.Dark .ce-chat-card {
+  margin: 0px 6px !important;
+}
+
+.Chat__Container.Dark .ce-chat-card-loading-bar {
+  background-color: #535a6d !important;
+}
+
+.Chat__Container.Dark .ce-active-chat-card {
+  background-color: #726dfe !important;
+}
+
+.Chat__Container.Dark .ce-chat-title-text {
+  color: white !important;
+}
+
+.Chat__Container.Dark .ce-chat-subtitle-text {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark .ce-chat-unread-dot {
+  background-color: white !important;
+}
+
+.Chat__Container.Dark .ce-chat-title-container {
+  background-color: #4a5162 !important;
+  border-radius: 0px !important;
+}
+
+.Chat__Container.Dark .ce-chat-feed-container {
+  background-color: #4a5162 !important;
+}
+
+.Chat__Container.Dark .ce-primary-button {
+  background-color: #9a97fc !important;
+}
+
+.Chat__Container.Dark .ce-message-date-text {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark .ce-my-message-bubble {
+  background-color: #726dfe !important;
+}
+
+.Chat__Container.Dark .ce-my-message-sinding-bubble {
+  background-color: #938ffe !important;
+}
+
+.Chat__Container.Dark .ce-my-message-timestamp {
+  color: #9a97fc !important;
+}
+
+.Chat__Container.Dark .ce-their-message-timestamp {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark #ce-send-message-button {
+  background-color: #9a97fc !important;
+}
+
+.Chat__Container.Dark #ce-ice-breaker-gif {
+  max-width: 115px !important;
+  margin-top: 30px !important;
+}
+
+.Chat__Container.Dark .ce-social-message-form {
+  background-color: #4a5162 !important;
+}
+
+.Chat__Container.Dark .ce-message-input-form {
+  padding-bottom: 10px !important;
+}
+
+.Chat__Container.Dark #msg-textarea {
+  width: calc(100% - 140px) !important;
+  position: relative !important;
+  top: 4px !important;
+  border-width: 0px !important;
+  background-color: #4a5162 !important;
+  color: white !important;
+}
+
+.Chat__Container.Dark #msg-textarea::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark #msg-textarea:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark #msg-textarea::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark #msg-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark #ce-upload-document-icon {
+  color: white !important;
+}
+
+.Chat__Container.Dark .ce-feed-container-bottom {
+  height: "44px";
+}
+
+.Chat__Container.Dark .ce-message-images-row {
+  background-color: #4a5162 !important;
+}
+
+.Chat__Container.Dark .ce-their-message-sender {
+  color: rgba(255, 255, 255, 0.568) !important;
+}
+
+.Chat__Container.Dark .ce-their-message-bubble {
+  background-color: #535a6d !important;
+  color: rgba(255, 255, 255, 0.705) !important;
+}
+
+.Chat__Container.Dark .ce-settings {
+  background-color: #4a5162 !important;
+  border-radius: 0px !important;
+}
+
+.Chat__Container.Dark .ce-chat-title-form .ce-text-input {
+  background-color: #4a5162;
+  color: white;
+}
+
+.Chat__Container.Dark .ce-section-title-container {
+  background-color: #4a5162 !important;
+  color: white;
+}
+
+.Chat__Container.Dark #ce-options-drop-down {
+  background-color: #4a5162 !important;
+  color: white;
+}
+
+.Chat__Container.Dark .ce-person-text {
+  color: rgba(255, 255, 255, 0.568);
+}
+
+.Chat__Container.Dark .ce-danger-button {
+  background-color: #4a5162 !important;
+  border: 1px solid #9a97fc !important;
+  color: #9a97fc !important;
+}
+
+.Chat__Container.Dark .ce-autocomplete-close {
+  background-color: white !important;
+  border-radius: 0px !important;
+}
+/*# sourceMappingURL=style.css.map */
