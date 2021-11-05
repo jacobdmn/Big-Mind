@@ -3,7 +3,7 @@ import { auth } from "../../../firebase";
 import { ChatEngine } from "react-chat-engine";
 import "./style/style.css";
 const Messenger = () => {
-  // const currentUser = useSelector((state) => state.currentUserReducer);
+  // const currentUser = useSelector((sate) => state.currentUserReducer);
   const { email, uid } = auth.currentUser!;
   return (
     <main>
