@@ -5,11 +5,13 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import { StyledAvatar } from "./../../../style/styledComponents";
 import IconButton from "@mui/material/IconButton";
+import Box from '@mui/material/Box';
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser'
 import { StyledScream } from "./style/styledComponents";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/material/";
@@ -36,7 +38,7 @@ const RecipeReviewCard: React.FC<{
   return (
     <div className='Scream'>
       <StyledScream>
-        <CardHeader
+          <CardHeader
           className='CardHeader'
           avatar={<StyledAvatar src={USER_OWNER.userAvatar} />}
           action={
@@ -44,22 +46,32 @@ const RecipeReviewCard: React.FC<{
               <MoreVertIcon />
             </IconButton>
           }
-          title={USER_OWNER.fullName}
+          title={
+            <Box sx={{display: "flex",gap: "0.1em", fontWeight: 'bold !important'}}>
+            {USER_OWNER.fullName}
+            <VerifiedUserIcon sx={{
+                  color: "#1976d2",
+            }} />
+            </Box>
+          }
           subheader={`${screamContent.location || ""} at: ${createdAt}`}
-        />
+          />
+        <CardContent className='screamBody' component='div'>
+          <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
+            {screamContent.text}
+          </Typography>
+        </CardContent>
         {screamContent.img && (
           <CardMedia
             className='imgBody'
             component='img'
             image={screamContent.img}
             alt=''
+            // sx={{
+            //         borderRadius: ".5em",
+            // }}
           />
         )}
-        <CardContent className='screamBody' component='div'>
-          <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
-            {screamContent.text}
-          </Typography>
-        </CardContent>
         <CardActions
           disableSpacing
           sx={{
