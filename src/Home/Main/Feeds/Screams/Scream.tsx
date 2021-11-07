@@ -5,26 +5,24 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import { StyledAvatar } from "./../../../style/styledComponents";
 import IconButton from "@mui/material/IconButton";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser'
+import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { StyledScream } from "./style/styledComponents";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/material/";
 
 const RecipeReviewCard: React.FC<{
-  screamId: number;
-  userId: number;
-  screamContent: { text: string; img?: string; location?: string };
+  screamID: number;
+  owner: number;
+  content: { text: string; img?: string; location?: string };
   createdAt: string;
-}> = ({ screamId, userId, screamContent, createdAt }) => {
-  const USER_OWNER = useSelector((state: any) => state.usersReducer).find(
-    (user: any) => user.userId === userId
-  );
+}> = ({ screamID, owner, content, createdAt }) => {
+  const USER_OWNER = useSelector((state: any) => state.currentUserReducer);
 
   const StyledSpan = styled("span")({
     marginLeft: ".3em",
@@ -38,7 +36,7 @@ const RecipeReviewCard: React.FC<{
   return (
     <div className='Scream'>
       <StyledScream>
-          <CardHeader
+        <CardHeader
           className='CardHeader'
           avatar={<StyledAvatar src={USER_OWNER.userAvatar} />}
           action={
@@ -47,25 +45,32 @@ const RecipeReviewCard: React.FC<{
             </IconButton>
           }
           title={
-            <Box sx={{display: "flex",gap: "0.1em", fontWeight: 'bold !important'}}>
-            {USER_OWNER.fullName}
-            <VerifiedUserIcon sx={{
+            <Box
+              sx={{
+                display: "flex",
+                gap: "0.1em",
+                fontWeight: "bold !important",
+              }}>
+              {USER_OWNER.fullName}
+              <VerifiedUserIcon
+                sx={{
                   color: "#1976d2",
-            }} />
+                }}
+              />
             </Box>
           }
-          subheader={`${screamContent.location || ""} at: ${createdAt}`}
-          />
+          subheader={`${content.location || ""} at: ${createdAt}`}
+        />
         <CardContent className='screamBody' component='div'>
           <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
-            {screamContent.text}
+            {content.text}
           </Typography>
         </CardContent>
-        {screamContent.img && (
+        {content.img && (
           <CardMedia
             className='imgBody'
             component='img'
-            image={screamContent.img}
+            image={content.img}
             alt=''
             // sx={{
             //         borderRadius: ".5em",
