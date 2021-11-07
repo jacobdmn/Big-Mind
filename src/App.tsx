@@ -49,10 +49,6 @@ const App: React.FC = () => {
               fullName: user.email.split("@")[0].substring(0, 10).toUpperCase(),
               userAvatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
               age: 1,
-              friendship: {
-                friends: [],
-                invits: [],
-              },
               location: "US",
             };
 

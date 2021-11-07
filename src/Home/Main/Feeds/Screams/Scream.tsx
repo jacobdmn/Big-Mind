@@ -13,16 +13,20 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatBubbleOutlineOutlinedIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 import { StyledScream } from "./style/styledComponents";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { styled } from "@mui/material/";
 
 const RecipeReviewCard: React.FC<{
-  screamID: number;
-  owner: number;
+  screamId: number;
+  owner: {
+    id: string;
+    name: string;
+    avatar: string;
+  };
   content: { text: string; img?: string; location?: string };
   createdAt: string;
-}> = ({ screamID, owner, content, createdAt }) => {
-  const USER_OWNER = useSelector((state: any) => state.currentUserReducer);
+}> = ({ screamId, owner, content, createdAt }) => {
+  // const USER_OWNER = useSelector((state: any) => state.currentUserReducer);
 
   const StyledSpan = styled("span")({
     marginLeft: ".3em",
@@ -33,12 +37,17 @@ const RecipeReviewCard: React.FC<{
   const StyledInteractionButton = styled(IconButton)({
     borderRadius: "4px",
   });
+
+  const ownerTMP = {
+    name: "Jacov",
+    avatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
+  };
   return (
     <div className='Scream'>
       <StyledScream>
         <CardHeader
           className='CardHeader'
-          avatar={<StyledAvatar src={USER_OWNER.userAvatar} />}
+          avatar={<StyledAvatar src={ownerTMP.avatar || ""} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
@@ -51,7 +60,7 @@ const RecipeReviewCard: React.FC<{
                 gap: "0.1em",
                 fontWeight: "bold !important",
               }}>
-              {USER_OWNER.fullName}
+              {ownerTMP.name || ""}
               <VerifiedUserIcon
                 sx={{
                   color: "#1976d2",

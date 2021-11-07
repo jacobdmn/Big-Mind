@@ -9,28 +9,34 @@ import { db } from "../../../../firebase";
 const Screams: React.FC = (props) => {
   // const screamsFromStore = useSelector((state: any) => state.screamingReducer);
 
-  const [screams, setScreams] = useState<any>([{}]);
+  const [screams, setScreams] = useState<any>([]);
+  const [loadingPosts, setLoadingPosts] = useState(true);
 
-  useEffect(
-    () =>
-      onSnapshot(collection(db, "screams"), (snap: any) => {
-        snap.docs.map((doc: any) => {
-          setScreams((prev: typeof screams) => [
-            ...prev,
-            { screamID: doc.id, ...doc.data() },
-          ]);
-          console.log(screams);
+  const snapshotingScreams = () => {
+    onSnapshot(collection(db, "screams"), async (snap: any) => {
+      let screamsTMP: any[] = [];
+      try {
+        await snap.docs.map((doc: any) => {
+          screamsTMP = [...screamsTMP, { screamId: doc.id, ...doc.data() }];
         });
-      }),
-    []
-  );
+        setScreams(screamsTMP);
+        console.log(screams);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  };
+
+  useEffect(() => {
+    snapshotingScreams();
+    setLoadingPosts(false);
+  }, []);
 
   return (
     <div className='Screams'>
-      {screams.length > 0 ? (
+      {!loadingPosts && screams.length > 0 ? (
         screams.map((scream: any) => (
-          // <Scream key={scream.screamID} {...scream} />
-          <></>
+          <Scream key={scream.screamId} {...scream} />
         ))
       ) : (
         <h3
