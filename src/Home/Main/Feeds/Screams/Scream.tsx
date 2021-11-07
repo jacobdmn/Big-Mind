@@ -19,12 +19,12 @@ import { styled } from "@mui/material/";
 const RecipeReviewCard: React.FC<{
   screamId: number;
   owner: {
-    id: string;
+    verified: boolean;
     name: string;
     avatar: string;
   };
   content: { text: string; img?: string; location?: string };
-  createdAt: string;
+  createdAt: any;
 }> = ({ screamId, owner, content, createdAt }) => {
   // const USER_OWNER = useSelector((state: any) => state.currentUserReducer);
 
@@ -38,16 +38,14 @@ const RecipeReviewCard: React.FC<{
     borderRadius: "4px",
   });
 
-  const ownerTMP = {
-    name: "Jacov",
-    avatar: "./imgs/users/john_smith/avatar/john_smith.jpg",
-  };
   return (
     <div className='Scream'>
       <StyledScream>
         <CardHeader
-          className='CardHeader'
-          avatar={<StyledAvatar src={ownerTMP.avatar || ""} />}
+          sx={{
+            alignItems: "flex-start",
+          }}
+          avatar={owner.verified && <StyledAvatar src={owner.avatar || ""} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
@@ -60,7 +58,7 @@ const RecipeReviewCard: React.FC<{
                 gap: "0.1em",
                 fontWeight: "bold !important",
               }}>
-              {ownerTMP.name || ""}
+              {owner.name || ""}
               <VerifiedUserIcon
                 sx={{
                   color: "#1976d2",
@@ -68,7 +66,13 @@ const RecipeReviewCard: React.FC<{
               />
             </Box>
           }
-          subheader={`${content.location || ""} at: ${createdAt}`}
+          subheader={
+            <>
+              <span>{content.location || ""}</span>
+              <br />
+              <span style={{ fontSize: ".9em" }}>{createdAt}</span>
+            </>
+          }
         />
         <CardContent className='screamBody' component='div'>
           <Typography variant='body2' color='rgba(0, 0, 0, 0.7)'>
