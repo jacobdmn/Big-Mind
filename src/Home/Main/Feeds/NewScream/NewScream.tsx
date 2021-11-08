@@ -57,14 +57,15 @@ const NewScream = (props: any) => {
     location?: string;
   }) => {
     const screamsCollection = collection(db, "screams");
-
+    const location = content.location ? content.location : "";
     try {
       await addDoc(screamsCollection, {
         owner: {
-          id: currentUser.userId,
+          name: currentUser.fullName,
+          verified: currentUser.verified,
           avatar: currentUser.userAvatar,
         },
-        content: content,
+        content: { ...content, location },
         createdAt: `${month[new Date().getMonth()]}
          ${new Date().getDay()}, ${new Date().getHours()}:${new Date().getMinutes()}`,
       });
@@ -83,10 +84,15 @@ const NewScream = (props: any) => {
 
       dispatchPostToFirebase({
         text: screamTextAreaRef.current.value,
-        // img: screamTextAreaRef.current.value,
+        img: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Become_a_Front_End_Developer.jpg",
         location: screamLocationAreaRef.current?.value,
       });
 
+      //   {
+      //   text: screamTextAreaRef.current.value,
+      //   img: screamImageAreaRef.current.value,
+      //   location: screamLocationAreaRef.current?.value,
+      // }
       screamTextAreaRef.current.value = "";
       setPostLength(0);
       setLoadingPost(false);

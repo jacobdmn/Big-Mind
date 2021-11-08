@@ -45,7 +45,7 @@ const RecipeReviewCard: React.FC<{
           sx={{
             alignItems: "flex-start",
           }}
-          avatar={owner.verified && <StyledAvatar src={owner.avatar || ""} />}
+          avatar={<StyledAvatar src={owner.avatar || ""} />}
           action={
             <IconButton aria-label='settings'>
               <MoreVertIcon />
@@ -55,21 +55,30 @@ const RecipeReviewCard: React.FC<{
             <Box
               sx={{
                 display: "flex",
+                alignItems: "center",
                 gap: "0.1em",
+                fontSize: "1.3em",
                 fontWeight: "bold !important",
               }}>
               {owner.name || ""}
-              <VerifiedUserIcon
-                sx={{
-                  color: "#1976d2",
-                }}
-              />
+              {owner.verified && (
+                <VerifiedUserIcon
+                  sx={{
+                    color: "#1976d2",
+                  }}
+                />
+              )}
             </Box>
           }
           subheader={
             <>
-              <span>{content.location || ""}</span>
-              <br />
+              {content.location && (
+                <span>
+                  {content.location || ""}
+                  <br />
+                </span>
+              )}
+
               <span style={{ fontSize: ".9em" }}>{createdAt}</span>
             </>
           }
