@@ -57,7 +57,6 @@ const RecipeReviewCard: React.FC<{
                 display: "flex",
                 alignItems: "center",
                 gap: "0.1em",
-                fontSize: "1.3em",
                 fontWeight: "bold !important",
               }}>
               {owner.name || ""}
@@ -65,6 +64,7 @@ const RecipeReviewCard: React.FC<{
                 <VerifiedUserIcon
                   sx={{
                     color: "#1976d2",
+                    width: ".8em",
                   }}
                 />
               )}

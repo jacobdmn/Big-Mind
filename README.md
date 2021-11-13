@@ -1,8 +1,8 @@
 # Big Mind
 
-### A Social Media App, that resembles the biggest 3 companies: Facebook, Amazon, and Netflix
+### A Social Media App, that resembles the biggest 3 companies: Facebook, Amazon, and Netflix, and much more...
 
-### and much more
+### Seriously, I'm so proud of this project, I really learned a ton while making it, it contains so many different tech stack, starting from the general idea of the website on paper, moving to the design, frontend, backend, SEO, and releasing, I'm running everything from scratch by my self, which I feel honestly powerful about it, I did so many landing pages for customers, I found that being aware of the big picture is very important, thereby, I'm enjoying every single minute on this crap,
 
 ## ---------
 
