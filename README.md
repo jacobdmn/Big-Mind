@@ -54,10 +54,12 @@
 
 ## Inspirational websites:
 
-- Clever Programmer Channel
-- Freecodecamp
-- Design: Dribble
+### - [Clever Programmer](https://www.youtube.com/channel/UCqrILQNl5Ed9Dz6CGMyvMTQ)
+
+### - [Freecodecamp](https://www.youtube.com/channel/UC8butISFwT-Wl7EV0hUK0BQ)
+
+### - [Design: Dribble](https://dribbble.com/)
 
 ## ---------
 
-## [LINK: https://big-mind-community.web.app/](https://big-mind-community.web.app)
+## [click to visit the website](https://big-mind-community.web.app)
