@@ -18,7 +18,9 @@
 
 ### - Context: `Redux`
 
-### - Backend: `Firebase`
+### - Backend: `Firebase` , `Node.JS` (soon)
+
+
 
 ## ---------
 
