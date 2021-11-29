@@ -20,7 +20,9 @@
 
 ### - Backend: `Firebase` , `Node.JS` (soon)
 
+### - DB (soon) : `MongoDB`, `Mongoose`
 
+### Also: `Express`, `Next.JS`
 
 ## ---------
 
