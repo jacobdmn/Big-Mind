@@ -24,6 +24,7 @@
 
 ### Also: `Express`, `Next.JS`
 
+#### PS: I wish I knew Next.JS before I started this, I'll try to upgrade everything in the future!
 ## ---------
 
 ## FAQ:
